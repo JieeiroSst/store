@@ -1,0 +1,19 @@
+FROM postgres:12-alpine
+ENV LANG ja_JP.utf8
+
+ARG POSTGRES_DB
+ARG POSTGRES_USER
+ARG POSTGRES_PASSWORD
+ARG POSTGRES_HOST
+
+ENV POSTGRES_DB $POSTGRES_DB
+ENV POSTGRES_USER $POSTGRES_USER
+ENV POSTGRES_PASSWORD $POSTGRES_PASSWORD
+ENV POSTGRES_HOST $POSTGRES_HOST
+
+WORKDIR /docker-entrypoint-initdb.d
+
+COPY ./db .
+
+RUN apk --no-cache update \
+    && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
