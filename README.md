@@ -1,4 +1,3 @@
-web app jieeiro 
 - chmp nho ve em
 
 - cd ~/Projects/keikibook

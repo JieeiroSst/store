@@ -17,6 +17,6 @@ COPY go.mod .
 COPY go.sum .
 RUN go mod download
 
-COPY ./api /go/app
+COPY . /go/app
 
 CMD realize start
