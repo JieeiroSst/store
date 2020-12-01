@@ -18,10 +18,10 @@ init
 - migrate create -ext sql -dir db/migration -seq init_schema
 
 Run the migration 
-- migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+- migrate -path db/migration -database "postgresql://root:1234@localhost:5432/hospital?sslmode=disable" -verbose up
 
 Rollback
-- migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+- migrate -path db/migration -database "postgresql://root:1234@localhost:5432/hospital?sslmode=disable" -verbose down
 
 - Make run makefile
 - make migratedown

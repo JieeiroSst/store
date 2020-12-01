@@ -5,9 +5,10 @@ import (
 	"log"
 	"os"
 
+	"github.com/jeeiro/api-go/models/abouts"
 	"github.com/jinzhu/gorm"
-	"github.com/joho/godotenv"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"github.com/joho/godotenv"
 )
 
 var (
@@ -40,6 +41,6 @@ func init() {
 	// db.Debug().AutoMigrate(&models.Account{}, &models.Role{}, &models.Profile{})
 }
 
-func GetConn() *gorm.DB {
+func ConnDB() *gorm.DB {
 	return db
 }
