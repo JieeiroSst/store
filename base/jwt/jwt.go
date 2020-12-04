@@ -4,8 +4,8 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/joho/godotenv"
 	"log"
-	"time"
 	"os"
+	"time"
 )
 
 type Claims struct {
@@ -14,7 +14,7 @@ type Claims struct {
 	jwt.StandardClaims
 }
 
-func GenerateToken(username string,role string) (string, error) {
+func GenerateToken(id int,username string) (string, error) {
 	e := godotenv.Load() //Load .env file
 	if e != nil {
 		log.Print(e)
@@ -22,8 +22,8 @@ func GenerateToken(username string,role string) (string, error) {
 	key := os.Getenv("KEY")
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
+	claims["id"]=id
 	claims["username"] = username
-	claims["role"] = role
 	claims["exp"] = time.Now().Add(time.Hour * 24).Unix()
 	tokenString, err := token.SignedString(key)
 	if err != nil {

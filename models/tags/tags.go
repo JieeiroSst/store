@@ -1,7 +1,7 @@
 package tags
 
 type Tags struct {
-	id int
-	name string
+	Id int
+	Name string
 }
 

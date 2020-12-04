@@ -5,18 +5,18 @@ import (
 )
 
 type Abouts struct {
-	id int
-	title string
-	metaTitle string
-	description string
-	image string
-	detail string
-	createdAt time.Time
-	createdBy string
-	modifiedDate time.Time
-	modifiedBy string
-	metaKeyword string
-	metaDescription string
-	status int
+	Id int
+	Title string
+	MetaTitle string
+	Description string
+	Image string
+	Detail string
+	CreatedAt time.Time
+	CreatedBy string
+	ModifiedDate time.Time
+	ModifiedBy string
+	MetaKeyword string
+	MetaDescription string
+	Status int
 }
 

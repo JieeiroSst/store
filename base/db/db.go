@@ -52,6 +52,6 @@ func init() {
 	db.Debug().AutoMigrate(&abouts.Abouts{},&categories.Categories{},&contacts.Contacts{},&feed_backs.FeedBacks{},&menues.Menues{},&news.News{},&news.News{},&product_category.ProductCategory{},&products.Products{},&sliders.Sliders{},&system_config.SystemConfig{},&tags.Tags{},&users.Users{})
 }
 
-func ConnDB() *gorm.DB {
+func GetConn() *gorm.DB {
 	return db
 }

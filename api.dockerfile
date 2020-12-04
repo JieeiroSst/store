@@ -19,4 +19,7 @@ RUN go mod download
 
 COPY . /go/app
 
-CMD realize start
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
+
+ENTRYPOINT ["/go/app/api"]
+

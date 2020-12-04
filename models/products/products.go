@@ -3,21 +3,21 @@ package products
 import "time"
 
 type Products struct {
-	id int
-	code string
-	name string
-	title string
-	description string
-	images string
-	price int
-	vat int
-	categoryId int
-	detail string
-	createdDate time.Time
-	createdBy string
-	modifiedDate time.Time
-	modifiedBy string
-	status int
-	topHot time.Time
-	viewCount int
+	Id int
+	Code string
+	Name string
+	Title string
+	Description string
+	Images string
+	Price int
+	Vat int
+	CategoryId int
+	Detail string
+	CreatedDate time.Time
+	CreatedBy string
+	ModifiedDate time.Time
+	ModifiedBy string
+	Status int
+	TopHot time.Time
+	ViewCount int
 }

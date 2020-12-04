@@ -1,7 +1,17 @@
 package main
 
-import "github.com/jieeiro/api/hello"
+import (
+	"github.com/casbin/casbin/v2"
+	"github.com/gin-gonic/gin"
+	"github.com/jieeiro/api/utils/authz"
+)
 
 func main()  {
-	hello.Hello()
+	server:=gin.Default()
+
+	e, _ :=casbin.NewEnforcer("authz_model.conf", "authz_policy.csv")
+
+	server.Use(authz.NewAuthorizer(e))
+
+	server.Run()
 }

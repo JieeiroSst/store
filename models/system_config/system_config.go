@@ -1,9 +1,9 @@
 package system_config
 
 type SystemConfig struct {
-	id int
-	name string
-	types string
-	value string
-	status int
+	Id int
+	Name string
+	Types string
+	Value string
+	Status int
 }

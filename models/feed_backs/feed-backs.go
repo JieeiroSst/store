@@ -3,12 +3,12 @@ package feed_backs
 import "time"
 
 type FeedBacks struct {
-	id int
-	name string
-	phone string
-	email string
-	address string
-	content string
-	status int
-	createdAt time.Time
+	Id int
+	Name string
+	Phone string
+	Email string
+	Address string
+	Content string
+	Status int
+	CreatedAt time.Time
 }

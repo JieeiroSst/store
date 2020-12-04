@@ -5,15 +5,15 @@ import (
 )
 
 type Categories struct {
-	id int
-	name string
-	metaTitle string
-	displayOrder int
-	createdAt time.Time
-	createdBy string
-	modifiedDate time.Time
-	metaKeyword string
-	metaDescription string
-	status int
+	Id int
+	Name string
+	MetaTitle string
+	DisplayOrder int
+	CreatedAt time.Time
+	CreatedBy string
+	ModifiedDate time.Time
+	MetaKeyword string
+	MetaDescription string
+	Status int
 }
 
