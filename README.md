@@ -5,6 +5,16 @@
 - cd keikibook
 - mkdir -p db/migration
 
+build app golang
+- go build server.go
+
+- ./api --help
+- ./api --version 
+
+run commands
+- ./api peppers
+- ./api cheese
+- ./api pineapple
 
 migrate 
 - curl -L https://packagecloud.io/golang-migrate/migrate/gpgkey | apt-key add -
