@@ -12,7 +12,7 @@ import (
 func main()  {
 	server:=gin.Default()
 
-	adapter,err:=gormadapter.NewAdapter("postgresql","postgresql://root:@1234:5432/hospital?sslmode=disable")
+	adapter,err:=gormadapter.NewAdapter("postgres","postgresql://root:@1234:5432/hospital?sslmode=disable")
 	if err!=nil{
 		log.Println(err)
 	}
