@@ -9,15 +9,13 @@ var doc = `{
     "info": {
         "description": "go-admin",
         "title": "go-admin",
-        "termsOfService": "https://github.com/hequan2017/go-admin",
+        "termsOfService": "https://github.com/JIeeiroSst/Jieeiro-app",
         "contact": {
-            "name": "hequan",
-            "url": "https://github.com/hequan2017",
-            "email": "hequan2011@sina.com"
+            "name": "JieeiroSst",
+            "url": "https://github.com/JIeeiroSst"
         },
         "license": {
-            "name": "MIT",
-            "url": "https://github.com/hequan2017/go-admin/blob/master/LICENSE"
+            "name": "MIT"
         },
         "version": "1.5.1"
     },
@@ -34,7 +32,7 @@ var doc = `{
                 "tags": [
                     "menu"
                 ],
-                "summary": "获取所有菜单",
+                "summary": "",
                 "responses": {
                     "200": {
                         "description": "{ \"code\": 200, \"data\": {}, \"msg\": \"ok\" }",
@@ -54,7 +52,7 @@ var doc = `{
                 "tags": [
                     "menu"
                 ],
-                "summary": "增加菜单",
+                "summary": "",
                 "parameters": [
                     {
                         "description": "body",
@@ -127,7 +125,6 @@ var doc = `{
                 "tags": [
                     "menu"
                 ],
-                "summary": "删除菜单",
                 "parameters": [
                     {
                         "type": "string",
@@ -158,7 +155,6 @@ var doc = `{
                 "tags": [
                     "role"
                 ],
-                "summary": "获取所有角色",
                 "responses": {
                     "200": {
                         "description": "{ \"code\": 200, \"data\": {}, \"msg\": \"ok\" }",
@@ -178,7 +174,6 @@ var doc = `{
                 "tags": [
                     "role"
                 ],
-                "summary": "增加角色",
                 "parameters": [
                     {
                         "description": "body",
@@ -212,7 +207,6 @@ var doc = `{
                 "tags": [
                     "role"
                 ],
-                "summary": "更新角色",
                 "parameters": [
                     {
                         "type": "string",
@@ -282,7 +276,6 @@ var doc = `{
                 "tags": [
                     "users"
                 ],
-                "summary": "获取登录用户信息",
                 "responses": {
                     "200": {
                         "description": "{ \"code\": 200, \"data\": {\"lists\":\"\"}, \"msg\": \"ok\" }",
@@ -310,7 +303,6 @@ var doc = `{
                 "tags": [
                     "users"
                 ],
-                "summary": "获取所有用户",
                 "responses": {
                     "200": {
                         "description": "{ \"code\": 200, \"data\": {}, \"msg\": \"ok\" }",
@@ -336,7 +328,6 @@ var doc = `{
                 "tags": [
                     "users"
                 ],
-                "summary": "增加用户",
                 "parameters": [
                     {
                         "description": "body",
@@ -414,7 +405,6 @@ var doc = `{
                 "tags": [
                     "users"
                 ],
-                "summary": "删除用户",
                 "parameters": [
                     {
                         "type": "integer",
@@ -445,7 +435,6 @@ var doc = `{
                 "tags": [
                     "auth"
                 ],
-                "summary": "获取登录token 信息",
                 "parameters": [
                     {
                         "description": "body",
