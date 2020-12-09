@@ -3,6 +3,7 @@ module github.com/jieeiro/api
 go 1.15
 
 require (
+	github.com/casbin/casbin-pg-adapter v0.1.6 // indirect
 	github.com/casbin/casbin/v2 v2.19.4
 	github.com/casbin/gorm-adapter/v3 v3.0.4 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible

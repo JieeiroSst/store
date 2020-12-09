@@ -1,8 +1,8 @@
 package main
 
 import (
+	pgadapter "github.com/casbin/casbin-pg-adapter"
 	"github.com/casbin/casbin/v2"
-	gormadapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/gin-gonic/gin"
 	"github.com/jieeiro/api/commands"
 	"github.com/jieeiro/api/utils/authz"
@@ -12,7 +12,7 @@ import (
 func main()  {
 	server:=gin.Default()
 
-	adapter,err:=gormadapter.NewAdapter("postgres","postgresql://root:@1234:5432/hospital?sslmode=disable")
+	adapter, err := pgadapter.NewAdapter("postgresql://root:1234@localhost:5432/hospital?sslmode=disable")
 	if err!=nil{
 		log.Println(err)
 	}
