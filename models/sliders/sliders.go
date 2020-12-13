@@ -1,6 +1,5 @@
 package sliders
 
-
 import "time"
 
 type Sliders struct {
@@ -15,4 +14,3 @@ type Sliders struct {
 	ModifiedBy string
 	Status int
 }
-

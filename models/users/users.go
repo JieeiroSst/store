@@ -16,4 +16,3 @@ type Users struct {
 	ModifiedBy string
 	Status int
 }
-

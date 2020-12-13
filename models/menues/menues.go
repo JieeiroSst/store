@@ -8,3 +8,4 @@ type Menues struct {
 	Target string
 	Status int
 }
+

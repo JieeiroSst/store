@@ -19,4 +19,3 @@ type Abouts struct {
 	MetaDescription string
 	Status int
 }
-

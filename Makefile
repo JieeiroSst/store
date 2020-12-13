@@ -11,9 +11,9 @@ create_migration:
 	migrate create -ext sql -dir db/migration -seq init_schema
 
 migrateup:
-    migrate -path db/migration -database "postgresql://root:1234@localhost:5432/hospital?sslmode=disable" -verbose up
+    migrate -path db/migration -database "postgresql://root:1234@localhost:5432/store?sslmode=disable" -verbose up
 
 migratedown:
-    migrate -path db/migration -database "postgresql://root:1234@localhost:5432/hospital?sslmode=disable" -verbose down
+    migrate -path db/migration -database "postgresql://root:1234@localhost:5432/store?sslmode=disable" -verbose down
 
 .PHONY: postgres createdb dropdb migrateup migratedown create_migration

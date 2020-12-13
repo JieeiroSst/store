@@ -21,3 +21,4 @@ type Products struct {
 	TopHot time.Time
 	ViewCount int
 }
+

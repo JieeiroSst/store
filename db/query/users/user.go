@@ -1,8 +1,8 @@
 package users
 
 import (
-	"github.com/jieeiro/api/base/db"
-	"github.com/jieeiro/api/models/users"
+	db "github.com/JIeeiroSst/store/component"
+	"github.com/JIeeiroSst/store/models/users"
 )
 
 func AccountAll(accounts []users.Users) {

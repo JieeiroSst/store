@@ -16,4 +16,3 @@ type ProductCategory struct {
 	Description string
 	Status int
 }
-

@@ -1,10 +1,10 @@
-package users
+package user
 
 import (
-	"github.com/jieeiro/api/base/jwt"
-	"github.com/jieeiro/api/services/users"
-	"github.com/jieeiro/api/utils/hash"
-	models "github.com/jieeiro/api/models/users"
+	"github.com/JIeeiroSst/store/db/query/users"
+	models "github.com/JIeeiroSst/store/models/users"
+	"github.com/JIeeiroSst/store/utils/hash"
+	"github.com/JIeeiroSst/store/utils/jwt"
 	"log"
 )
 

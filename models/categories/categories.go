@@ -16,4 +16,3 @@ type Categories struct {
 	MetaDescription string
 	Status int
 }
-

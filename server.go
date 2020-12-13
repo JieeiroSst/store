@@ -1,36 +1,41 @@
 package main
 
 import (
-	pgadapter "github.com/casbin/casbin-pg-adapter"
-	"github.com/casbin/casbin/v2"
+	"fmt"
+	"github.com/JIeeiroSst/store/component"
+	"github.com/JIeeiroSst/store/handler"
+	"github.com/JIeeiroSst/store/middleware"
+	gormadapter"github.com/casbin/gorm-adapter/v3"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/jieeiro/api/commands"
-	"github.com/jieeiro/api/utils/authz"
 	"log"
 )
 
-func main()  {
-	server:=gin.Default()
+var (
+	router *gin.Engine
+)
 
-	adapter, err := pgadapter.NewAdapter("postgresql://root:1234@localhost:5432/hospital?sslmode=disable")
-	if err!=nil{
-		log.Println(err)
+func init() {
+	adapter,_:=gormadapter.NewAdapterByDB(component.DB)
+
+	router = gin.Default()
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowAllOrigins = true
+	corsConfig.AllowCredentials = true
+	router.Use(cors.New(corsConfig))
+	router.POST("/user/signup",handler.SingUp)
+	router.POST("/user/login", handler.Login)
+	resource := router.Group("/api")
+	resource.Use(middleware.Authenticate())
+	{
+		resource.GET("/resource", middleware.Authorize("resource", "read", adapter), handler.ReadResource)
+		resource.POST("/resource", middleware.Authorize("resource", "write", adapter), handler.WriteResource)
 	}
+}
 
-	enforcer, _ :=casbin.NewEnforcer("authz_model.conf", adapter)
-
-	server.Use(authz.NewAuthorizer(enforcer))
-
-	_ = enforcer.LoadPolicy()
-
-	commands.InitCommand()
-	_ = enforcer.SavePolicy()
-
-	// Do permission checking
-	//enforcer.Enforce("alice", "data1", "write")
-	// Do some mutations
-	//enforcer.AddPolicy("alice", "data2", "write")
-	//enforcer.RemovePolicy("alice", "data1", "write")
-
-	_ = server.Run()
+func main(){
+	err := router.Run()
+	if err != nil {
+		log.Fatalln(fmt.Errorf("faild to start Gin application: %w", err))
+	}
 }
