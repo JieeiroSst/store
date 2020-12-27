@@ -5,7 +5,7 @@ import (
 	"github.com/JIeeiroSst/store/models/abouts"
 	"github.com/JIeeiroSst/store/models/categories"
 	"github.com/JIeeiroSst/store/models/contacts"
-	feed_backs "github.com/JIeeiroSst/store/models/feed-backs"
+	feedBacks "github.com/JIeeiroSst/store/models/feed-backs"
 	"github.com/JIeeiroSst/store/models/menues"
 	"github.com/JIeeiroSst/store/models/news"
 	"github.com/JIeeiroSst/store/models/product_category"
@@ -29,7 +29,6 @@ var (
 )
 
 func init() {
-	// Connect to DB
 	e := godotenv.Load()
 	if e != nil {
 		fmt.Print(e)
@@ -46,9 +45,8 @@ func init() {
 	}
 	log.Println("server connect database success")
 	DB = conn
-	conn.Debug().AutoMigrate(&abouts.Abouts{},&categories.Categories{},&contacts.Contacts{},&feed_backs.FeedBacks{},&menues.Menues{},&news.News{},&product_category.ProductCategory{},&products.Products{},&sliders.Sliders{},&system_config.SystemConfig{},&tags.Tags{},&users.Users{})
+	conn.Debug().AutoMigrate(&abouts.Abouts{},&categories.Categories{},&contacts.Contacts{},&feedBacks.FeedBacks{},&menues.Menues{},&news.News{},&product_category.ProductCategory{},&products.Products{},&sliders.Sliders{},&system_config.SystemConfig{},&tags.Tags{},&users.Users{})
 
-	// Initialize cache
 	GlobalCache, err = bigcache.NewBigCache(bigcache.DefaultConfig(30 * time.Minute))
 	if err != nil {
 		panic(fmt.Errorf("failed to initialize cahce: %w", err))
