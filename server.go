@@ -48,11 +48,15 @@ func init() {
 	resource := router.Group("/api")
 	resource.Use(middleware.Authenticate())
 	{
+		//api rest full
 		resource.GET("/resource", middleware.Authorize("resource", "read", adapter), api.ReadResource)
 		resource.POST("/resource", middleware.Authorize("resource", "write", adapter), api.WriteResource)
+
+		//api graphql
+		router.POST("/query",middleware.Authorize("","",adapter), graphqlHandler())
+		router.GET("/", middleware.Authorize("","",adapter),playgroundHandler())
 	}
-	router.POST("/query", graphqlHandler())
-	router.GET("/", playgroundHandler())
+
 }
 
 func main(){
