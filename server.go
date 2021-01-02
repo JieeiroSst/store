@@ -53,8 +53,8 @@ func init() {
 		resource.POST("/resource", middleware.Authorize("resource", "write", adapter), api.WriteResource)
 
 		//api graphql
-		resource.POST("/graphql",middleware.Authorize("resource","",adapter), graphqlHandler())
-		resource.GET("/", middleware.Authorize("resource","",adapter),playgroundHandler())
+		resource.POST("/graphql",middleware.Authorize("/api/graphql","POST",adapter), graphqlHandler())
+		resource.GET("/", middleware.Authorize("/graphql","GET",adapter),playgroundHandler())
 	}
 
 }

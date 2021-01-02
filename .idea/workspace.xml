@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef0ffdeb-6e4d-49ff-8a7f-edeecf19e4bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/query/profiles/profiles.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/profiles/profiles.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/basic_policy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/conf/basic_policy.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/rbac_model.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/rbac_model.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000001_init_schema.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migration/000001_init_schema.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/resource_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/resource_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/access_control.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/access_control.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/users/users.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/jwt/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/jwt/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +59,31 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models/profiles" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Makefile.create_migration">
+    <configuration name="create_migration" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="create_migration" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="run" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile.create_migration" />
+        <item itemvalue="Makefile.run" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

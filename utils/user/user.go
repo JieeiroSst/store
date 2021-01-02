@@ -29,9 +29,9 @@ func SignUp(username,password string) string{
 	if err != nil {
 		log.Println("error server", err)
 	}
-	account := models.Users{
-		Username: username,
-		Password: hashPassword,
+	account:=models.Users{
+		Username:     username,
+		Password:     hashPassword,
 	}
 	users.CreateAccount(account)
 	return username+":"+hashPassword

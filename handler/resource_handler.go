@@ -6,9 +6,9 @@ import (
 )
 
 func ReadResource(c *gin.Context) {
-	c.JSON(200, component.RestResponse{Code: 1, Message: "read resource successfully", Data: "resource"})
+	c.JSON(200, component.RestResponse{Code: 200, Message: "read resource successfully", Data: "resource"})
 }
 
 func WriteResource(c *gin.Context) {
-	c.JSON(200, component.RestResponse{Code: 1, Message: "write resource successfully", Data: "resource"})
+	c.JSON(200, component.RestResponse{Code: 200, Message: "write resource successfully", Data: "resource"})
 }

@@ -39,11 +39,11 @@ func Login(c *gin.Context) {
 		return
 	}
 	c.SetCookie("current_subject", sessionId, 30*60, "/api", "", false, true)
-	c.JSON(200, component.RestResponse{Code: 1, Message: username +"Token:"+ token + " logged in successfully"})
+	c.JSON(200, component.RestResponse{Code: 200, Message: username +"Token:"+ token + " logged in successfully",Data: token})
 }
 
 func SingUp(c *gin.Context){
 	username,password:=c.PostForm("username"),c.PostForm("password")
 	info:= user.SignUp(username,password)
-	c.JSON(200,component.RestResponse{Code:1,Message: info+"signup in successfully"})
+	c.JSON(200,component.RestResponse{Code:200,Message: info+"signup in successfully",Data:info})
 }
