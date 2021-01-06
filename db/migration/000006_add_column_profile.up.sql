@@ -1,0 +1,1 @@
+alter table profile add friend_id int;

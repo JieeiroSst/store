@@ -49,8 +49,8 @@ func init() {
 	resource.Use(middleware.Authenticate())
 	{
 		//api rest full
-		resource.GET("/resource", middleware.Authorize("resource", "read", adapter), api.ReadResource)
-		resource.POST("/resource", middleware.Authorize("resource", "write", adapter), api.WriteResource)
+		resource.GET("/resource", middleware.Authorize("/api", "POST", adapter), api.ReadResource)
+		resource.POST("/resource", middleware.Authorize("/api", "GET", adapter), api.WriteResource)
 
 		//api graphql
 		resource.POST("/graphql",middleware.Authorize("/api/graphql","POST",adapter), graphqlHandler())

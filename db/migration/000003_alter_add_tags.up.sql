@@ -1,0 +1,1 @@
+alter table tags add new_id int;

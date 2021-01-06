@@ -1,7 +1,6 @@
 package jwt
 
 import (
-	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/joho/godotenv"
 	"log"
@@ -39,7 +38,6 @@ func ParseToken(tokenStr string) (string, error) {
 	})
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		fmt.Println(claims)
 		username := claims["username"].(string)
 		return username, nil
 	} else {

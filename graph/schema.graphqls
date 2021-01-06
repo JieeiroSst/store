@@ -1,28 +1,500 @@
-# GraphQL schema example
-#
-# https://gqlgen.com/getting-started/
-
-type Todo {
-  id: ID!
-  text: String!
-  done: Boolean!
-  user: User!
-}
-
-type User {
-  id: ID!
-  name: String!
-}
 
 type Query {
-  todos: [Todo!]!
-}
+  node(id: ID!): Node
 
-input NewTodo {
-  text: String!
-  userId: String!
+  news: NewsConnection
+  tags: TagsConnection
+  newTags: NewTagsConnection
+  casbin: CasbinConnection
+  categories: CategoriesConnection
+  contacts: ContactConnection
+  feedbacks: FeedBackConnection
+  products: ProductConnection
+  profile: ProfileConnection
+  systemConfig: SystemConfigConnection
+
+  refreshToken: String
+
 }
 
 type Mutation {
-  createTodo(input: NewTodo!): Todo!
+  CreateNews(input: InputNews): News
+  CreateTags(input: InputTags): Tags
+  CreateNewTag(input: InputNewTag): NewTag
+  CreateCasbinRule(input: InputCasbinRule): CasbinRule
+  CreateCategories(input: InputCategories): Categories
+  CreateContact(input: InputContact): Contacts
+  CreateFeebBack(input: InputFeedBacks): FeedBacks
+  CreateProduct(input: InputProduct): Products
+  CreateProfile(input: InputProfile): Profile
+  CreateMenues(input: InputMenues): Menues
+  CreateProductCategories(input: InputProductCategory): ProductCategory
+  CreateSliders(input: InputSliders): Sliders
+
+  UpdateNews(id: Int,input: InputNews): News
+  UpdateTags(id: Int,input: InputTags): Tags
+  UpdateNewTag(id: Int,input: InputNewTag): NewTag
+  UpdateCasbinRule(id: Int,input: InputCasbinRule): CasbinRule
+  UpdateCategories(id: Int,input: InputCategories): Categories
+  UpdateContact(id: Int,input: InputContact): Contacts
+  UpdateFeebBack(id: Int,input: InputFeedBacks): FeedBacks
+  UpdateProduct(id: Int,input: InputProduct): Products
+  UpdateProfile(id: Int,input: InputProfile): Profile
+  UpdateMenues(id: Int,input: InputMenues): Menues
+  UpdateProductCategories(id: Int,input: InputProductCategory): ProductCategory
+  UpdateSliders(id: Int,input: InputSliders): Sliders
+
+  DeleteNews(id: Int): News
+  DeleteTags(id: Int): Tags
+  DeleteNewTag(id: Int): NewTag
+  DeleteCasbinRule(id: Int): CasbinRule
+  DeleteCategories(id: Int): Categories
+  DeleteContact(id: Int): Contacts
+  DeleteFeebBack(id: Int): FeedBacks
+  DeleteProduct(id: Int): Products
+  DeleteProfile(userId: Int): Profile
+  DeleteMenues(id: Int): Menues
+  DeleteProductCategories(id: Int): ProductCategory
+  DeleteSliders(id: Int): Sliders
+
+  refreshToken(token: String): ResultToken
+
+  checkNews(id: Int): Int
+
+  checkUser(id: Int): Boolean
+
+  sendMail(email: String): Boolean
+
+  addFriend(id: Int): Boolean
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+
+type ResultToken {
+  token: String
+  payload: PayLoad
+  refreshToken: String
+  refreshExpressIn: String
+}
+
+type PayLoad {
+  id: Int
+  username: String
+}
+
+type News implements Node{
+  id: ID!
+  title: String
+  metaTitle: String
+  description: String
+  image: String
+  categoryId: Int
+  detail: String
+  createdAt: String
+  createdBy:String
+  modifiedData: String
+  modifiedBy: String
+  metaKeyWord:String
+  metaDescription: String
+  status: Int
+  topHot: String
+  viewCount: Int
+  tagId: Int
+  tags: [Tags]
+  categories: [Categories]
+}
+
+input PaginationInput {
+  first: Int
+  after: String
+}
+
+type NewsEdge {
+  cursor: String
+  node: News
+}
+
+type NewsConnection {
+  pageInfo: PageInfo
+  edges: [NewsEdge]
+  totalCount: Int
+}
+
+input InputNews {
+  title: String
+  metaTitle: String
+  description: String
+  image: String
+  categoryId: Int
+  detail: String
+  createdAt: String
+  createdBy:String
+  modifiedData: String
+  modifiedBy: String
+  metaKeyWord:String
+  metaDescription: String
+  status: Int
+  topHot: String
+  viewCount: Int
+  tagId: Int
+}
+
+type Tags implements Node{
+  id: ID!
+  name: String
+  newId: Int
+  news: [News]
+  newTag: [NewTag]
+}
+
+type TagsEdge {
+  cursor: String
+  node: Tags
+}
+
+type TagsConnection {
+  pageInfo: PageInfo
+  edges: [TagsEdge]
+  totalCount: Int
+}
+
+input InputTags {
+  name: String
+  newId: Int
+}
+
+type NewTag implements Node{
+  id: ID!
+  tagId: Int
+  name: String
+}
+
+type NewTagsEdge {
+  cursor: String
+  node: NewTag
+}
+
+type NewTagsConnection {
+  pageInfo: PageInfo
+  edges: [NewTagsEdge]
+  totalCount: Int
+}
+
+input InputNewTag {
+  tagId: Int
+  name: String
+}
+
+type CasbinRule implements Node {
+  id: ID!
+  pType: String
+  v0: String
+  v1: String
+  v2: String
+}
+
+type CasbinRuleEdges {
+  cursor: String
+  node: CasbinRule
+}
+
+type CasbinConnection {
+  pageInfo: PageInfo
+  edges: [CasbinRuleEdges]
+  totalCount: Int
+}
+
+input InputCasbinRule {
+  id: ID!
+  pType: String
+  v0: String
+  v1: String
+  v2: String
+}
+
+type Categories implements Node {
+  id: ID!
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  metaKeyword: String
+  metaDescription: String
+  status: Int
+}
+
+type CategoriesEdge {
+  cursor: String
+  node: Categories
+}
+
+type CategoriesConnection {
+  pageInfo: PageInfo
+  edges: [CategoriesEdge]
+  totalCount: Int
+}
+
+input InputCategories {
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  metaKeyword: String
+  metaDescription: String
+  status: Int
+}
+
+type Contacts implements Node{
+  id:ID!
+  content: String
+  status: Int
+}
+
+type ContactEdge {
+  cursor: String
+  node: Contacts
+}
+
+type ContactConnection {
+  pageInfo: PageInfo
+  edges: [ContactEdge]
+  totalCount: Int
+}
+
+input InputContact {
+  content: String
+  status: Int
+}
+
+type FeedBacks implements Node{
+  id: ID!
+  name: String
+  phone: String
+  email: String
+  address: String
+  content: String
+  status: Int
+  createdAt: String
+}
+
+type FeedBackEdge {
+  cursor: String
+  node: FeedBacks
+}
+
+type FeedBackConnection {
+  pageInfo: PageInfo
+  edges: FeedBackEdge
+  totalCount: Int
+}
+
+input InputFeedBacks {
+  name: String
+  phone: String
+  email: String
+  address: String
+  content: String
+  status: Int
+}
+
+type Products implements Node{
+  id: ID!
+  code: String
+  name: String
+  title: String
+  description: String
+  images: String
+  price: Int
+  vat: Int
+  catedgoryId: Int
+  detail: String
+  createdDate: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  stauts: Int
+  topHot: String
+  viewCounts: Int
+}
+
+type ProductEdge {
+  cursor: String
+  node: Products
+}
+
+type ProductConnection {
+  pageInfo: PageInfo
+  edges: [ProductEdge]
+  totalCount: Int
+}
+
+input InputProduct {
+  code: String
+  name: String
+  title: String
+  description: String
+  images: String
+  price: Int
+  vat: Int
+  catedgoryId: Int
+  detail: String
+  createdDate: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  stauts: Int
+  topHot: String
+}
+
+type Profile implements Node{
+  id: ID!
+  userId: ID
+  firstName: String
+  lastName: String
+  address: String
+  phone: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  status:Int
+  friendId: [Int]
+}
+
+type Friend implements Node{
+  id: ID!
+  friends: [Profile]
+}
+
+type ProfileEdge {
+  cursor: String
+  node: Profile
+}
+
+type ProfileConnection {
+  pageInfo: PageInfo
+  edges: [ProfileEdge]
+  totalCount: Int
+}
+
+input InputProfile {
+  userId: ID!
+  firstName: String
+  lastName: String
+  address: String
+  phone: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  status:Int
+}
+
+type Users implements Node{
+  id: ID!
+  username: String
+  password: String
+  userDetail: Profile
+}
+
+type SystemConfig implements Node{
+  id: ID!
+  name: String
+  type: String
+  value: String
+  status: String
+}
+
+type SystemConfigEdge {
+  cursor: String
+  node: SystemConfig
+}
+
+type SystemConfigConnection {
+  pageInfo: PageInfo
+  edges: [SystemConfigEdge]
+  totalCount: Int
+}
+
+type Menues implements Node{
+  id: ID!
+  text: String
+  link: String
+  displayOrder: Int
+  target: String
+  status: Int
+}
+
+input InputMenues {
+  text: String
+  link: String
+  displayOrder: Int
+  target: String
+  status: Int
+}
+
+type ProductCategory implements Node{
+  id: ID!
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  title: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  description: String
+  status: Int
+}
+
+input InputProductCategory {
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  title: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  description: String
+  status: Int
+}
+
+type Sliders implements Node{
+  id: ID!
+  image: String
+  displayOrder: Int
+  link: String
+  description: String
+  createdAt: String
+  modifiedAt: String
+  modifiedBy: String
+  status: Int
+}
+
+input InputSliders {
+  image: String
+  displayOrder: Int
+  link: String
+  description: String
+  createdAt: String
+  modifiedAt: String
+  modifiedBy: String
+  status: Int
 }
