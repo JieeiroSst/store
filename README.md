@@ -68,3 +68,8 @@ Make run makefile
 
 - make migrateup
 
+when write file schema.graphql 
+- run command
+  go run github.com/99designs/gqlgen generate
+
+

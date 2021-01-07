@@ -2,19 +2,462 @@
 
 package model
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+type Node interface {
+	IsNode()
 }
 
-type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+type CasbinConnection struct {
+	PageInfo   *PageInfo          `json:"pageInfo"`
+	Edges      []*CasbinRuleEdges `json:"edges"`
+	TotalCount *int               `json:"totalCount"`
 }
 
-type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+type CasbinRule struct {
+	ID    string  `json:"id"`
+	PType *string `json:"pType"`
+	V0    *string `json:"v0"`
+	V1    *string `json:"v1"`
+	V2    *string `json:"v2"`
 }
+
+func (CasbinRule) IsNode() {}
+
+type CasbinRuleEdges struct {
+	Cursor *string     `json:"cursor"`
+	Node   *CasbinRule `json:"node"`
+}
+
+type Categories struct {
+	ID              string  `json:"id"`
+	Name            *string `json:"name"`
+	MetaTitle       *string `json:"metaTitle"`
+	DisplayOrder    *int    `json:"displayOrder"`
+	CreatedAt       *string `json:"createdAt"`
+	CreatedBy       *string `json:"createdBy"`
+	ModifiedDate    *string `json:"modifiedDate"`
+	ModifiedBy      *string `json:"modifiedBy"`
+	MetaKeyword     *string `json:"metaKeyword"`
+	MetaDescription *string `json:"metaDescription"`
+	Status          *int    `json:"status"`
+}
+
+func (Categories) IsNode() {}
+
+type CategoriesConnection struct {
+	PageInfo   *PageInfo         `json:"pageInfo"`
+	Edges      []*CategoriesEdge `json:"edges"`
+	TotalCount *int              `json:"totalCount"`
+}
+
+type CategoriesEdge struct {
+	Cursor *string     `json:"cursor"`
+	Node   *Categories `json:"node"`
+}
+
+type ContactConnection struct {
+	PageInfo   *PageInfo      `json:"pageInfo"`
+	Edges      []*ContactEdge `json:"edges"`
+	TotalCount *int           `json:"totalCount"`
+}
+
+type ContactEdge struct {
+	Cursor *string   `json:"cursor"`
+	Node   *Contacts `json:"node"`
+}
+
+type Contacts struct {
+	ID      string  `json:"id"`
+	Content *string `json:"content"`
+	Status  *int    `json:"status"`
+}
+
+func (Contacts) IsNode() {}
+
+type FeedBackConnection struct {
+	PageInfo   *PageInfo     `json:"pageInfo"`
+	Edges      *FeedBackEdge `json:"edges"`
+	TotalCount *int          `json:"totalCount"`
+}
+
+type FeedBackEdge struct {
+	Cursor *string    `json:"cursor"`
+	Node   *FeedBacks `json:"node"`
+}
+
+type FeedBacks struct {
+	ID        string  `json:"id"`
+	Name      *string `json:"name"`
+	Phone     *string `json:"phone"`
+	Email     *string `json:"email"`
+	Address   *string `json:"address"`
+	Content   *string `json:"content"`
+	Status    *int    `json:"status"`
+	CreatedAt *string `json:"createdAt"`
+}
+
+func (FeedBacks) IsNode() {}
+
+type Friend struct {
+	ID      string     `json:"id"`
+	Friends []*Profile `json:"friends"`
+}
+
+func (Friend) IsNode() {}
+
+type InputCasbinRule struct {
+	ID    string  `json:"id"`
+	PType *string `json:"pType"`
+	V0    *string `json:"v0"`
+	V1    *string `json:"v1"`
+	V2    *string `json:"v2"`
+}
+
+type InputCategories struct {
+	Name            *string `json:"name"`
+	MetaTitle       *string `json:"metaTitle"`
+	DisplayOrder    *int    `json:"displayOrder"`
+	CreatedAt       *string `json:"createdAt"`
+	CreatedBy       *string `json:"createdBy"`
+	ModifiedDate    *string `json:"modifiedDate"`
+	ModifiedBy      *string `json:"modifiedBy"`
+	MetaKeyword     *string `json:"metaKeyword"`
+	MetaDescription *string `json:"metaDescription"`
+	Status          *int    `json:"status"`
+}
+
+type InputContact struct {
+	Content *string `json:"content"`
+	Status  *int    `json:"status"`
+}
+
+type InputFeedBacks struct {
+	Name    *string `json:"name"`
+	Phone   *string `json:"phone"`
+	Email   *string `json:"email"`
+	Address *string `json:"address"`
+	Content *string `json:"content"`
+	Status  *int    `json:"status"`
+}
+
+type InputMenues struct {
+	Text         *string `json:"text"`
+	Link         *string `json:"link"`
+	DisplayOrder *int    `json:"displayOrder"`
+	Target       *string `json:"target"`
+	Status       *int    `json:"status"`
+}
+
+type InputNewTag struct {
+	TagID *int    `json:"tagId"`
+	Name  *string `json:"name"`
+}
+
+type InputNews struct {
+	Title           *string `json:"title"`
+	MetaTitle       *string `json:"metaTitle"`
+	Description     *string `json:"description"`
+	Image           *string `json:"image"`
+	CategoryID      *int    `json:"categoryId"`
+	Detail          *string `json:"detail"`
+	CreatedAt       *string `json:"createdAt"`
+	CreatedBy       *string `json:"createdBy"`
+	ModifiedData    *string `json:"modifiedData"`
+	ModifiedBy      *string `json:"modifiedBy"`
+	MetaKeyWord     *string `json:"metaKeyWord"`
+	MetaDescription *string `json:"metaDescription"`
+	Status          *int    `json:"status"`
+	TopHot          *string `json:"topHot"`
+	ViewCount       *int    `json:"viewCount"`
+	TagID           *int    `json:"tagId"`
+}
+
+type InputProduct struct {
+	Code         *string `json:"code"`
+	Name         *string `json:"name"`
+	Title        *string `json:"title"`
+	Description  *string `json:"description"`
+	Images       *string `json:"images"`
+	Price        *int    `json:"price"`
+	Vat          *int    `json:"vat"`
+	CatedgoryID  *int    `json:"catedgoryId"`
+	Detail       *string `json:"detail"`
+	CreatedDate  *string `json:"createdDate"`
+	CreatedBy    *string `json:"createdBy"`
+	ModifiedDate *string `json:"modifiedDate"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Stauts       *int    `json:"stauts"`
+	TopHot       *string `json:"topHot"`
+}
+
+type InputProductCategory struct {
+	Name         *string `json:"name"`
+	MetaTitle    *string `json:"metaTitle"`
+	DisplayOrder *int    `json:"displayOrder"`
+	Title        *string `json:"title"`
+	CreatedAt    *string `json:"createdAt"`
+	CreatedBy    *string `json:"createdBy"`
+	ModifiedDate *string `json:"modifiedDate"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Description  *string `json:"description"`
+	Status       *int    `json:"status"`
+}
+
+type InputProfile struct {
+	UserID       string  `json:"userId"`
+	FirstName    *string `json:"firstName"`
+	LastName     *string `json:"lastName"`
+	Address      *string `json:"address"`
+	Phone        *string `json:"phone"`
+	CreatedAt    *string `json:"createdAt"`
+	CreatedBy    *string `json:"createdBy"`
+	ModifiedDate *string `json:"modifiedDate"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Status       *int    `json:"status"`
+}
+
+type InputSliders struct {
+	Image        *string `json:"image"`
+	DisplayOrder *int    `json:"displayOrder"`
+	Link         *string `json:"link"`
+	Description  *string `json:"description"`
+	CreatedAt    *string `json:"createdAt"`
+	ModifiedAt   *string `json:"modifiedAt"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Status       *int    `json:"status"`
+}
+
+type InputTags struct {
+	Name  *string `json:"name"`
+	NewID *int    `json:"newId"`
+}
+
+type Menues struct {
+	ID           string  `json:"id"`
+	Text         *string `json:"text"`
+	Link         *string `json:"link"`
+	DisplayOrder *int    `json:"displayOrder"`
+	Target       *string `json:"target"`
+	Status       *int    `json:"status"`
+}
+
+func (Menues) IsNode() {}
+
+type NewTag struct {
+	ID    string  `json:"id"`
+	TagID *int    `json:"tagId"`
+	Name  *string `json:"name"`
+}
+
+func (NewTag) IsNode() {}
+
+type NewTagsConnection struct {
+	PageInfo   *PageInfo      `json:"pageInfo"`
+	Edges      []*NewTagsEdge `json:"edges"`
+	TotalCount *int           `json:"totalCount"`
+}
+
+type NewTagsEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *NewTag `json:"node"`
+}
+
+type News struct {
+	ID              string        `json:"id"`
+	Title           *string       `json:"title"`
+	MetaTitle       *string       `json:"metaTitle"`
+	Description     *string       `json:"description"`
+	Image           *string       `json:"image"`
+	CategoryID      *int          `json:"categoryId"`
+	Detail          *string       `json:"detail"`
+	CreatedAt       *string       `json:"createdAt"`
+	CreatedBy       *string       `json:"createdBy"`
+	ModifiedData    *string       `json:"modifiedData"`
+	ModifiedBy      *string       `json:"modifiedBy"`
+	MetaKeyWord     *string       `json:"metaKeyWord"`
+	MetaDescription *string       `json:"metaDescription"`
+	Status          *int          `json:"status"`
+	TopHot          *string       `json:"topHot"`
+	ViewCount       *int          `json:"viewCount"`
+	TagID           *int          `json:"tagId"`
+	Tags            []*Tags       `json:"tags"`
+	Categories      []*Categories `json:"categories"`
+}
+
+func (News) IsNode() {}
+
+type NewsConnection struct {
+	PageInfo   *PageInfo   `json:"pageInfo"`
+	Edges      []*NewsEdge `json:"edges"`
+	TotalCount *int        `json:"totalCount"`
+}
+
+type NewsEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *News   `json:"node"`
+}
+
+type PageInfo struct {
+	HasNextPage     bool    `json:"hasNextPage"`
+	HasPreviousPage bool    `json:"hasPreviousPage"`
+	StartCursor     *string `json:"startCursor"`
+	EndCursor       *string `json:"endCursor"`
+}
+
+type PaginationInput struct {
+	First *int    `json:"first"`
+	After *string `json:"after"`
+}
+
+type PayLoad struct {
+	ID       *int    `json:"id"`
+	Username *string `json:"username"`
+}
+
+type ProductCategory struct {
+	ID           string  `json:"id"`
+	Name         *string `json:"name"`
+	MetaTitle    *string `json:"metaTitle"`
+	DisplayOrder *int    `json:"displayOrder"`
+	Title        *string `json:"title"`
+	CreatedAt    *string `json:"createdAt"`
+	CreatedBy    *string `json:"createdBy"`
+	ModifiedDate *string `json:"modifiedDate"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Description  *string `json:"description"`
+	Status       *int    `json:"status"`
+}
+
+func (ProductCategory) IsNode() {}
+
+type ProductConnection struct {
+	PageInfo   *PageInfo      `json:"pageInfo"`
+	Edges      []*ProductEdge `json:"edges"`
+	TotalCount *int           `json:"totalCount"`
+}
+
+type ProductEdge struct {
+	Cursor *string   `json:"cursor"`
+	Node   *Products `json:"node"`
+}
+
+type Products struct {
+	ID           string  `json:"id"`
+	Code         *string `json:"code"`
+	Name         *string `json:"name"`
+	Title        *string `json:"title"`
+	Description  *string `json:"description"`
+	Images       *string `json:"images"`
+	Price        *int    `json:"price"`
+	Vat          *int    `json:"vat"`
+	CatedgoryID  *int    `json:"catedgoryId"`
+	Detail       *string `json:"detail"`
+	CreatedDate  *string `json:"createdDate"`
+	CreatedBy    *string `json:"createdBy"`
+	ModifiedDate *string `json:"modifiedDate"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Stauts       *int    `json:"stauts"`
+	TopHot       *string `json:"topHot"`
+	ViewCounts   *int    `json:"viewCounts"`
+}
+
+func (Products) IsNode() {}
+
+type Profile struct {
+	ID           string  `json:"id"`
+	UserID       *string `json:"userId"`
+	FirstName    *string `json:"firstName"`
+	LastName     *string `json:"lastName"`
+	Address      *string `json:"address"`
+	Phone        *string `json:"phone"`
+	CreatedAt    *string `json:"createdAt"`
+	CreatedBy    *string `json:"createdBy"`
+	ModifiedDate *string `json:"modifiedDate"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Status       *int    `json:"status"`
+	FriendID     []*int  `json:"friendId"`
+}
+
+func (Profile) IsNode() {}
+
+type ProfileConnection struct {
+	PageInfo   *PageInfo      `json:"pageInfo"`
+	Edges      []*ProfileEdge `json:"edges"`
+	TotalCount *int           `json:"totalCount"`
+}
+
+type ProfileEdge struct {
+	Cursor *string  `json:"cursor"`
+	Node   *Profile `json:"node"`
+}
+
+type ResultToken struct {
+	Token            *string  `json:"token"`
+	Payload          *PayLoad `json:"payload"`
+	RefreshToken     *string  `json:"refreshToken"`
+	RefreshExpressIn *string  `json:"refreshExpressIn"`
+}
+
+type Sliders struct {
+	ID           string  `json:"id"`
+	Image        *string `json:"image"`
+	DisplayOrder *int    `json:"displayOrder"`
+	Link         *string `json:"link"`
+	Description  *string `json:"description"`
+	CreatedAt    *string `json:"createdAt"`
+	ModifiedAt   *string `json:"modifiedAt"`
+	ModifiedBy   *string `json:"modifiedBy"`
+	Status       *int    `json:"status"`
+}
+
+func (Sliders) IsNode() {}
+
+type SystemConfig struct {
+	ID     string  `json:"id"`
+	Name   *string `json:"name"`
+	Type   *string `json:"type"`
+	Value  *string `json:"value"`
+	Status *string `json:"status"`
+}
+
+func (SystemConfig) IsNode() {}
+
+type SystemConfigConnection struct {
+	PageInfo   *PageInfo           `json:"pageInfo"`
+	Edges      []*SystemConfigEdge `json:"edges"`
+	TotalCount *int                `json:"totalCount"`
+}
+
+type SystemConfigEdge struct {
+	Cursor *string       `json:"cursor"`
+	Node   *SystemConfig `json:"node"`
+}
+
+type Tags struct {
+	ID     string    `json:"id"`
+	Name   *string   `json:"name"`
+	NewID  *int      `json:"newId"`
+	News   []*News   `json:"news"`
+	NewTag []*NewTag `json:"newTag"`
+}
+
+func (Tags) IsNode() {}
+
+type TagsConnection struct {
+	PageInfo   *PageInfo   `json:"pageInfo"`
+	Edges      []*TagsEdge `json:"edges"`
+	TotalCount *int        `json:"totalCount"`
+}
+
+type TagsEdge struct {
+	Cursor *string `json:"cursor"`
+	Node   *Tags   `json:"node"`
+}
+
+type Users struct {
+	ID         string   `json:"id"`
+	Username   *string  `json:"username"`
+	Password   *string  `json:"password"`
+	UserDetail *Profile `json:"userDetail"`
+}
+
+func (Users) IsNode() {}
