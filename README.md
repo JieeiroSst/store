@@ -1,16 +1,17 @@
-$ sudo apt-get install inotify-tools
+- sudo apt-get install inotify-tools
 
-$ git clone https://github.com/alexedwards/go-reload.git
+- git clone https://github.com/alexedwards/go-reload.git
 
-$ cd go-reload
+- cd go-reload
 
-$ chmod +x go-reload
+- chmod +x go-reload
 
-$ sudo mv go-reload /usr/local/bin/
+- sudo mv go-reload /usr/local/bin/
 
-$ go-reload server.go
+run server
+- go-reload server.go
 
-$ go-reload -a server.go
+- go-reload -a server.go
 
 
 
