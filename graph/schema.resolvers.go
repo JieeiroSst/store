@@ -80,7 +80,7 @@ func (r *mutationResolver) CreateTags(ctx context.Context, input *model.InputTag
 func (r *mutationResolver) CreateNewTag(ctx context.Context, input *model.InputNewTag) (*bool, error) {
 	check := false
 	try.This(func() {
-		data := newTags.NewTag{
+		data := &newTags.NewTag{
 			TagId: tranfer.DeferInt(input.TagID),
 			Name:  tranfer.DeferString(input.Name),
 		}
@@ -297,51 +297,290 @@ func (r *mutationResolver) CreateSliders(ctx context.Context, input *model.Input
 }
 
 func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&news.News{})
+		data := &news.News{
+			Title:           tranfer.DeferString(input.Title),
+			MetaTitle:       tranfer.DeferString(input.MetaTitle),
+			Description:     tranfer.DeferString(input.Description),
+			Image:           tranfer.DeferString(input.Image),
+			CategoryId:      tranfer.DeferInt(input.CategoryID),
+			Detail:          tranfer.DeferString(input.Detail),
+			CreatedBy:       tranfer.DeferString(input.CreatedBy),
+			ModifiedData:    tranfer.DeferString(input.ModifiedData),
+			ModifiedBy:      tranfer.DeferString(input.ModifiedBy),
+			MetaKeyWord:     tranfer.DeferString(input.MetaKeyWord),
+			MetaDescription: tranfer.DeferString(input.MetaDescription),
+			TagId:           tranfer.DeferInt(input.TagID),
+			Content: 		 tranfer.DeferString(input.Content),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&tags.Tags{})
+		data := &tags.Tags{
+			Name:  tranfer.DeferString(input.Name),
+			NewId: tranfer.DeferInt(input.NewID),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&newTags.NewTag{})
+		data := &newTags.NewTag{
+			TagId: tranfer.DeferInt(input.TagID),
+			Name:  tranfer.DeferString(input.Name),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateCasbinRule(ctx context.Context, id *int, input *model.InputCasbinRule) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&casbin.CasbinRules{})
+		data := &casbin.CasbinRules{
+			PType: tranfer.DeferString(input.PType),
+			V0:    tranfer.DeferString(input.V0),
+			V1:    tranfer.DeferString(input.V1),
+			V2:    tranfer.DeferString(input.V2),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateCategories(ctx context.Context, id *int, input *model.InputCategories) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&categories.Categories{})
+		data := &categories.Categories{
+			Name:            tranfer.DeferString(input.Name),
+			MetaTitle:       tranfer.DeferString(input.MetaTitle),
+			CreatedBy:       tranfer.DeferString(input.ModifiedBy),
+			MetaKeyword:     tranfer.DeferString(input.MetaKeyword),
+			MetaDescription: tranfer.DeferString(input.MetaDescription),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateContact(ctx context.Context, id *int, input *model.InputContact) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&contacts.Contacts{})
+		data := &contacts.Contacts{
+			Content: tranfer.DeferString(input.Content),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&feedBacks.FeedBacks{})
+		data := &feedBacks.FeedBacks{
+			Name:      tranfer.DeferString(input.Name),
+			Phone:     tranfer.DeferString(input.Phone),
+			Email:     tranfer.DeferString(input.Email),
+			Address:   tranfer.DeferString(input.Address),
+			Content:   tranfer.DeferString(input.Content),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateProduct(ctx context.Context, id *int, input *model.InputProduct) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?", id).First(&products.Products{})
+		data := &products.Products{
+			Code:         tranfer.DeferString(input.Code),
+			Name:         tranfer.DeferString(input.Name),
+			Title:        tranfer.DeferString(input.Title),
+			Description:  tranfer.DeferString(input.Description),
+			Images:       tranfer.DeferString(input.Images),
+			Price:        tranfer.DeferInt(input.Price),
+			Vat:          tranfer.DeferInt(input.Vat),
+			CategoryId:   tranfer.DeferInt(input.CatedgoryID),
+			Detail:       tranfer.DeferString(input.Detail),
+			CreatedBy:    tranfer.DeferString(input.CreatedBy),
+			ModifiedBy:   tranfer.DeferString(input.ModifiedBy),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("userId = ?", id).First(&profiles.Profiles{})
+		data := &profiles.Profiles{
+			FirstName:    tranfer.DeferString(input.FirstName),
+			LastName:     tranfer.DeferString(input.LastName),
+			Address:      tranfer.DeferString(input.Address),
+			Phone:        tranfer.DeferString(input.Phone),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("userId = ?", id).First(&menues.Menues{})
+		data := &menues.Menues{
+			Text:         tranfer.DeferString(input.Text),
+			Link:         tranfer.DeferString(input.Link),
+			Target:       tranfer.DeferString(input.Target),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateProductCategories(ctx context.Context, id *int, input *model.InputProductCategory) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("userId = ?", id).First(&productCategory.ProductCategory{})
+		data := &productCategory.ProductCategory{
+			Name:         tranfer.DeferString(input.Name),
+			MetaTitle:    tranfer.DeferString(input.MetaTitle),
+			Title:        tranfer.DeferString(input.Title),
+			CreatedBy:    tranfer.DeferString(input.CreatedBy),
+			ModifiedBy:   tranfer.DeferString(input.ModifiedBy),
+			Description:  tranfer.DeferString(input.Description),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *model.InputSliders) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("userId = ?", id).First(&sliders.Sliders{})
+		data := &sliders.Sliders{
+			Image:        tranfer.DeferString(input.Image),
+			Link:         tranfer.DeferString(input.Link),
+			Description:  tranfer.DeferString(input.Description),
+		}
+
+		db.GetConn().Save(&data)
+
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteNews(ctx context.Context, id *int) (*bool, error) {
