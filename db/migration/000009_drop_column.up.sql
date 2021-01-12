@@ -1,0 +1,1 @@
+alter table abouts drop column status;

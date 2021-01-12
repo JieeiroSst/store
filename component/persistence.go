@@ -2,6 +2,17 @@ package component
 
 import (
 	"fmt"
+	"github.com/JIeeiroSst/store/models/abouts"
+	"github.com/JIeeiroSst/store/models/contacts"
+	feed_backs "github.com/JIeeiroSst/store/models/feed-backs"
+	new_tags "github.com/JIeeiroSst/store/models/new-tags"
+	"github.com/JIeeiroSst/store/models/news"
+	"github.com/JIeeiroSst/store/models/product_category"
+	"github.com/JIeeiroSst/store/models/products"
+	"github.com/JIeeiroSst/store/models/profiles"
+	"github.com/JIeeiroSst/store/models/sliders"
+	"github.com/JIeeiroSst/store/models/system_config"
+	"github.com/JIeeiroSst/store/models/users"
 	"github.com/allegro/bigcache"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
@@ -33,6 +44,9 @@ func init() {
 	}
 	log.Println("server connect database success")
 	DB = conn
+
+	conn.AutoMigrate(&news.News{},&users.Users{},&profiles.Profiles{},&abouts.Abouts{},&contacts.Contacts{},&feed_backs.FeedBacks{},&abouts.Abouts{},&new_tags.NewTag{},&product_category.ProductCategory{},&products.Products{},&sliders.Sliders{},&system_config.SystemConfig{})
+
 	GlobalCache, err = bigcache.NewBigCache(bigcache.DefaultConfig(30 * time.Minute))
 	if err != nil {
 		panic(fmt.Errorf("failed to initialize cahce: %w", err))
