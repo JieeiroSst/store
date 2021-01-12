@@ -494,7 +494,7 @@ func (r *mutationResolver) UpdateProduct(ctx context.Context, id *int, input *mo
 func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("userId = ?", id).First(&profiles.Profiles{})
+		db.GetConn().Where("id = ?", id).First(&profiles.Profiles{})
 		data := &profiles.Profiles{
 			FirstName:    tranfer.DeferString(input.FirstName),
 			LastName:     tranfer.DeferString(input.LastName),
@@ -517,7 +517,7 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("userId = ?", id).First(&menues.Menues{})
+		db.GetConn().Where("id = ?", id).First(&menues.Menues{})
 		data := &menues.Menues{
 			Text:         tranfer.DeferString(input.Text),
 			Link:         tranfer.DeferString(input.Link),
@@ -539,7 +539,7 @@ func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *mod
 func (r *mutationResolver) UpdateProductCategories(ctx context.Context, id *int, input *model.InputProductCategory) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("userId = ?", id).First(&productCategory.ProductCategory{})
+		db.GetConn().Where("id = ?", id).First(&productCategory.ProductCategory{})
 		data := &productCategory.ProductCategory{
 			Name:         tranfer.DeferString(input.Name),
 			MetaTitle:    tranfer.DeferString(input.MetaTitle),
@@ -564,7 +564,7 @@ func (r *mutationResolver) UpdateProductCategories(ctx context.Context, id *int,
 func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *model.InputSliders) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("userId = ?", id).First(&sliders.Sliders{})
+		db.GetConn().Where("id = ?", id).First(&sliders.Sliders{})
 		data := &sliders.Sliders{
 			Image:        tranfer.DeferString(input.Image),
 			Link:         tranfer.DeferString(input.Link),
@@ -584,51 +584,171 @@ func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *mo
 }
 
 func (r *mutationResolver) DeleteNews(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&news.News{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteTags(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&tags.Tags{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteNewTag(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&newTags.NewTag{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteCasbinRule(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&casbin.CasbinRules{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteCategories(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&categories.Categories{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteContact(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&contacts.Contacts{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteFeebBack(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&feedBacks.FeedBacks{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteProduct(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&products.Products{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteProfile(ctx context.Context, userID *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",userID).Delete(&profiles.Profiles{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteMenues(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&menues.Menues{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteProductCategories(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&productCategory.ProductCategory{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) DeleteSliders(ctx context.Context, id *int) (*bool, error) {
-	panic(fmt.Errorf("not implemented"))
+	check := false
+	try.This(func() {
+		db.GetConn().Where("id = ?",id).Delete(&sliders.Sliders{})
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
 }
 
 func (r *mutationResolver) RefreshToken(ctx context.Context, token *string) (*model.ResultToken, error) {
