@@ -14,7 +14,6 @@ type ProductCategory struct {
 	ModifiedDate time.Time
 	ModifiedBy string
 	Description string
-	Status int
 }
 
 type InputProductCategory struct {
@@ -28,5 +27,4 @@ type InputProductCategory struct {
 	ModifiedDate time.Time
 	ModifiedBy string
 	Description string
-	Status int
 }

@@ -2,6 +2,7 @@ package news
 
 import (
 	db "github.com/JIeeiroSst/store/component"
+	"github.com/JIeeiroSst/store/graph/model"
 	"github.com/JIeeiroSst/store/models/news"
 )
 
@@ -13,7 +14,7 @@ func NewById(news news.News,id int){
 	db.GetConn().Find(&news,id)
 }
 
-func CreateNews(news news.News){
+func CreateNews(news model.News) {
 	db.GetConn().Create(&news)
 }
 

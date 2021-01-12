@@ -17,5 +17,4 @@ type Abouts struct {
 	ModifiedBy string
 	MetaKeyword string
 	MetaDescription string
-	Status int
 }

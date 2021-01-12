@@ -17,7 +17,6 @@ type Profiles struct {
 	CreatedBy string
 	ModifiedDate time.Time
 	ModifiedBy string
-	Status int
 }
 
 type ProfileEdge struct {
@@ -41,5 +40,4 @@ type InputProfile struct {
 	CreatedBy string
 	ModifiedDate time.Time
 	ModifiedBy string
-	Status int
 }

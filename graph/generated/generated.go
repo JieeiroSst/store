@@ -73,7 +73,6 @@ type ComplexityRoot struct {
 		ModifiedBy      func(childComplexity int) int
 		ModifiedDate    func(childComplexity int) int
 		Name            func(childComplexity int) int
-		Status          func(childComplexity int) int
 	}
 
 	CategoriesConnection struct {
@@ -101,7 +100,6 @@ type ComplexityRoot struct {
 	Contacts struct {
 		Content func(childComplexity int) int
 		ID      func(childComplexity int) int
-		Status  func(childComplexity int) int
 	}
 
 	FeedBackConnection struct {
@@ -123,7 +121,6 @@ type ComplexityRoot struct {
 		ID        func(childComplexity int) int
 		Name      func(childComplexity int) int
 		Phone     func(childComplexity int) int
-		Status    func(childComplexity int) int
 	}
 
 	Friend struct {
@@ -135,7 +132,6 @@ type ComplexityRoot struct {
 		DisplayOrder func(childComplexity int) int
 		ID           func(childComplexity int) int
 		Link         func(childComplexity int) int
-		Status       func(childComplexity int) int
 		Target       func(childComplexity int) int
 		Text         func(childComplexity int) int
 	}
@@ -204,6 +200,7 @@ type ComplexityRoot struct {
 	News struct {
 		Categories      func(childComplexity int) int
 		CategoryID      func(childComplexity int) int
+		Content         func(childComplexity int) int
 		CreatedAt       func(childComplexity int) int
 		CreatedBy       func(childComplexity int) int
 		Description     func(childComplexity int) int
@@ -215,7 +212,6 @@ type ComplexityRoot struct {
 		MetaTitle       func(childComplexity int) int
 		ModifiedBy      func(childComplexity int) int
 		ModifiedData    func(childComplexity int) int
-		Status          func(childComplexity int) int
 		TagID           func(childComplexity int) int
 		Tags            func(childComplexity int) int
 		Title           func(childComplexity int) int
@@ -256,7 +252,6 @@ type ComplexityRoot struct {
 		ModifiedBy   func(childComplexity int) int
 		ModifiedDate func(childComplexity int) int
 		Name         func(childComplexity int) int
-		Status       func(childComplexity int) int
 		Title        func(childComplexity int) int
 	}
 
@@ -284,7 +279,6 @@ type ComplexityRoot struct {
 		ModifiedDate func(childComplexity int) int
 		Name         func(childComplexity int) int
 		Price        func(childComplexity int) int
-		Stauts       func(childComplexity int) int
 		Title        func(childComplexity int) int
 		TopHot       func(childComplexity int) int
 		Vat          func(childComplexity int) int
@@ -302,7 +296,6 @@ type ComplexityRoot struct {
 		ModifiedBy   func(childComplexity int) int
 		ModifiedDate func(childComplexity int) int
 		Phone        func(childComplexity int) int
-		Status       func(childComplexity int) int
 		UserID       func(childComplexity int) int
 	}
 
@@ -332,6 +325,148 @@ type ComplexityRoot struct {
 		Tags         func(childComplexity int) int
 	}
 
+	ResultCasbinRule struct {
+		ID    func(childComplexity int) int
+		PType func(childComplexity int) int
+		V0    func(childComplexity int) int
+		V1    func(childComplexity int) int
+		V2    func(childComplexity int) int
+	}
+
+	ResultCategories struct {
+		CreatedAt       func(childComplexity int) int
+		CreatedBy       func(childComplexity int) int
+		DisplayOrder    func(childComplexity int) int
+		ID              func(childComplexity int) int
+		MetaDescription func(childComplexity int) int
+		MetaKeyword     func(childComplexity int) int
+		MetaTitle       func(childComplexity int) int
+		ModifiedBy      func(childComplexity int) int
+		ModifiedDate    func(childComplexity int) int
+		Name            func(childComplexity int) int
+	}
+
+	ResultContact struct {
+		Content func(childComplexity int) int
+		ID      func(childComplexity int) int
+	}
+
+	ResultFeedBacks struct {
+		Address   func(childComplexity int) int
+		Content   func(childComplexity int) int
+		CreatedAt func(childComplexity int) int
+		Email     func(childComplexity int) int
+		ID        func(childComplexity int) int
+		Name      func(childComplexity int) int
+		Phone     func(childComplexity int) int
+	}
+
+	ResultFriend struct {
+		ID func(childComplexity int) int
+	}
+
+	ResultMenues struct {
+		DisplayOrder func(childComplexity int) int
+		Link         func(childComplexity int) int
+		Target       func(childComplexity int) int
+		Text         func(childComplexity int) int
+	}
+
+	ResultNewTag struct {
+		ID    func(childComplexity int) int
+		Name  func(childComplexity int) int
+		TagID func(childComplexity int) int
+	}
+
+	ResultNews struct {
+		CategoryID      func(childComplexity int) int
+		Content         func(childComplexity int) int
+		CreatedAt       func(childComplexity int) int
+		CreatedBy       func(childComplexity int) int
+		Description     func(childComplexity int) int
+		Detail          func(childComplexity int) int
+		ID              func(childComplexity int) int
+		Image           func(childComplexity int) int
+		MetaDescription func(childComplexity int) int
+		MetaKeyWord     func(childComplexity int) int
+		MetaTitle       func(childComplexity int) int
+		ModifiedBy      func(childComplexity int) int
+		ModifiedData    func(childComplexity int) int
+		TagID           func(childComplexity int) int
+		Title           func(childComplexity int) int
+		TopHot          func(childComplexity int) int
+		ViewCount       func(childComplexity int) int
+	}
+
+	ResultProduct struct {
+		CatedgoryID  func(childComplexity int) int
+		Code         func(childComplexity int) int
+		CreatedBy    func(childComplexity int) int
+		CreatedDate  func(childComplexity int) int
+		Description  func(childComplexity int) int
+		Detail       func(childComplexity int) int
+		ID           func(childComplexity int) int
+		Images       func(childComplexity int) int
+		ModifiedBy   func(childComplexity int) int
+		ModifiedDate func(childComplexity int) int
+		Name         func(childComplexity int) int
+		Price        func(childComplexity int) int
+		Title        func(childComplexity int) int
+		TopHot       func(childComplexity int) int
+		Vat          func(childComplexity int) int
+		ViewCounts   func(childComplexity int) int
+	}
+
+	ResultProductCategory struct {
+		CreatedAt    func(childComplexity int) int
+		CreatedBy    func(childComplexity int) int
+		Description  func(childComplexity int) int
+		DisplayOrder func(childComplexity int) int
+		ID           func(childComplexity int) int
+		MetaTitle    func(childComplexity int) int
+		ModifiedBy   func(childComplexity int) int
+		ModifiedDate func(childComplexity int) int
+		Name         func(childComplexity int) int
+		Title        func(childComplexity int) int
+	}
+
+	ResultProfile struct {
+		Address      func(childComplexity int) int
+		CreatedAt    func(childComplexity int) int
+		CreatedBy    func(childComplexity int) int
+		FirstName    func(childComplexity int) int
+		ID           func(childComplexity int) int
+		LastName     func(childComplexity int) int
+		ModifiedBy   func(childComplexity int) int
+		ModifiedDate func(childComplexity int) int
+		Phone        func(childComplexity int) int
+		UserID       func(childComplexity int) int
+	}
+
+	ResultSliders struct {
+		CreatedAt    func(childComplexity int) int
+		Description  func(childComplexity int) int
+		DisplayOrder func(childComplexity int) int
+		ID           func(childComplexity int) int
+		Image        func(childComplexity int) int
+		Link         func(childComplexity int) int
+		ModifiedAt   func(childComplexity int) int
+		ModifiedBy   func(childComplexity int) int
+	}
+
+	ResultSystemConfig struct {
+		ID    func(childComplexity int) int
+		Name  func(childComplexity int) int
+		Type  func(childComplexity int) int
+		Value func(childComplexity int) int
+	}
+
+	ResultTags struct {
+		ID    func(childComplexity int) int
+		Name  func(childComplexity int) int
+		NewID func(childComplexity int) int
+	}
+
 	ResultToken struct {
 		Payload          func(childComplexity int) int
 		RefreshExpressIn func(childComplexity int) int
@@ -348,15 +483,13 @@ type ComplexityRoot struct {
 		Link         func(childComplexity int) int
 		ModifiedAt   func(childComplexity int) int
 		ModifiedBy   func(childComplexity int) int
-		Status       func(childComplexity int) int
 	}
 
 	SystemConfig struct {
-		ID     func(childComplexity int) int
-		Name   func(childComplexity int) int
-		Status func(childComplexity int) int
-		Type   func(childComplexity int) int
-		Value  func(childComplexity int) int
+		ID    func(childComplexity int) int
+		Name  func(childComplexity int) int
+		Type  func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
 	SystemConfigConnection struct {
@@ -398,42 +531,42 @@ type ComplexityRoot struct {
 }
 
 type MutationResolver interface {
-	CreateNews(ctx context.Context, input *model.InputNews) (*model.News, error)
-	CreateTags(ctx context.Context, input *model.InputTags) (*model.Tags, error)
-	CreateNewTag(ctx context.Context, input *model.InputNewTag) (*model.NewTag, error)
-	CreateCasbinRule(ctx context.Context, input *model.InputCasbinRule) (*model.CasbinRule, error)
-	CreateCategories(ctx context.Context, input *model.InputCategories) (*model.Categories, error)
-	CreateContact(ctx context.Context, input *model.InputContact) (*model.Contacts, error)
-	CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.FeedBacks, error)
-	CreateProduct(ctx context.Context, input *model.InputProduct) (*model.Products, error)
-	CreateProfile(ctx context.Context, input *model.InputProfile) (*model.Profile, error)
-	CreateMenues(ctx context.Context, input *model.InputMenues) (*model.Menues, error)
-	CreateProductCategories(ctx context.Context, input *model.InputProductCategory) (*model.ProductCategory, error)
-	CreateSliders(ctx context.Context, input *model.InputSliders) (*model.Sliders, error)
-	UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*model.News, error)
-	UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*model.Tags, error)
-	UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*model.NewTag, error)
-	UpdateCasbinRule(ctx context.Context, id *int, input *model.InputCasbinRule) (*model.CasbinRule, error)
-	UpdateCategories(ctx context.Context, id *int, input *model.InputCategories) (*model.Categories, error)
-	UpdateContact(ctx context.Context, id *int, input *model.InputContact) (*model.Contacts, error)
-	UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*model.FeedBacks, error)
-	UpdateProduct(ctx context.Context, id *int, input *model.InputProduct) (*model.Products, error)
-	UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*model.Profile, error)
-	UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*model.Menues, error)
-	UpdateProductCategories(ctx context.Context, id *int, input *model.InputProductCategory) (*model.ProductCategory, error)
-	UpdateSliders(ctx context.Context, id *int, input *model.InputSliders) (*model.Sliders, error)
-	DeleteNews(ctx context.Context, id *int) (*model.News, error)
-	DeleteTags(ctx context.Context, id *int) (*model.Tags, error)
-	DeleteNewTag(ctx context.Context, id *int) (*model.NewTag, error)
-	DeleteCasbinRule(ctx context.Context, id *int) (*model.CasbinRule, error)
-	DeleteCategories(ctx context.Context, id *int) (*model.Categories, error)
-	DeleteContact(ctx context.Context, id *int) (*model.Contacts, error)
-	DeleteFeebBack(ctx context.Context, id *int) (*model.FeedBacks, error)
-	DeleteProduct(ctx context.Context, id *int) (*model.Products, error)
-	DeleteProfile(ctx context.Context, userID *int) (*model.Profile, error)
-	DeleteMenues(ctx context.Context, id *int) (*model.Menues, error)
-	DeleteProductCategories(ctx context.Context, id *int) (*model.ProductCategory, error)
-	DeleteSliders(ctx context.Context, id *int) (*model.Sliders, error)
+	CreateNews(ctx context.Context, input *model.InputNews) (*bool, error)
+	CreateTags(ctx context.Context, input *model.InputTags) (*bool, error)
+	CreateNewTag(ctx context.Context, input *model.InputNewTag) (*bool, error)
+	CreateCasbinRule(ctx context.Context, input *model.InputCasbinRule) (*bool, error)
+	CreateCategories(ctx context.Context, input *model.InputCategories) (*bool, error)
+	CreateContact(ctx context.Context, input *model.InputContact) (*bool, error)
+	CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*bool, error)
+	CreateProduct(ctx context.Context, input *model.InputProduct) (*bool, error)
+	CreateProfile(ctx context.Context, input *model.InputProfile) (*bool, error)
+	CreateMenues(ctx context.Context, input *model.InputMenues) (*bool, error)
+	CreateProductCategories(ctx context.Context, input *model.InputProductCategory) (*bool, error)
+	CreateSliders(ctx context.Context, input *model.InputSliders) (*bool, error)
+	UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*bool, error)
+	UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*bool, error)
+	UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*bool, error)
+	UpdateCasbinRule(ctx context.Context, id *int, input *model.InputCasbinRule) (*bool, error)
+	UpdateCategories(ctx context.Context, id *int, input *model.InputCategories) (*bool, error)
+	UpdateContact(ctx context.Context, id *int, input *model.InputContact) (*bool, error)
+	UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*bool, error)
+	UpdateProduct(ctx context.Context, id *int, input *model.InputProduct) (*bool, error)
+	UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*bool, error)
+	UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*bool, error)
+	UpdateProductCategories(ctx context.Context, id *int, input *model.InputProductCategory) (*bool, error)
+	UpdateSliders(ctx context.Context, id *int, input *model.InputSliders) (*bool, error)
+	DeleteNews(ctx context.Context, id *int) (*bool, error)
+	DeleteTags(ctx context.Context, id *int) (*bool, error)
+	DeleteNewTag(ctx context.Context, id *int) (*bool, error)
+	DeleteCasbinRule(ctx context.Context, id *int) (*bool, error)
+	DeleteCategories(ctx context.Context, id *int) (*bool, error)
+	DeleteContact(ctx context.Context, id *int) (*bool, error)
+	DeleteFeebBack(ctx context.Context, id *int) (*bool, error)
+	DeleteProduct(ctx context.Context, id *int) (*bool, error)
+	DeleteProfile(ctx context.Context, userID *int) (*bool, error)
+	DeleteMenues(ctx context.Context, id *int) (*bool, error)
+	DeleteProductCategories(ctx context.Context, id *int) (*bool, error)
+	DeleteSliders(ctx context.Context, id *int) (*bool, error)
 	RefreshToken(ctx context.Context, token *string) (*model.ResultToken, error)
 	CheckNews(ctx context.Context, id *int) (*int, error)
 	CheckUser(ctx context.Context, id *int) (*bool, error)
@@ -610,13 +743,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Categories.Name(childComplexity), true
 
-	case "Categories.status":
-		if e.complexity.Categories.Status == nil {
-			break
-		}
-
-		return e.complexity.Categories.Status(childComplexity), true
-
 	case "CategoriesConnection.edges":
 		if e.complexity.CategoriesConnection.Edges == nil {
 			break
@@ -700,13 +826,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Contacts.ID(childComplexity), true
-
-	case "Contacts.status":
-		if e.complexity.Contacts.Status == nil {
-			break
-		}
-
-		return e.complexity.Contacts.Status(childComplexity), true
 
 	case "FeedBackConnection.edges":
 		if e.complexity.FeedBackConnection.Edges == nil {
@@ -792,13 +911,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.FeedBacks.Phone(childComplexity), true
 
-	case "FeedBacks.status":
-		if e.complexity.FeedBacks.Status == nil {
-			break
-		}
-
-		return e.complexity.FeedBacks.Status(childComplexity), true
-
 	case "Friend.friends":
 		if e.complexity.Friend.Friends == nil {
 			break
@@ -833,13 +945,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Menues.Link(childComplexity), true
-
-	case "Menues.status":
-		if e.complexity.Menues.Status == nil {
-			break
-		}
-
-		return e.complexity.Menues.Status(childComplexity), true
 
 	case "Menues.target":
 		if e.complexity.Menues.Target == nil {
@@ -1417,6 +1522,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.News.CategoryID(childComplexity), true
 
+	case "News.content":
+		if e.complexity.News.Content == nil {
+			break
+		}
+
+		return e.complexity.News.Content(childComplexity), true
+
 	case "News.createdAt":
 		if e.complexity.News.CreatedAt == nil {
 			break
@@ -1493,13 +1605,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.News.ModifiedData(childComplexity), true
-
-	case "News.status":
-		if e.complexity.News.Status == nil {
-			break
-		}
-
-		return e.complexity.News.Status(childComplexity), true
 
 	case "News.tagId":
 		if e.complexity.News.TagID == nil {
@@ -1676,13 +1781,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.ProductCategory.Name(childComplexity), true
 
-	case "ProductCategory.status":
-		if e.complexity.ProductCategory.Status == nil {
-			break
-		}
-
-		return e.complexity.ProductCategory.Status(childComplexity), true
-
 	case "ProductCategory.title":
 		if e.complexity.ProductCategory.Title == nil {
 			break
@@ -1809,13 +1907,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Products.Price(childComplexity), true
 
-	case "Products.stauts":
-		if e.complexity.Products.Stauts == nil {
-			break
-		}
-
-		return e.complexity.Products.Stauts(childComplexity), true
-
 	case "Products.title":
 		if e.complexity.Products.Title == nil {
 			break
@@ -1913,13 +2004,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Profile.Phone(childComplexity), true
-
-	case "Profile.status":
-		if e.complexity.Profile.Status == nil {
-			break
-		}
-
-		return e.complexity.Profile.Status(childComplexity), true
 
 	case "Profile.userId":
 		if e.complexity.Profile.UserID == nil {
@@ -2052,6 +2136,706 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Tags(childComplexity), true
 
+	case "ResultCasbinRule.id":
+		if e.complexity.ResultCasbinRule.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultCasbinRule.ID(childComplexity), true
+
+	case "ResultCasbinRule.pType":
+		if e.complexity.ResultCasbinRule.PType == nil {
+			break
+		}
+
+		return e.complexity.ResultCasbinRule.PType(childComplexity), true
+
+	case "ResultCasbinRule.v0":
+		if e.complexity.ResultCasbinRule.V0 == nil {
+			break
+		}
+
+		return e.complexity.ResultCasbinRule.V0(childComplexity), true
+
+	case "ResultCasbinRule.v1":
+		if e.complexity.ResultCasbinRule.V1 == nil {
+			break
+		}
+
+		return e.complexity.ResultCasbinRule.V1(childComplexity), true
+
+	case "ResultCasbinRule.v2":
+		if e.complexity.ResultCasbinRule.V2 == nil {
+			break
+		}
+
+		return e.complexity.ResultCasbinRule.V2(childComplexity), true
+
+	case "ResultCategories.createdAt":
+		if e.complexity.ResultCategories.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.CreatedAt(childComplexity), true
+
+	case "ResultCategories.createdBy":
+		if e.complexity.ResultCategories.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.CreatedBy(childComplexity), true
+
+	case "ResultCategories.displayOrder":
+		if e.complexity.ResultCategories.DisplayOrder == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.DisplayOrder(childComplexity), true
+
+	case "ResultCategories.id":
+		if e.complexity.ResultCategories.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.ID(childComplexity), true
+
+	case "ResultCategories.metaDescription":
+		if e.complexity.ResultCategories.MetaDescription == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.MetaDescription(childComplexity), true
+
+	case "ResultCategories.metaKeyword":
+		if e.complexity.ResultCategories.MetaKeyword == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.MetaKeyword(childComplexity), true
+
+	case "ResultCategories.metaTitle":
+		if e.complexity.ResultCategories.MetaTitle == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.MetaTitle(childComplexity), true
+
+	case "ResultCategories.modifiedBy":
+		if e.complexity.ResultCategories.ModifiedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.ModifiedBy(childComplexity), true
+
+	case "ResultCategories.modifiedDate":
+		if e.complexity.ResultCategories.ModifiedDate == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.ModifiedDate(childComplexity), true
+
+	case "ResultCategories.name":
+		if e.complexity.ResultCategories.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultCategories.Name(childComplexity), true
+
+	case "ResultContact.content":
+		if e.complexity.ResultContact.Content == nil {
+			break
+		}
+
+		return e.complexity.ResultContact.Content(childComplexity), true
+
+	case "ResultContact.id":
+		if e.complexity.ResultContact.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultContact.ID(childComplexity), true
+
+	case "ResultFeedBacks.address":
+		if e.complexity.ResultFeedBacks.Address == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.Address(childComplexity), true
+
+	case "ResultFeedBacks.content":
+		if e.complexity.ResultFeedBacks.Content == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.Content(childComplexity), true
+
+	case "ResultFeedBacks.createdAt":
+		if e.complexity.ResultFeedBacks.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.CreatedAt(childComplexity), true
+
+	case "ResultFeedBacks.email":
+		if e.complexity.ResultFeedBacks.Email == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.Email(childComplexity), true
+
+	case "ResultFeedBacks.id":
+		if e.complexity.ResultFeedBacks.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.ID(childComplexity), true
+
+	case "ResultFeedBacks.name":
+		if e.complexity.ResultFeedBacks.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.Name(childComplexity), true
+
+	case "ResultFeedBacks.phone":
+		if e.complexity.ResultFeedBacks.Phone == nil {
+			break
+		}
+
+		return e.complexity.ResultFeedBacks.Phone(childComplexity), true
+
+	case "ResultFriend.id":
+		if e.complexity.ResultFriend.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultFriend.ID(childComplexity), true
+
+	case "ResultMenues.displayOrder":
+		if e.complexity.ResultMenues.DisplayOrder == nil {
+			break
+		}
+
+		return e.complexity.ResultMenues.DisplayOrder(childComplexity), true
+
+	case "ResultMenues.link":
+		if e.complexity.ResultMenues.Link == nil {
+			break
+		}
+
+		return e.complexity.ResultMenues.Link(childComplexity), true
+
+	case "ResultMenues.target":
+		if e.complexity.ResultMenues.Target == nil {
+			break
+		}
+
+		return e.complexity.ResultMenues.Target(childComplexity), true
+
+	case "ResultMenues.text":
+		if e.complexity.ResultMenues.Text == nil {
+			break
+		}
+
+		return e.complexity.ResultMenues.Text(childComplexity), true
+
+	case "ResultNewTag.id":
+		if e.complexity.ResultNewTag.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultNewTag.ID(childComplexity), true
+
+	case "ResultNewTag.name":
+		if e.complexity.ResultNewTag.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultNewTag.Name(childComplexity), true
+
+	case "ResultNewTag.tagId":
+		if e.complexity.ResultNewTag.TagID == nil {
+			break
+		}
+
+		return e.complexity.ResultNewTag.TagID(childComplexity), true
+
+	case "ResultNews.categoryId":
+		if e.complexity.ResultNews.CategoryID == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.CategoryID(childComplexity), true
+
+	case "ResultNews.content":
+		if e.complexity.ResultNews.Content == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.Content(childComplexity), true
+
+	case "ResultNews.createdAt":
+		if e.complexity.ResultNews.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.CreatedAt(childComplexity), true
+
+	case "ResultNews.createdBy":
+		if e.complexity.ResultNews.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.CreatedBy(childComplexity), true
+
+	case "ResultNews.description":
+		if e.complexity.ResultNews.Description == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.Description(childComplexity), true
+
+	case "ResultNews.detail":
+		if e.complexity.ResultNews.Detail == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.Detail(childComplexity), true
+
+	case "ResultNews.id":
+		if e.complexity.ResultNews.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.ID(childComplexity), true
+
+	case "ResultNews.image":
+		if e.complexity.ResultNews.Image == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.Image(childComplexity), true
+
+	case "ResultNews.metaDescription":
+		if e.complexity.ResultNews.MetaDescription == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.MetaDescription(childComplexity), true
+
+	case "ResultNews.metaKeyWord":
+		if e.complexity.ResultNews.MetaKeyWord == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.MetaKeyWord(childComplexity), true
+
+	case "ResultNews.metaTitle":
+		if e.complexity.ResultNews.MetaTitle == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.MetaTitle(childComplexity), true
+
+	case "ResultNews.modifiedBy":
+		if e.complexity.ResultNews.ModifiedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.ModifiedBy(childComplexity), true
+
+	case "ResultNews.modifiedData":
+		if e.complexity.ResultNews.ModifiedData == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.ModifiedData(childComplexity), true
+
+	case "ResultNews.tagId":
+		if e.complexity.ResultNews.TagID == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.TagID(childComplexity), true
+
+	case "ResultNews.title":
+		if e.complexity.ResultNews.Title == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.Title(childComplexity), true
+
+	case "ResultNews.topHot":
+		if e.complexity.ResultNews.TopHot == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.TopHot(childComplexity), true
+
+	case "ResultNews.viewCount":
+		if e.complexity.ResultNews.ViewCount == nil {
+			break
+		}
+
+		return e.complexity.ResultNews.ViewCount(childComplexity), true
+
+	case "ResultProduct.catedgoryId":
+		if e.complexity.ResultProduct.CatedgoryID == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.CatedgoryID(childComplexity), true
+
+	case "ResultProduct.code":
+		if e.complexity.ResultProduct.Code == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Code(childComplexity), true
+
+	case "ResultProduct.createdBy":
+		if e.complexity.ResultProduct.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.CreatedBy(childComplexity), true
+
+	case "ResultProduct.createdDate":
+		if e.complexity.ResultProduct.CreatedDate == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.CreatedDate(childComplexity), true
+
+	case "ResultProduct.description":
+		if e.complexity.ResultProduct.Description == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Description(childComplexity), true
+
+	case "ResultProduct.detail":
+		if e.complexity.ResultProduct.Detail == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Detail(childComplexity), true
+
+	case "ResultProduct.id":
+		if e.complexity.ResultProduct.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.ID(childComplexity), true
+
+	case "ResultProduct.images":
+		if e.complexity.ResultProduct.Images == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Images(childComplexity), true
+
+	case "ResultProduct.modifiedBy":
+		if e.complexity.ResultProduct.ModifiedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.ModifiedBy(childComplexity), true
+
+	case "ResultProduct.modifiedDate":
+		if e.complexity.ResultProduct.ModifiedDate == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.ModifiedDate(childComplexity), true
+
+	case "ResultProduct.name":
+		if e.complexity.ResultProduct.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Name(childComplexity), true
+
+	case "ResultProduct.price":
+		if e.complexity.ResultProduct.Price == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Price(childComplexity), true
+
+	case "ResultProduct.title":
+		if e.complexity.ResultProduct.Title == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Title(childComplexity), true
+
+	case "ResultProduct.topHot":
+		if e.complexity.ResultProduct.TopHot == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.TopHot(childComplexity), true
+
+	case "ResultProduct.vat":
+		if e.complexity.ResultProduct.Vat == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.Vat(childComplexity), true
+
+	case "ResultProduct.viewCounts":
+		if e.complexity.ResultProduct.ViewCounts == nil {
+			break
+		}
+
+		return e.complexity.ResultProduct.ViewCounts(childComplexity), true
+
+	case "ResultProductCategory.createdAt":
+		if e.complexity.ResultProductCategory.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.CreatedAt(childComplexity), true
+
+	case "ResultProductCategory.createdBy":
+		if e.complexity.ResultProductCategory.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.CreatedBy(childComplexity), true
+
+	case "ResultProductCategory.description":
+		if e.complexity.ResultProductCategory.Description == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.Description(childComplexity), true
+
+	case "ResultProductCategory.displayOrder":
+		if e.complexity.ResultProductCategory.DisplayOrder == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.DisplayOrder(childComplexity), true
+
+	case "ResultProductCategory.id":
+		if e.complexity.ResultProductCategory.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.ID(childComplexity), true
+
+	case "ResultProductCategory.metaTitle":
+		if e.complexity.ResultProductCategory.MetaTitle == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.MetaTitle(childComplexity), true
+
+	case "ResultProductCategory.modifiedBy":
+		if e.complexity.ResultProductCategory.ModifiedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.ModifiedBy(childComplexity), true
+
+	case "ResultProductCategory.modifiedDate":
+		if e.complexity.ResultProductCategory.ModifiedDate == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.ModifiedDate(childComplexity), true
+
+	case "ResultProductCategory.name":
+		if e.complexity.ResultProductCategory.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.Name(childComplexity), true
+
+	case "ResultProductCategory.title":
+		if e.complexity.ResultProductCategory.Title == nil {
+			break
+		}
+
+		return e.complexity.ResultProductCategory.Title(childComplexity), true
+
+	case "ResultProfile.address":
+		if e.complexity.ResultProfile.Address == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.Address(childComplexity), true
+
+	case "ResultProfile.createdAt":
+		if e.complexity.ResultProfile.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.CreatedAt(childComplexity), true
+
+	case "ResultProfile.createdBy":
+		if e.complexity.ResultProfile.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.CreatedBy(childComplexity), true
+
+	case "ResultProfile.firstName":
+		if e.complexity.ResultProfile.FirstName == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.FirstName(childComplexity), true
+
+	case "ResultProfile.id":
+		if e.complexity.ResultProfile.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.ID(childComplexity), true
+
+	case "ResultProfile.lastName":
+		if e.complexity.ResultProfile.LastName == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.LastName(childComplexity), true
+
+	case "ResultProfile.modifiedBy":
+		if e.complexity.ResultProfile.ModifiedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.ModifiedBy(childComplexity), true
+
+	case "ResultProfile.modifiedDate":
+		if e.complexity.ResultProfile.ModifiedDate == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.ModifiedDate(childComplexity), true
+
+	case "ResultProfile.phone":
+		if e.complexity.ResultProfile.Phone == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.Phone(childComplexity), true
+
+	case "ResultProfile.userId":
+		if e.complexity.ResultProfile.UserID == nil {
+			break
+		}
+
+		return e.complexity.ResultProfile.UserID(childComplexity), true
+
+	case "ResultSliders.createdAt":
+		if e.complexity.ResultSliders.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.CreatedAt(childComplexity), true
+
+	case "ResultSliders.description":
+		if e.complexity.ResultSliders.Description == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.Description(childComplexity), true
+
+	case "ResultSliders.displayOrder":
+		if e.complexity.ResultSliders.DisplayOrder == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.DisplayOrder(childComplexity), true
+
+	case "ResultSliders.id":
+		if e.complexity.ResultSliders.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.ID(childComplexity), true
+
+	case "ResultSliders.image":
+		if e.complexity.ResultSliders.Image == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.Image(childComplexity), true
+
+	case "ResultSliders.link":
+		if e.complexity.ResultSliders.Link == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.Link(childComplexity), true
+
+	case "ResultSliders.modifiedAt":
+		if e.complexity.ResultSliders.ModifiedAt == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.ModifiedAt(childComplexity), true
+
+	case "ResultSliders.modifiedBy":
+		if e.complexity.ResultSliders.ModifiedBy == nil {
+			break
+		}
+
+		return e.complexity.ResultSliders.ModifiedBy(childComplexity), true
+
+	case "ResultSystemConfig.id":
+		if e.complexity.ResultSystemConfig.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultSystemConfig.ID(childComplexity), true
+
+	case "ResultSystemConfig.name":
+		if e.complexity.ResultSystemConfig.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultSystemConfig.Name(childComplexity), true
+
+	case "ResultSystemConfig.type":
+		if e.complexity.ResultSystemConfig.Type == nil {
+			break
+		}
+
+		return e.complexity.ResultSystemConfig.Type(childComplexity), true
+
+	case "ResultSystemConfig.value":
+		if e.complexity.ResultSystemConfig.Value == nil {
+			break
+		}
+
+		return e.complexity.ResultSystemConfig.Value(childComplexity), true
+
+	case "ResultTags.id":
+		if e.complexity.ResultTags.ID == nil {
+			break
+		}
+
+		return e.complexity.ResultTags.ID(childComplexity), true
+
+	case "ResultTags.name":
+		if e.complexity.ResultTags.Name == nil {
+			break
+		}
+
+		return e.complexity.ResultTags.Name(childComplexity), true
+
+	case "ResultTags.newId":
+		if e.complexity.ResultTags.NewID == nil {
+			break
+		}
+
+		return e.complexity.ResultTags.NewID(childComplexity), true
+
 	case "ResultToken.payload":
 		if e.complexity.ResultToken.Payload == nil {
 			break
@@ -2136,13 +2920,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Sliders.ModifiedBy(childComplexity), true
 
-	case "Sliders.status":
-		if e.complexity.Sliders.Status == nil {
-			break
-		}
-
-		return e.complexity.Sliders.Status(childComplexity), true
-
 	case "SystemConfig.id":
 		if e.complexity.SystemConfig.ID == nil {
 			break
@@ -2156,13 +2933,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.SystemConfig.Name(childComplexity), true
-
-	case "SystemConfig.status":
-		if e.complexity.SystemConfig.Status == nil {
-			break
-		}
-
-		return e.complexity.SystemConfig.Status(childComplexity), true
 
 	case "SystemConfig.type":
 		if e.complexity.SystemConfig.Type == nil {
@@ -2395,44 +3165,44 @@ type Query {
 }
 
 type Mutation {
-  CreateNews(input: InputNews): News
-  CreateTags(input: InputTags): Tags
-  CreateNewTag(input: InputNewTag): NewTag
-  CreateCasbinRule(input: InputCasbinRule): CasbinRule
-  CreateCategories(input: InputCategories): Categories
-  CreateContact(input: InputContact): Contacts
-  CreateFeebBack(input: InputFeedBacks): FeedBacks
-  CreateProduct(input: InputProduct): Products
-  CreateProfile(input: InputProfile): Profile
-  CreateMenues(input: InputMenues): Menues
-  CreateProductCategories(input: InputProductCategory): ProductCategory
-  CreateSliders(input: InputSliders): Sliders
+  CreateNews(input: InputNews): Boolean
+  CreateTags(input: InputTags): Boolean
+  CreateNewTag(input: InputNewTag): Boolean
+  CreateCasbinRule(input: InputCasbinRule): Boolean
+  CreateCategories(input: InputCategories): Boolean
+  CreateContact(input: InputContact): Boolean
+  CreateFeebBack(input: InputFeedBacks): Boolean
+  CreateProduct(input: InputProduct): Boolean
+  CreateProfile(input: InputProfile): Boolean
+  CreateMenues(input: InputMenues): Boolean
+  CreateProductCategories(input: InputProductCategory): Boolean
+  CreateSliders(input: InputSliders): Boolean
 
-  UpdateNews(id: Int,input: InputNews): News
-  UpdateTags(id: Int,input: InputTags): Tags
-  UpdateNewTag(id: Int,input: InputNewTag): NewTag
-  UpdateCasbinRule(id: Int,input: InputCasbinRule): CasbinRule
-  UpdateCategories(id: Int,input: InputCategories): Categories
-  UpdateContact(id: Int,input: InputContact): Contacts
-  UpdateFeebBack(id: Int,input: InputFeedBacks): FeedBacks
-  UpdateProduct(id: Int,input: InputProduct): Products
-  UpdateProfile(id: Int,input: InputProfile): Profile
-  UpdateMenues(id: Int,input: InputMenues): Menues
-  UpdateProductCategories(id: Int,input: InputProductCategory): ProductCategory
-  UpdateSliders(id: Int,input: InputSliders): Sliders
+  UpdateNews(id: Int,input: InputNews): Boolean
+  UpdateTags(id: Int,input: InputTags): Boolean
+  UpdateNewTag(id: Int,input: InputNewTag): Boolean
+  UpdateCasbinRule(id: Int,input: InputCasbinRule): Boolean
+  UpdateCategories(id: Int,input: InputCategories): Boolean
+  UpdateContact(id: Int,input: InputContact): Boolean
+  UpdateFeebBack(id: Int,input: InputFeedBacks): Boolean
+  UpdateProduct(id: Int,input: InputProduct): Boolean
+  UpdateProfile(id: Int,input: InputProfile): Boolean
+  UpdateMenues(id: Int,input: InputMenues): Boolean
+  UpdateProductCategories(id: Int,input: InputProductCategory): Boolean
+  UpdateSliders(id: Int,input: InputSliders): Boolean
 
-  DeleteNews(id: Int): News
-  DeleteTags(id: Int): Tags
-  DeleteNewTag(id: Int): NewTag
-  DeleteCasbinRule(id: Int): CasbinRule
-  DeleteCategories(id: Int): Categories
-  DeleteContact(id: Int): Contacts
-  DeleteFeebBack(id: Int): FeedBacks
-  DeleteProduct(id: Int): Products
-  DeleteProfile(userId: Int): Profile
-  DeleteMenues(id: Int): Menues
-  DeleteProductCategories(id: Int): ProductCategory
-  DeleteSliders(id: Int): Sliders
+  DeleteNews(id: Int): Boolean
+  DeleteTags(id: Int): Boolean
+  DeleteNewTag(id: Int): Boolean
+  DeleteCasbinRule(id: Int): Boolean
+  DeleteCategories(id: Int): Boolean
+  DeleteContact(id: Int): Boolean
+  DeleteFeebBack(id: Int): Boolean
+  DeleteProduct(id: Int): Boolean
+  DeleteProfile(userId: Int): Boolean
+  DeleteMenues(id: Int): Boolean
+  DeleteProductCategories(id: Int): Boolean
+  DeleteSliders(id: Int): Boolean
 
   refreshToken(token: String): ResultToken
 
@@ -2483,12 +3253,32 @@ type News implements Node{
   modifiedBy: String
   metaKeyWord:String
   metaDescription: String
-  status: Int
   topHot: String
   viewCount: Int
+  content: String
   tagId: Int
   tags: [Tags]
   categories: [Categories]
+}
+
+type ResultNews {
+  id: ID!
+  title: String
+  metaTitle: String
+  description: String
+  image: String
+  categoryId: Int
+  detail: String
+  createdAt: String
+  createdBy:String
+  modifiedData: String
+  modifiedBy: String
+  metaKeyWord:String
+  metaDescription: String
+  topHot: String
+  viewCount: Int
+  content: String
+  tagId: Int
 }
 
 input PaginationInput {
@@ -2520,10 +3310,10 @@ input InputNews {
   modifiedBy: String
   metaKeyWord:String
   metaDescription: String
-  status: Int
   topHot: String
   viewCount: Int
   tagId: Int
+  content: String
 }
 
 type Tags implements Node{
@@ -2532,6 +3322,12 @@ type Tags implements Node{
   newId: Int
   news: [News]
   newTag: [NewTag]
+}
+
+type ResultTags {
+  id: ID!
+  name: String
+  newId: Int
 }
 
 type TagsEdge {
@@ -2556,6 +3352,12 @@ type NewTag implements Node{
   name: String
 }
 
+type ResultNewTag {
+  id: ID!
+  tagId: Int
+  name: String
+}
+
 type NewTagsEdge {
   cursor: String
   node: NewTag
@@ -2573,6 +3375,14 @@ input InputNewTag {
 }
 
 type CasbinRule implements Node {
+  id: ID!
+  pType: String
+  v0: String
+  v1: String
+  v2: String
+}
+
+type ResultCasbinRule {
   id: ID!
   pType: String
   v0: String
@@ -2610,7 +3420,19 @@ type Categories implements Node {
   modifiedBy: String
   metaKeyword: String
   metaDescription: String
-  status: Int
+}
+
+type ResultCategories {
+  id: ID!
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  metaKeyword: String
+  metaDescription: String
 }
 
 type CategoriesEdge {
@@ -2634,13 +3456,16 @@ input InputCategories {
   modifiedBy: String
   metaKeyword: String
   metaDescription: String
-  status: Int
 }
 
 type Contacts implements Node{
   id:ID!
   content: String
-  status: Int
+}
+
+type ResultContact {
+  id:ID!
+  content: String
 }
 
 type ContactEdge {
@@ -2656,7 +3481,6 @@ type ContactConnection {
 
 input InputContact {
   content: String
-  status: Int
 }
 
 type FeedBacks implements Node{
@@ -2666,7 +3490,16 @@ type FeedBacks implements Node{
   email: String
   address: String
   content: String
-  status: Int
+  createdAt: String
+}
+
+type ResultFeedBacks {
+  id: ID!
+  name: String
+  phone: String
+  email: String
+  address: String
+  content: String
   createdAt: String
 }
 
@@ -2687,7 +3520,6 @@ input InputFeedBacks {
   email: String
   address: String
   content: String
-  status: Int
 }
 
 type Products implements Node{
@@ -2705,7 +3537,25 @@ type Products implements Node{
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  stauts: Int
+  topHot: String
+  viewCounts: Int
+}
+
+type ResultProduct {
+  id: ID!
+  code: String
+  name: String
+  title: String
+  description: String
+  images: String
+  price: Int
+  vat: Int
+  catedgoryId: Int
+  detail: String
+  createdDate: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
   topHot: String
   viewCounts: Int
 }
@@ -2735,7 +3585,6 @@ input InputProduct {
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  stauts: Int
   topHot: String
 }
 
@@ -2750,13 +3599,29 @@ type Profile implements Node{
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  status:Int
   friendId: [Int]
+}
+
+type ResultProfile {
+  id: ID!
+  userId: ID
+  firstName: String
+  lastName: String
+  address: String
+  phone: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
 }
 
 type Friend implements Node{
   id: ID!
   friends: [Profile]
+}
+
+type ResultFriend {
+  id: ID!
 }
 
 type ProfileEdge {
@@ -2780,7 +3645,6 @@ input InputProfile {
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  status:Int
 }
 
 type Users implements Node{
@@ -2795,7 +3659,13 @@ type SystemConfig implements Node{
   name: String
   type: String
   value: String
-  status: String
+}
+
+type ResultSystemConfig {
+  id: ID!
+  name: String
+  type: String
+  value: String
 }
 
 type SystemConfigEdge {
@@ -2815,7 +3685,13 @@ type Menues implements Node{
   link: String
   displayOrder: Int
   target: String
-  status: Int
+}
+
+type ResultMenues {
+  text: String
+  link: String
+  displayOrder: Int
+  target: String
 }
 
 input InputMenues {
@@ -2823,7 +3699,6 @@ input InputMenues {
   link: String
   displayOrder: Int
   target: String
-  status: Int
 }
 
 type ProductCategory implements Node{
@@ -2837,7 +3712,19 @@ type ProductCategory implements Node{
   modifiedDate: String
   modifiedBy: String
   description: String
-  status: Int
+}
+
+type ResultProductCategory {
+  id: ID!
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  title: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  description: String
 }
 
 input InputProductCategory {
@@ -2850,7 +3737,6 @@ input InputProductCategory {
   modifiedDate: String
   modifiedBy: String
   description: String
-  status: Int
 }
 
 type Sliders implements Node{
@@ -2862,7 +3748,17 @@ type Sliders implements Node{
   createdAt: String
   modifiedAt: String
   modifiedBy: String
-  status: Int
+}
+
+type ResultSliders {
+  id: ID!
+  image: String
+  displayOrder: Int
+  link: String
+  description: String
+  createdAt: String
+  modifiedAt: String
+  modifiedBy: String
 }
 
 input InputSliders {
@@ -2873,7 +3769,6 @@ input InputSliders {
   createdAt: String
   modifiedAt: String
   modifiedBy: String
-  status: Int
 }`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -4319,38 +5214,6 @@ func (ec *executionContext) _Categories_metaDescription(ctx context.Context, fie
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Categories_status(ctx context.Context, field graphql.CollectedField, obj *model.Categories) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Categories",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _CategoriesConnection_pageInfo(ctx context.Context, field graphql.CollectedField, obj *model.CategoriesConnection) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -4738,38 +5601,6 @@ func (ec *executionContext) _Contacts_content(ctx context.Context, field graphql
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Contacts_status(ctx context.Context, field graphql.CollectedField, obj *model.Contacts) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Contacts",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _FeedBackConnection_pageInfo(ctx context.Context, field graphql.CollectedField, obj *model.FeedBackConnection) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -5125,38 +5956,6 @@ func (ec *executionContext) _FeedBacks_content(ctx context.Context, field graphq
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _FeedBacks_status(ctx context.Context, field graphql.CollectedField, obj *model.FeedBacks) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "FeedBacks",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _FeedBacks_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.FeedBacks) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -5419,38 +6218,6 @@ func (ec *executionContext) _Menues_target(ctx context.Context, field graphql.Co
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Menues_status(ctx context.Context, field graphql.CollectedField, obj *model.Menues) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Menues",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Mutation_CreateNews(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -5485,9 +6252,9 @@ func (ec *executionContext) _Mutation_CreateNews(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.News)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalONews2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNews(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateTags(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5524,9 +6291,9 @@ func (ec *executionContext) _Mutation_CreateTags(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Tags)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOTags2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐTags(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateNewTag(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5563,9 +6330,9 @@ func (ec *executionContext) _Mutation_CreateNewTag(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.NewTag)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalONewTag2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNewTag(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateCasbinRule(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5602,9 +6369,9 @@ func (ec *executionContext) _Mutation_CreateCasbinRule(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.CasbinRule)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOCasbinRule2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCasbinRule(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateCategories(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5641,9 +6408,9 @@ func (ec *executionContext) _Mutation_CreateCategories(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Categories)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOCategories2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCategories(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateContact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5680,9 +6447,9 @@ func (ec *executionContext) _Mutation_CreateContact(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Contacts)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOContacts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐContacts(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateFeebBack(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5719,9 +6486,9 @@ func (ec *executionContext) _Mutation_CreateFeebBack(ctx context.Context, field 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.FeedBacks)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOFeedBacks2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐFeedBacks(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateProduct(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5758,9 +6525,9 @@ func (ec *executionContext) _Mutation_CreateProduct(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Products)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProducts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProducts(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateProfile(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5797,9 +6564,9 @@ func (ec *executionContext) _Mutation_CreateProfile(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Profile)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProfile(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateMenues(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5836,9 +6603,9 @@ func (ec *executionContext) _Mutation_CreateMenues(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Menues)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOMenues2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐMenues(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateProductCategories(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5875,9 +6642,9 @@ func (ec *executionContext) _Mutation_CreateProductCategories(ctx context.Contex
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.ProductCategory)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProductCategory2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProductCategory(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_CreateSliders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5914,9 +6681,9 @@ func (ec *executionContext) _Mutation_CreateSliders(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Sliders)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOSliders2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐSliders(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateNews(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5953,9 +6720,9 @@ func (ec *executionContext) _Mutation_UpdateNews(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.News)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalONews2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNews(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateTags(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5992,9 +6759,9 @@ func (ec *executionContext) _Mutation_UpdateTags(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Tags)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOTags2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐTags(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateNewTag(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6031,9 +6798,9 @@ func (ec *executionContext) _Mutation_UpdateNewTag(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.NewTag)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalONewTag2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNewTag(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateCasbinRule(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6070,9 +6837,9 @@ func (ec *executionContext) _Mutation_UpdateCasbinRule(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.CasbinRule)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOCasbinRule2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCasbinRule(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateCategories(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6109,9 +6876,9 @@ func (ec *executionContext) _Mutation_UpdateCategories(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Categories)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOCategories2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCategories(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateContact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6148,9 +6915,9 @@ func (ec *executionContext) _Mutation_UpdateContact(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Contacts)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOContacts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐContacts(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateFeebBack(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6187,9 +6954,9 @@ func (ec *executionContext) _Mutation_UpdateFeebBack(ctx context.Context, field 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.FeedBacks)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOFeedBacks2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐFeedBacks(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateProduct(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6226,9 +6993,9 @@ func (ec *executionContext) _Mutation_UpdateProduct(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Products)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProducts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProducts(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateProfile(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6265,9 +7032,9 @@ func (ec *executionContext) _Mutation_UpdateProfile(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Profile)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProfile(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateMenues(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6304,9 +7071,9 @@ func (ec *executionContext) _Mutation_UpdateMenues(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Menues)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOMenues2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐMenues(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateProductCategories(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6343,9 +7110,9 @@ func (ec *executionContext) _Mutation_UpdateProductCategories(ctx context.Contex
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.ProductCategory)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProductCategory2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProductCategory(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_UpdateSliders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6382,9 +7149,9 @@ func (ec *executionContext) _Mutation_UpdateSliders(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Sliders)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOSliders2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐSliders(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteNews(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6421,9 +7188,9 @@ func (ec *executionContext) _Mutation_DeleteNews(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.News)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalONews2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNews(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteTags(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6460,9 +7227,9 @@ func (ec *executionContext) _Mutation_DeleteTags(ctx context.Context, field grap
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Tags)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOTags2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐTags(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteNewTag(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6499,9 +7266,9 @@ func (ec *executionContext) _Mutation_DeleteNewTag(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.NewTag)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalONewTag2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNewTag(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteCasbinRule(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6538,9 +7305,9 @@ func (ec *executionContext) _Mutation_DeleteCasbinRule(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.CasbinRule)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOCasbinRule2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCasbinRule(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteCategories(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6577,9 +7344,9 @@ func (ec *executionContext) _Mutation_DeleteCategories(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Categories)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOCategories2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCategories(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteContact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6616,9 +7383,9 @@ func (ec *executionContext) _Mutation_DeleteContact(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Contacts)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOContacts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐContacts(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteFeebBack(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6655,9 +7422,9 @@ func (ec *executionContext) _Mutation_DeleteFeebBack(ctx context.Context, field 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.FeedBacks)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOFeedBacks2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐFeedBacks(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteProduct(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6694,9 +7461,9 @@ func (ec *executionContext) _Mutation_DeleteProduct(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Products)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProducts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProducts(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteProfile(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6733,9 +7500,9 @@ func (ec *executionContext) _Mutation_DeleteProfile(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Profile)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProfile(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteMenues(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6772,9 +7539,9 @@ func (ec *executionContext) _Mutation_DeleteMenues(ctx context.Context, field gr
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Menues)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOMenues2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐMenues(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteProductCategories(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6811,9 +7578,9 @@ func (ec *executionContext) _Mutation_DeleteProductCategories(ctx context.Contex
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.ProductCategory)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOProductCategory2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProductCategory(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_DeleteSliders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -6850,9 +7617,9 @@ func (ec *executionContext) _Mutation_DeleteSliders(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.Sliders)
+	res := resTmp.(*bool)
 	fc.Result = res
-	return ec.marshalOSliders2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐSliders(ctx, field.Selections, res)
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_refreshToken(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -7728,38 +8495,6 @@ func (ec *executionContext) _News_metaDescription(ctx context.Context, field gra
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _News_status(ctx context.Context, field graphql.CollectedField, obj *model.News) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "News",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _News_topHot(ctx context.Context, field graphql.CollectedField, obj *model.News) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -7822,6 +8557,38 @@ func (ec *executionContext) _News_viewCount(ctx context.Context, field graphql.C
 	res := resTmp.(*int)
 	fc.Result = res
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _News_content(ctx context.Context, field graphql.CollectedField, obj *model.News) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "News",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Content, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _News_tagId(ctx context.Context, field graphql.CollectedField, obj *model.News) (ret graphql.Marshaler) {
@@ -8601,38 +9368,6 @@ func (ec *executionContext) _ProductCategory_description(ctx context.Context, fi
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _ProductCategory_status(ctx context.Context, field graphql.CollectedField, obj *model.ProductCategory) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "ProductCategory",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _ProductConnection_pageInfo(ctx context.Context, field graphql.CollectedField, obj *model.ProductConnection) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -9244,38 +9979,6 @@ func (ec *executionContext) _Products_modifiedBy(ctx context.Context, field grap
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Products_stauts(ctx context.Context, field graphql.CollectedField, obj *model.Products) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Products",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Stauts, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Products_topHot(ctx context.Context, field graphql.CollectedField, obj *model.Products) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -9661,38 +10364,6 @@ func (ec *executionContext) _Profile_modifiedBy(ctx context.Context, field graph
 	res := resTmp.(*string)
 	fc.Result = res
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Profile_status(ctx context.Context, field graphql.CollectedField, obj *model.Profile) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Profile",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Profile_friendId(ctx context.Context, field graphql.CollectedField, obj *model.Profile) (ret graphql.Marshaler) {
@@ -10349,6 +11020,3245 @@ func (ec *executionContext) _Query___schema(ctx context.Context, field graphql.C
 	return ec.marshalO__Schema2ᚖgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐSchema(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _ResultCasbinRule_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultCasbinRule) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCasbinRule",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCasbinRule_pType(ctx context.Context, field graphql.CollectedField, obj *model.ResultCasbinRule) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCasbinRule",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.PType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCasbinRule_v0(ctx context.Context, field graphql.CollectedField, obj *model.ResultCasbinRule) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCasbinRule",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.V0, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCasbinRule_v1(ctx context.Context, field graphql.CollectedField, obj *model.ResultCasbinRule) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCasbinRule",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.V1, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCasbinRule_v2(ctx context.Context, field graphql.CollectedField, obj *model.ResultCasbinRule) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCasbinRule",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.V2, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_metaTitle(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaTitle, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_displayOrder(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DisplayOrder, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_createdBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_modifiedDate(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_modifiedBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_metaKeyword(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaKeyword, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultCategories_metaDescription(ctx context.Context, field graphql.CollectedField, obj *model.ResultCategories) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultCategories",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaDescription, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultContact_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultContact) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultContact",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultContact_content(ctx context.Context, field graphql.CollectedField, obj *model.ResultContact) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultContact",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Content, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_phone(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Phone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_email(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Email, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_address(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Address, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_content(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Content, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFeedBacks_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultFeedBacks) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFeedBacks",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultFriend_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultFriend) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultFriend",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultMenues_text(ctx context.Context, field graphql.CollectedField, obj *model.ResultMenues) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultMenues",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Text, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultMenues_link(ctx context.Context, field graphql.CollectedField, obj *model.ResultMenues) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultMenues",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Link, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultMenues_displayOrder(ctx context.Context, field graphql.CollectedField, obj *model.ResultMenues) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultMenues",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DisplayOrder, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultMenues_target(ctx context.Context, field graphql.CollectedField, obj *model.ResultMenues) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultMenues",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Target, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNewTag_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultNewTag) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNewTag",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNewTag_tagId(ctx context.Context, field graphql.CollectedField, obj *model.ResultNewTag) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNewTag",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TagID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNewTag_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultNewTag) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNewTag",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_title(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Title, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_metaTitle(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaTitle, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_description(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Description, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_image(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Image, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_categoryId(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CategoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_detail(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Detail, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_createdBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_modifiedData(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedData, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_modifiedBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_metaKeyWord(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaKeyWord, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_metaDescription(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaDescription, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_topHot(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TopHot, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_viewCount(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ViewCount, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_content(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Content, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultNews_tagId(ctx context.Context, field graphql.CollectedField, obj *model.ResultNews) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultNews",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TagID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_code(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Code, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_title(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Title, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_description(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Description, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_images(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Images, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_price(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Price, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_vat(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Vat, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_catedgoryId(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CatedgoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_detail(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Detail, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_createdDate(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_createdBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_modifiedDate(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_modifiedBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_topHot(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TopHot, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProduct_viewCounts(ctx context.Context, field graphql.CollectedField, obj *model.ResultProduct) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProduct",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ViewCounts, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_metaTitle(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MetaTitle, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_displayOrder(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DisplayOrder, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_title(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Title, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_createdBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_modifiedDate(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_modifiedBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProductCategory_description(ctx context.Context, field graphql.CollectedField, obj *model.ResultProductCategory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProductCategory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Description, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_userId(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UserID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_firstName(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FirstName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_lastName(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LastName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_address(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Address, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_phone(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Phone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_createdBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_modifiedDate(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultProfile_modifiedBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultProfile) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultProfile",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_image(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Image, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_displayOrder(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DisplayOrder, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_link(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Link, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_description(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Description, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_modifiedAt(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSliders_modifiedBy(ctx context.Context, field graphql.CollectedField, obj *model.ResultSliders) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSliders",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModifiedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSystemConfig_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultSystemConfig) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSystemConfig",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSystemConfig_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultSystemConfig) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSystemConfig",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSystemConfig_type(ctx context.Context, field graphql.CollectedField, obj *model.ResultSystemConfig) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSystemConfig",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Type, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultSystemConfig_value(ctx context.Context, field graphql.CollectedField, obj *model.ResultSystemConfig) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultSystemConfig",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultTags_id(ctx context.Context, field graphql.CollectedField, obj *model.ResultTags) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultTags",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNID2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultTags_name(ctx context.Context, field graphql.CollectedField, obj *model.ResultTags) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultTags",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _ResultTags_newId(ctx context.Context, field graphql.CollectedField, obj *model.ResultTags) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "ResultTags",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.NewID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _ResultToken_token(ctx context.Context, field graphql.CollectedField, obj *model.ResultToken) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -10736,38 +14646,6 @@ func (ec *executionContext) _Sliders_modifiedBy(ctx context.Context, field graph
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Sliders_status(ctx context.Context, field graphql.CollectedField, obj *model.Sliders) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Sliders",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _SystemConfig_id(ctx context.Context, field graphql.CollectedField, obj *model.SystemConfig) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -10886,38 +14764,6 @@ func (ec *executionContext) _SystemConfig_value(ctx context.Context, field graph
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.Value, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _SystemConfig_status(ctx context.Context, field graphql.CollectedField, obj *model.SystemConfig) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "SystemConfig",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Status, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -12762,14 +16608,6 @@ func (ec *executionContext) unmarshalInputInputCategories(ctx context.Context, o
 			if err != nil {
 				return it, err
 			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		}
 	}
 
@@ -12787,14 +16625,6 @@ func (ec *executionContext) unmarshalInputInputContact(ctx context.Context, obj 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("content"))
 			it.Content, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -12850,14 +16680,6 @@ func (ec *executionContext) unmarshalInputInputFeedBacks(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		}
 	}
 
@@ -12899,14 +16721,6 @@ func (ec *executionContext) unmarshalInputInputMenues(ctx context.Context, obj i
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("target"))
 			it.Target, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -13046,14 +16860,6 @@ func (ec *executionContext) unmarshalInputInputNews(ctx context.Context, obj int
 			if err != nil {
 				return it, err
 			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "topHot":
 			var err error
 
@@ -13075,6 +16881,14 @@ func (ec *executionContext) unmarshalInputInputNews(ctx context.Context, obj int
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tagId"))
 			it.TagID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "content":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("content"))
+			it.Content, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -13194,14 +17008,6 @@ func (ec *executionContext) unmarshalInputInputProduct(ctx context.Context, obj 
 			if err != nil {
 				return it, err
 			}
-		case "stauts":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stauts"))
-			it.Stauts, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "topHot":
 			var err error
 
@@ -13294,14 +17100,6 @@ func (ec *executionContext) unmarshalInputInputProductCategory(ctx context.Conte
 			if err != nil {
 				return it, err
 			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		}
 	}
 
@@ -13386,14 +17184,6 @@ func (ec *executionContext) unmarshalInputInputProfile(ctx context.Context, obj 
 			if err != nil {
 				return it, err
 			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		}
 	}
 
@@ -13459,14 +17249,6 @@ func (ec *executionContext) unmarshalInputInputSliders(ctx context.Context, obj 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modifiedBy"))
 			it.ModifiedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			it.Status, err = ec.unmarshalOInt2ᚖint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -13777,8 +17559,6 @@ func (ec *executionContext) _Categories(ctx context.Context, sel ast.SelectionSe
 			out.Values[i] = ec._Categories_metaKeyword(ctx, field, obj)
 		case "metaDescription":
 			out.Values[i] = ec._Categories_metaDescription(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._Categories_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -13916,8 +17696,6 @@ func (ec *executionContext) _Contacts(ctx context.Context, sel ast.SelectionSet,
 			}
 		case "content":
 			out.Values[i] = ec._Contacts_content(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._Contacts_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -14009,8 +17787,6 @@ func (ec *executionContext) _FeedBacks(ctx context.Context, sel ast.SelectionSet
 			out.Values[i] = ec._FeedBacks_address(ctx, field, obj)
 		case "content":
 			out.Values[i] = ec._FeedBacks_content(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._FeedBacks_status(ctx, field, obj)
 		case "createdAt":
 			out.Values[i] = ec._FeedBacks_createdAt(ctx, field, obj)
 		default:
@@ -14077,8 +17853,6 @@ func (ec *executionContext) _Menues(ctx context.Context, sel ast.SelectionSet, o
 			out.Values[i] = ec._Menues_displayOrder(ctx, field, obj)
 		case "target":
 			out.Values[i] = ec._Menues_target(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._Menues_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -14323,12 +18097,12 @@ func (ec *executionContext) _News(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._News_metaKeyWord(ctx, field, obj)
 		case "metaDescription":
 			out.Values[i] = ec._News_metaDescription(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._News_status(ctx, field, obj)
 		case "topHot":
 			out.Values[i] = ec._News_topHot(ctx, field, obj)
 		case "viewCount":
 			out.Values[i] = ec._News_viewCount(ctx, field, obj)
+		case "content":
+			out.Values[i] = ec._News_content(ctx, field, obj)
 		case "tagId":
 			out.Values[i] = ec._News_tagId(ctx, field, obj)
 		case "tags":
@@ -14496,8 +18270,6 @@ func (ec *executionContext) _ProductCategory(ctx context.Context, sel ast.Select
 			out.Values[i] = ec._ProductCategory_modifiedBy(ctx, field, obj)
 		case "description":
 			out.Values[i] = ec._ProductCategory_description(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._ProductCategory_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -14605,8 +18377,6 @@ func (ec *executionContext) _Products(ctx context.Context, sel ast.SelectionSet,
 			out.Values[i] = ec._Products_modifiedDate(ctx, field, obj)
 		case "modifiedBy":
 			out.Values[i] = ec._Products_modifiedBy(ctx, field, obj)
-		case "stauts":
-			out.Values[i] = ec._Products_stauts(ctx, field, obj)
 		case "topHot":
 			out.Values[i] = ec._Products_topHot(ctx, field, obj)
 		case "viewCounts":
@@ -14656,8 +18426,6 @@ func (ec *executionContext) _Profile(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Profile_modifiedDate(ctx, field, obj)
 		case "modifiedBy":
 			out.Values[i] = ec._Profile_modifiedBy(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._Profile_status(ctx, field, obj)
 		case "friendId":
 			out.Values[i] = ec._Profile_friendId(ctx, field, obj)
 		default:
@@ -14887,6 +18655,553 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 	return out
 }
 
+var resultCasbinRuleImplementors = []string{"ResultCasbinRule"}
+
+func (ec *executionContext) _ResultCasbinRule(ctx context.Context, sel ast.SelectionSet, obj *model.ResultCasbinRule) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultCasbinRuleImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultCasbinRule")
+		case "id":
+			out.Values[i] = ec._ResultCasbinRule_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "pType":
+			out.Values[i] = ec._ResultCasbinRule_pType(ctx, field, obj)
+		case "v0":
+			out.Values[i] = ec._ResultCasbinRule_v0(ctx, field, obj)
+		case "v1":
+			out.Values[i] = ec._ResultCasbinRule_v1(ctx, field, obj)
+		case "v2":
+			out.Values[i] = ec._ResultCasbinRule_v2(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultCategoriesImplementors = []string{"ResultCategories"}
+
+func (ec *executionContext) _ResultCategories(ctx context.Context, sel ast.SelectionSet, obj *model.ResultCategories) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultCategoriesImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultCategories")
+		case "id":
+			out.Values[i] = ec._ResultCategories_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+			out.Values[i] = ec._ResultCategories_name(ctx, field, obj)
+		case "metaTitle":
+			out.Values[i] = ec._ResultCategories_metaTitle(ctx, field, obj)
+		case "displayOrder":
+			out.Values[i] = ec._ResultCategories_displayOrder(ctx, field, obj)
+		case "createdAt":
+			out.Values[i] = ec._ResultCategories_createdAt(ctx, field, obj)
+		case "createdBy":
+			out.Values[i] = ec._ResultCategories_createdBy(ctx, field, obj)
+		case "modifiedDate":
+			out.Values[i] = ec._ResultCategories_modifiedDate(ctx, field, obj)
+		case "modifiedBy":
+			out.Values[i] = ec._ResultCategories_modifiedBy(ctx, field, obj)
+		case "metaKeyword":
+			out.Values[i] = ec._ResultCategories_metaKeyword(ctx, field, obj)
+		case "metaDescription":
+			out.Values[i] = ec._ResultCategories_metaDescription(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultContactImplementors = []string{"ResultContact"}
+
+func (ec *executionContext) _ResultContact(ctx context.Context, sel ast.SelectionSet, obj *model.ResultContact) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultContactImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultContact")
+		case "id":
+			out.Values[i] = ec._ResultContact_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "content":
+			out.Values[i] = ec._ResultContact_content(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultFeedBacksImplementors = []string{"ResultFeedBacks"}
+
+func (ec *executionContext) _ResultFeedBacks(ctx context.Context, sel ast.SelectionSet, obj *model.ResultFeedBacks) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultFeedBacksImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultFeedBacks")
+		case "id":
+			out.Values[i] = ec._ResultFeedBacks_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+			out.Values[i] = ec._ResultFeedBacks_name(ctx, field, obj)
+		case "phone":
+			out.Values[i] = ec._ResultFeedBacks_phone(ctx, field, obj)
+		case "email":
+			out.Values[i] = ec._ResultFeedBacks_email(ctx, field, obj)
+		case "address":
+			out.Values[i] = ec._ResultFeedBacks_address(ctx, field, obj)
+		case "content":
+			out.Values[i] = ec._ResultFeedBacks_content(ctx, field, obj)
+		case "createdAt":
+			out.Values[i] = ec._ResultFeedBacks_createdAt(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultFriendImplementors = []string{"ResultFriend"}
+
+func (ec *executionContext) _ResultFriend(ctx context.Context, sel ast.SelectionSet, obj *model.ResultFriend) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultFriendImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultFriend")
+		case "id":
+			out.Values[i] = ec._ResultFriend_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultMenuesImplementors = []string{"ResultMenues"}
+
+func (ec *executionContext) _ResultMenues(ctx context.Context, sel ast.SelectionSet, obj *model.ResultMenues) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultMenuesImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultMenues")
+		case "text":
+			out.Values[i] = ec._ResultMenues_text(ctx, field, obj)
+		case "link":
+			out.Values[i] = ec._ResultMenues_link(ctx, field, obj)
+		case "displayOrder":
+			out.Values[i] = ec._ResultMenues_displayOrder(ctx, field, obj)
+		case "target":
+			out.Values[i] = ec._ResultMenues_target(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultNewTagImplementors = []string{"ResultNewTag"}
+
+func (ec *executionContext) _ResultNewTag(ctx context.Context, sel ast.SelectionSet, obj *model.ResultNewTag) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultNewTagImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultNewTag")
+		case "id":
+			out.Values[i] = ec._ResultNewTag_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "tagId":
+			out.Values[i] = ec._ResultNewTag_tagId(ctx, field, obj)
+		case "name":
+			out.Values[i] = ec._ResultNewTag_name(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultNewsImplementors = []string{"ResultNews"}
+
+func (ec *executionContext) _ResultNews(ctx context.Context, sel ast.SelectionSet, obj *model.ResultNews) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultNewsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultNews")
+		case "id":
+			out.Values[i] = ec._ResultNews_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "title":
+			out.Values[i] = ec._ResultNews_title(ctx, field, obj)
+		case "metaTitle":
+			out.Values[i] = ec._ResultNews_metaTitle(ctx, field, obj)
+		case "description":
+			out.Values[i] = ec._ResultNews_description(ctx, field, obj)
+		case "image":
+			out.Values[i] = ec._ResultNews_image(ctx, field, obj)
+		case "categoryId":
+			out.Values[i] = ec._ResultNews_categoryId(ctx, field, obj)
+		case "detail":
+			out.Values[i] = ec._ResultNews_detail(ctx, field, obj)
+		case "createdAt":
+			out.Values[i] = ec._ResultNews_createdAt(ctx, field, obj)
+		case "createdBy":
+			out.Values[i] = ec._ResultNews_createdBy(ctx, field, obj)
+		case "modifiedData":
+			out.Values[i] = ec._ResultNews_modifiedData(ctx, field, obj)
+		case "modifiedBy":
+			out.Values[i] = ec._ResultNews_modifiedBy(ctx, field, obj)
+		case "metaKeyWord":
+			out.Values[i] = ec._ResultNews_metaKeyWord(ctx, field, obj)
+		case "metaDescription":
+			out.Values[i] = ec._ResultNews_metaDescription(ctx, field, obj)
+		case "topHot":
+			out.Values[i] = ec._ResultNews_topHot(ctx, field, obj)
+		case "viewCount":
+			out.Values[i] = ec._ResultNews_viewCount(ctx, field, obj)
+		case "content":
+			out.Values[i] = ec._ResultNews_content(ctx, field, obj)
+		case "tagId":
+			out.Values[i] = ec._ResultNews_tagId(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultProductImplementors = []string{"ResultProduct"}
+
+func (ec *executionContext) _ResultProduct(ctx context.Context, sel ast.SelectionSet, obj *model.ResultProduct) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultProductImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultProduct")
+		case "id":
+			out.Values[i] = ec._ResultProduct_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "code":
+			out.Values[i] = ec._ResultProduct_code(ctx, field, obj)
+		case "name":
+			out.Values[i] = ec._ResultProduct_name(ctx, field, obj)
+		case "title":
+			out.Values[i] = ec._ResultProduct_title(ctx, field, obj)
+		case "description":
+			out.Values[i] = ec._ResultProduct_description(ctx, field, obj)
+		case "images":
+			out.Values[i] = ec._ResultProduct_images(ctx, field, obj)
+		case "price":
+			out.Values[i] = ec._ResultProduct_price(ctx, field, obj)
+		case "vat":
+			out.Values[i] = ec._ResultProduct_vat(ctx, field, obj)
+		case "catedgoryId":
+			out.Values[i] = ec._ResultProduct_catedgoryId(ctx, field, obj)
+		case "detail":
+			out.Values[i] = ec._ResultProduct_detail(ctx, field, obj)
+		case "createdDate":
+			out.Values[i] = ec._ResultProduct_createdDate(ctx, field, obj)
+		case "createdBy":
+			out.Values[i] = ec._ResultProduct_createdBy(ctx, field, obj)
+		case "modifiedDate":
+			out.Values[i] = ec._ResultProduct_modifiedDate(ctx, field, obj)
+		case "modifiedBy":
+			out.Values[i] = ec._ResultProduct_modifiedBy(ctx, field, obj)
+		case "topHot":
+			out.Values[i] = ec._ResultProduct_topHot(ctx, field, obj)
+		case "viewCounts":
+			out.Values[i] = ec._ResultProduct_viewCounts(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultProductCategoryImplementors = []string{"ResultProductCategory"}
+
+func (ec *executionContext) _ResultProductCategory(ctx context.Context, sel ast.SelectionSet, obj *model.ResultProductCategory) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultProductCategoryImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultProductCategory")
+		case "id":
+			out.Values[i] = ec._ResultProductCategory_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+			out.Values[i] = ec._ResultProductCategory_name(ctx, field, obj)
+		case "metaTitle":
+			out.Values[i] = ec._ResultProductCategory_metaTitle(ctx, field, obj)
+		case "displayOrder":
+			out.Values[i] = ec._ResultProductCategory_displayOrder(ctx, field, obj)
+		case "title":
+			out.Values[i] = ec._ResultProductCategory_title(ctx, field, obj)
+		case "createdAt":
+			out.Values[i] = ec._ResultProductCategory_createdAt(ctx, field, obj)
+		case "createdBy":
+			out.Values[i] = ec._ResultProductCategory_createdBy(ctx, field, obj)
+		case "modifiedDate":
+			out.Values[i] = ec._ResultProductCategory_modifiedDate(ctx, field, obj)
+		case "modifiedBy":
+			out.Values[i] = ec._ResultProductCategory_modifiedBy(ctx, field, obj)
+		case "description":
+			out.Values[i] = ec._ResultProductCategory_description(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultProfileImplementors = []string{"ResultProfile"}
+
+func (ec *executionContext) _ResultProfile(ctx context.Context, sel ast.SelectionSet, obj *model.ResultProfile) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultProfileImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultProfile")
+		case "id":
+			out.Values[i] = ec._ResultProfile_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "userId":
+			out.Values[i] = ec._ResultProfile_userId(ctx, field, obj)
+		case "firstName":
+			out.Values[i] = ec._ResultProfile_firstName(ctx, field, obj)
+		case "lastName":
+			out.Values[i] = ec._ResultProfile_lastName(ctx, field, obj)
+		case "address":
+			out.Values[i] = ec._ResultProfile_address(ctx, field, obj)
+		case "phone":
+			out.Values[i] = ec._ResultProfile_phone(ctx, field, obj)
+		case "createdAt":
+			out.Values[i] = ec._ResultProfile_createdAt(ctx, field, obj)
+		case "createdBy":
+			out.Values[i] = ec._ResultProfile_createdBy(ctx, field, obj)
+		case "modifiedDate":
+			out.Values[i] = ec._ResultProfile_modifiedDate(ctx, field, obj)
+		case "modifiedBy":
+			out.Values[i] = ec._ResultProfile_modifiedBy(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultSlidersImplementors = []string{"ResultSliders"}
+
+func (ec *executionContext) _ResultSliders(ctx context.Context, sel ast.SelectionSet, obj *model.ResultSliders) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultSlidersImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultSliders")
+		case "id":
+			out.Values[i] = ec._ResultSliders_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "image":
+			out.Values[i] = ec._ResultSliders_image(ctx, field, obj)
+		case "displayOrder":
+			out.Values[i] = ec._ResultSliders_displayOrder(ctx, field, obj)
+		case "link":
+			out.Values[i] = ec._ResultSliders_link(ctx, field, obj)
+		case "description":
+			out.Values[i] = ec._ResultSliders_description(ctx, field, obj)
+		case "createdAt":
+			out.Values[i] = ec._ResultSliders_createdAt(ctx, field, obj)
+		case "modifiedAt":
+			out.Values[i] = ec._ResultSliders_modifiedAt(ctx, field, obj)
+		case "modifiedBy":
+			out.Values[i] = ec._ResultSliders_modifiedBy(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultSystemConfigImplementors = []string{"ResultSystemConfig"}
+
+func (ec *executionContext) _ResultSystemConfig(ctx context.Context, sel ast.SelectionSet, obj *model.ResultSystemConfig) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultSystemConfigImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultSystemConfig")
+		case "id":
+			out.Values[i] = ec._ResultSystemConfig_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+			out.Values[i] = ec._ResultSystemConfig_name(ctx, field, obj)
+		case "type":
+			out.Values[i] = ec._ResultSystemConfig_type(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._ResultSystemConfig_value(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var resultTagsImplementors = []string{"ResultTags"}
+
+func (ec *executionContext) _ResultTags(ctx context.Context, sel ast.SelectionSet, obj *model.ResultTags) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, resultTagsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("ResultTags")
+		case "id":
+			out.Values[i] = ec._ResultTags_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+			out.Values[i] = ec._ResultTags_name(ctx, field, obj)
+		case "newId":
+			out.Values[i] = ec._ResultTags_newId(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
 var resultTokenImplementors = []string{"ResultToken"}
 
 func (ec *executionContext) _ResultToken(ctx context.Context, sel ast.SelectionSet, obj *model.ResultToken) graphql.Marshaler {
@@ -14947,8 +19262,6 @@ func (ec *executionContext) _Sliders(ctx context.Context, sel ast.SelectionSet, 
 			out.Values[i] = ec._Sliders_modifiedAt(ctx, field, obj)
 		case "modifiedBy":
 			out.Values[i] = ec._Sliders_modifiedBy(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._Sliders_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -14982,8 +19295,6 @@ func (ec *executionContext) _SystemConfig(ctx context.Context, sel ast.Selection
 			out.Values[i] = ec._SystemConfig_type(ctx, field, obj)
 		case "value":
 			out.Values[i] = ec._SystemConfig_value(ctx, field, obj)
-		case "status":
-			out.Values[i] = ec._SystemConfig_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -16120,13 +20431,6 @@ func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.Sele
 	return graphql.MarshalInt(*v)
 }
 
-func (ec *executionContext) marshalOMenues2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐMenues(ctx context.Context, sel ast.SelectionSet, v *model.Menues) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._Menues(ctx, sel, v)
-}
-
 func (ec *executionContext) marshalONewTag2ᚕᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNewTag(ctx context.Context, sel ast.SelectionSet, v []*model.NewTag) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -16350,13 +20654,6 @@ func (ec *executionContext) marshalOPayLoad2ᚖgithubᚗcomᚋJIeeiroSstᚋstore
 	return ec._PayLoad(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOProductCategory2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProductCategory(ctx context.Context, sel ast.SelectionSet, v *model.ProductCategory) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._ProductCategory(ctx, sel, v)
-}
-
 func (ec *executionContext) marshalOProductConnection2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProductConnection(ctx context.Context, sel ast.SelectionSet, v *model.ProductConnection) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -16524,13 +20821,6 @@ func (ec *executionContext) marshalOResultToken2ᚖgithubᚗcomᚋJIeeiroSstᚋs
 		return graphql.Null
 	}
 	return ec._ResultToken(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOSliders2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐSliders(ctx context.Context, sel ast.SelectionSet, v *model.Sliders) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._Sliders(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalOString2string(ctx context.Context, v interface{}) (string, error) {

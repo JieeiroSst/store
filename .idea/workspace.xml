@@ -2,11 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef0ffdeb-6e4d-49ff-8a7f-edeecf19e4bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/base-code/base-code.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/pagination/pagination.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2548b6b2-6a28-461f-8ad1-73e60db6908a.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/logger/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/tranfer/tranfer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/persistence.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/persistence.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/news/news.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/query/news/news.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/tags/tags.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/query/tags/tags.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/generated/generated.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/generated/generated.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/model/models_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/model/models_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/schema.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/graph/schema.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/schema.resolvers.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/schema.resolvers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/abouts/abouts.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/abouts/abouts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/categories/categories.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/categories/categories.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/contacts/contacts.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/contacts/contacts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/feed-backs/feed-backs.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/feed-backs/feed-backs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/menues/menues.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/menues/menues.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/news/news.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/news/news.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/product_category/product_category.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/product_category/product_category.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/products/products.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/products/products.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/profiles/profiles.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/profiles/profiles.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sliders/sliders.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/sliders/sliders.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/system_config/system_config.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/system_config/system_config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/jwt/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/jwt/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/pagination/pagination.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/pagination/pagination.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,5 +126,21 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="555" y="215" width="800" height="684" key="#GOROOT/0.27.1920.1053@0.27.1920.1053" timestamp="1610160265301" />
+    <state x="555" y="215" width="800" height="684" key="#SQL_Dialects" timestamp="1610375419988">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="555" y="215" width="800" height="684" key="#SQL_Dialects/0.27.1920.1053@0.27.1920.1053" timestamp="1610375419988" />
+    <state x="723" y="266" width="464" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1610354526038">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="723" y="266" width="464" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1610354526038" />
+    <state x="728" y="473" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610363710130">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="728" y="473" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1610363710130" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1610357703931">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1610357703931" />
   </component>
 </project>

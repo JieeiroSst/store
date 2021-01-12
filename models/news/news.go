@@ -1,8 +1,8 @@
 package news
 
 import (
-	"time"
 	"github.com/JIeeiroSst/store/models/paginations"
+	"time"
 )
 
 type News struct {
@@ -19,11 +19,11 @@ type News struct {
 	ModifiedBy string
 	MetaKeyWord string
 	MetaDescription string
-	Status int
 	TopHot time.Time
 	ViewCount int
 	TagId int
 	Email string
+	Content string
 }
 
 type NewsEdge struct {
@@ -50,8 +50,8 @@ type InputNews struct {
 	ModifiedBy string
 	MetaKeyWord string
 	MetaDescription string
-	Status int
 	TopHot string
 	ViewCount int
 	TagId int
+	Content string
 }

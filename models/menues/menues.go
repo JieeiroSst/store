@@ -6,7 +6,6 @@ type Menues struct {
 	Link string
 	DisplayOrder int
 	Target string
-	Status int
 }
 
 type InputMenues struct {
@@ -14,5 +13,4 @@ type InputMenues struct {
 	Link string
 	DisplayOrder int
 	Target string
-	Status int
 }

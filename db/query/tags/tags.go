@@ -2,6 +2,7 @@ package tags
 
 import (
 	db "github.com/JIeeiroSst/store/component"
+	"github.com/JIeeiroSst/store/graph/model"
 	"github.com/JIeeiroSst/store/models/tags"
 )
 
@@ -13,7 +14,7 @@ func TagsById(tags tags.Tags,id int)  {
 	db.GetConn().Find(&tags,id)
 }
 
-func CreateTags(tags tags.Tags){
+func CreateTags(tags model.Tags) {
 	db.GetConn().Create(&tags)
 }
 

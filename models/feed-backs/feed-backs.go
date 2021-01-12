@@ -12,7 +12,6 @@ type FeedBacks struct {
 	Email string
 	Address string
 	Content string
-	Status int
 	CreatedAt time.Time
 }
 
@@ -33,5 +32,4 @@ type InputFeedBacks struct {
 	Email string
 	Address string
 	Content string
-	Status int
 }

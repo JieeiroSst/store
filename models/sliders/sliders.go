@@ -12,7 +12,6 @@ type Sliders struct {
 	CreatedBy string
 	ModifiedAt time.Time
 	ModifiedBy string
-	Status int
 }
 
 type InputSliders struct {
@@ -24,5 +23,4 @@ type InputSliders struct {
 	CreatedBy string
 	ModifiedAt time.Time
 	ModifiedBy string
-	Status int
 }

@@ -20,7 +20,6 @@ type Products struct {
 	CreatedBy string
 	ModifiedDate time.Time
 	ModifiedBy string
-	Status int
 	TopHot time.Time
 	ViewCount int
 }
@@ -50,6 +49,5 @@ type InputProduct struct {
 	CreatedBy string
 	ModifiedDate time.Time
 	ModifiedBy string
-	Status int
 	TopHot time.Time
 }

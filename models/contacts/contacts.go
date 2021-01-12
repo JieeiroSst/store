@@ -5,7 +5,6 @@ import "github.com/JIeeiroSst/store/models/paginations"
 type Contacts struct {
 	Id int
 	Content string
-	Status int
 }
 
 type ContactEdge struct {
@@ -21,5 +20,4 @@ type ContactConnection struct {
 
 type InputContact struct {
 	Content string
-	Status int
 }

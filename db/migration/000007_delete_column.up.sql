@@ -1,0 +1,10 @@
+alter table news drop column status;
+alter table abouts drop column status;
+alter table contacts drop column status;
+alter table feed_backs drop column status;
+alter table menues drop column status;
+alter table product_category drop column status;
+alter table products drop column status;
+alter table profile drop column status;
+alter table sliders drop column status;
+alter table system_config drop column status;

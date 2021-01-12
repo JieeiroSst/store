@@ -15,7 +15,6 @@ type Categories struct {
 	ModifiedDate time.Time
 	MetaKeyword string
 	MetaDescription string
-	Status int
 }
 
 type CategoriesEdge struct {
@@ -38,5 +37,4 @@ type InoutCategories struct {
 	ModifiedDate time.Time
 	MetaKeyword string
 	MetaDescription string
-	Status int
 }

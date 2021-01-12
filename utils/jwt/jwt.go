@@ -18,7 +18,7 @@ func GenerateToken(id int,username string) (string, error) {
 	atClaims["authorized"] = true
 	atClaims["user_id"] = id
 	atClaims["username"]=username
-	atClaims["exp"] = time.Now().Add(time.Minute * 15).Unix()
+	atClaims["exp"] = time.Now().Add(time.Hour * 60 *60).Unix()
 	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)
 	token, err := at.SignedString([]byte(key))
 	if err != nil {

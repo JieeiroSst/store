@@ -7,7 +7,6 @@ type SystemConfig struct {
 	Name string
 	Types string
 	Value string
-	Status int
 }
 
 type SystemConfigEdge struct {

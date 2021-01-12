@@ -18,44 +18,44 @@ type Query {
 }
 
 type Mutation {
-  CreateNews(input: InputNews): News
-  CreateTags(input: InputTags): Tags
-  CreateNewTag(input: InputNewTag): NewTag
-  CreateCasbinRule(input: InputCasbinRule): CasbinRule
-  CreateCategories(input: InputCategories): Categories
-  CreateContact(input: InputContact): Contacts
-  CreateFeebBack(input: InputFeedBacks): FeedBacks
-  CreateProduct(input: InputProduct): Products
-  CreateProfile(input: InputProfile): Profile
-  CreateMenues(input: InputMenues): Menues
-  CreateProductCategories(input: InputProductCategory): ProductCategory
-  CreateSliders(input: InputSliders): Sliders
+  CreateNews(input: InputNews): Boolean
+  CreateTags(input: InputTags): Boolean
+  CreateNewTag(input: InputNewTag): Boolean
+  CreateCasbinRule(input: InputCasbinRule): Boolean
+  CreateCategories(input: InputCategories): Boolean
+  CreateContact(input: InputContact): Boolean
+  CreateFeebBack(input: InputFeedBacks): Boolean
+  CreateProduct(input: InputProduct): Boolean
+  CreateProfile(input: InputProfile): Boolean
+  CreateMenues(input: InputMenues): Boolean
+  CreateProductCategories(input: InputProductCategory): Boolean
+  CreateSliders(input: InputSliders): Boolean
 
-  UpdateNews(id: Int,input: InputNews): News
-  UpdateTags(id: Int,input: InputTags): Tags
-  UpdateNewTag(id: Int,input: InputNewTag): NewTag
-  UpdateCasbinRule(id: Int,input: InputCasbinRule): CasbinRule
-  UpdateCategories(id: Int,input: InputCategories): Categories
-  UpdateContact(id: Int,input: InputContact): Contacts
-  UpdateFeebBack(id: Int,input: InputFeedBacks): FeedBacks
-  UpdateProduct(id: Int,input: InputProduct): Products
-  UpdateProfile(id: Int,input: InputProfile): Profile
-  UpdateMenues(id: Int,input: InputMenues): Menues
-  UpdateProductCategories(id: Int,input: InputProductCategory): ProductCategory
-  UpdateSliders(id: Int,input: InputSliders): Sliders
+  UpdateNews(id: Int,input: InputNews): Boolean
+  UpdateTags(id: Int,input: InputTags): Boolean
+  UpdateNewTag(id: Int,input: InputNewTag): Boolean
+  UpdateCasbinRule(id: Int,input: InputCasbinRule): Boolean
+  UpdateCategories(id: Int,input: InputCategories): Boolean
+  UpdateContact(id: Int,input: InputContact): Boolean
+  UpdateFeebBack(id: Int,input: InputFeedBacks): Boolean
+  UpdateProduct(id: Int,input: InputProduct): Boolean
+  UpdateProfile(id: Int,input: InputProfile): Boolean
+  UpdateMenues(id: Int,input: InputMenues): Boolean
+  UpdateProductCategories(id: Int,input: InputProductCategory): Boolean
+  UpdateSliders(id: Int,input: InputSliders): Boolean
 
-  DeleteNews(id: Int): News
-  DeleteTags(id: Int): Tags
-  DeleteNewTag(id: Int): NewTag
-  DeleteCasbinRule(id: Int): CasbinRule
-  DeleteCategories(id: Int): Categories
-  DeleteContact(id: Int): Contacts
-  DeleteFeebBack(id: Int): FeedBacks
-  DeleteProduct(id: Int): Products
-  DeleteProfile(userId: Int): Profile
-  DeleteMenues(id: Int): Menues
-  DeleteProductCategories(id: Int): ProductCategory
-  DeleteSliders(id: Int): Sliders
+  DeleteNews(id: Int): Boolean
+  DeleteTags(id: Int): Boolean
+  DeleteNewTag(id: Int): Boolean
+  DeleteCasbinRule(id: Int): Boolean
+  DeleteCategories(id: Int): Boolean
+  DeleteContact(id: Int): Boolean
+  DeleteFeebBack(id: Int): Boolean
+  DeleteProduct(id: Int): Boolean
+  DeleteProfile(userId: Int): Boolean
+  DeleteMenues(id: Int): Boolean
+  DeleteProductCategories(id: Int): Boolean
+  DeleteSliders(id: Int): Boolean
 
   refreshToken(token: String): ResultToken
 
@@ -106,12 +106,32 @@ type News implements Node{
   modifiedBy: String
   metaKeyWord:String
   metaDescription: String
-  status: Int
   topHot: String
   viewCount: Int
+  content: String
   tagId: Int
   tags: [Tags]
   categories: [Categories]
+}
+
+type ResultNews {
+  id: ID!
+  title: String
+  metaTitle: String
+  description: String
+  image: String
+  categoryId: Int
+  detail: String
+  createdAt: String
+  createdBy:String
+  modifiedData: String
+  modifiedBy: String
+  metaKeyWord:String
+  metaDescription: String
+  topHot: String
+  viewCount: Int
+  content: String
+  tagId: Int
 }
 
 input PaginationInput {
@@ -143,10 +163,10 @@ input InputNews {
   modifiedBy: String
   metaKeyWord:String
   metaDescription: String
-  status: Int
   topHot: String
   viewCount: Int
   tagId: Int
+  content: String
 }
 
 type Tags implements Node{
@@ -155,6 +175,12 @@ type Tags implements Node{
   newId: Int
   news: [News]
   newTag: [NewTag]
+}
+
+type ResultTags {
+  id: ID!
+  name: String
+  newId: Int
 }
 
 type TagsEdge {
@@ -179,6 +205,12 @@ type NewTag implements Node{
   name: String
 }
 
+type ResultNewTag {
+  id: ID!
+  tagId: Int
+  name: String
+}
+
 type NewTagsEdge {
   cursor: String
   node: NewTag
@@ -196,6 +228,14 @@ input InputNewTag {
 }
 
 type CasbinRule implements Node {
+  id: ID!
+  pType: String
+  v0: String
+  v1: String
+  v2: String
+}
+
+type ResultCasbinRule {
   id: ID!
   pType: String
   v0: String
@@ -233,7 +273,19 @@ type Categories implements Node {
   modifiedBy: String
   metaKeyword: String
   metaDescription: String
-  status: Int
+}
+
+type ResultCategories {
+  id: ID!
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  metaKeyword: String
+  metaDescription: String
 }
 
 type CategoriesEdge {
@@ -257,13 +309,16 @@ input InputCategories {
   modifiedBy: String
   metaKeyword: String
   metaDescription: String
-  status: Int
 }
 
 type Contacts implements Node{
   id:ID!
   content: String
-  status: Int
+}
+
+type ResultContact {
+  id:ID!
+  content: String
 }
 
 type ContactEdge {
@@ -279,7 +334,6 @@ type ContactConnection {
 
 input InputContact {
   content: String
-  status: Int
 }
 
 type FeedBacks implements Node{
@@ -289,7 +343,16 @@ type FeedBacks implements Node{
   email: String
   address: String
   content: String
-  status: Int
+  createdAt: String
+}
+
+type ResultFeedBacks {
+  id: ID!
+  name: String
+  phone: String
+  email: String
+  address: String
+  content: String
   createdAt: String
 }
 
@@ -310,7 +373,6 @@ input InputFeedBacks {
   email: String
   address: String
   content: String
-  status: Int
 }
 
 type Products implements Node{
@@ -328,7 +390,25 @@ type Products implements Node{
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  stauts: Int
+  topHot: String
+  viewCounts: Int
+}
+
+type ResultProduct {
+  id: ID!
+  code: String
+  name: String
+  title: String
+  description: String
+  images: String
+  price: Int
+  vat: Int
+  catedgoryId: Int
+  detail: String
+  createdDate: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
   topHot: String
   viewCounts: Int
 }
@@ -358,7 +438,6 @@ input InputProduct {
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  stauts: Int
   topHot: String
 }
 
@@ -373,13 +452,29 @@ type Profile implements Node{
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  status:Int
   friendId: [Int]
+}
+
+type ResultProfile {
+  id: ID!
+  userId: ID
+  firstName: String
+  lastName: String
+  address: String
+  phone: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
 }
 
 type Friend implements Node{
   id: ID!
   friends: [Profile]
+}
+
+type ResultFriend {
+  id: ID!
 }
 
 type ProfileEdge {
@@ -403,7 +498,6 @@ input InputProfile {
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  status:Int
 }
 
 type Users implements Node{
@@ -418,7 +512,13 @@ type SystemConfig implements Node{
   name: String
   type: String
   value: String
-  status: String
+}
+
+type ResultSystemConfig {
+  id: ID!
+  name: String
+  type: String
+  value: String
 }
 
 type SystemConfigEdge {
@@ -438,7 +538,13 @@ type Menues implements Node{
   link: String
   displayOrder: Int
   target: String
-  status: Int
+}
+
+type ResultMenues {
+  text: String
+  link: String
+  displayOrder: Int
+  target: String
 }
 
 input InputMenues {
@@ -446,7 +552,6 @@ input InputMenues {
   link: String
   displayOrder: Int
   target: String
-  status: Int
 }
 
 type ProductCategory implements Node{
@@ -460,7 +565,19 @@ type ProductCategory implements Node{
   modifiedDate: String
   modifiedBy: String
   description: String
-  status: Int
+}
+
+type ResultProductCategory {
+  id: ID!
+  name: String
+  metaTitle: String
+  displayOrder: Int
+  title: String
+  createdAt: String
+  createdBy: String
+  modifiedDate: String
+  modifiedBy: String
+  description: String
 }
 
 input InputProductCategory {
@@ -473,7 +590,6 @@ input InputProductCategory {
   modifiedDate: String
   modifiedBy: String
   description: String
-  status: Int
 }
 
 type Sliders implements Node{
@@ -485,7 +601,17 @@ type Sliders implements Node{
   createdAt: String
   modifiedAt: String
   modifiedBy: String
-  status: Int
+}
+
+type ResultSliders {
+  id: ID!
+  image: String
+  displayOrder: Int
+  link: String
+  description: String
+  createdAt: String
+  modifiedAt: String
+  modifiedBy: String
 }
 
 input InputSliders {
@@ -496,5 +622,4 @@ input InputSliders {
   createdAt: String
   modifiedAt: String
   modifiedBy: String
-  status: Int
 }

@@ -7,151 +7,198 @@ import (
 	"context"
 	"fmt"
 
+	db "github.com/JIeeiroSst/store/component"
 	"github.com/JIeeiroSst/store/graph/generated"
 	"github.com/JIeeiroSst/store/graph/model"
+	"github.com/JIeeiroSst/store/models/news"
+	"github.com/JIeeiroSst/store/models/tags"
+	"github.com/JIeeiroSst/store/utils/logger"
+	"github.com/JIeeiroSst/store/utils/tranfer"
+	"github.com/manucorporat/try"
 )
 
-func (r *mutationResolver) CreateNews(ctx context.Context, input *model.InputNews) (*model.News, error) {
+func (r *mutationResolver) CreateNews(ctx context.Context, input *model.InputNews) (*bool, error) {
+	check := false
+	try.This(func() {
+		data := &news.News{
+			Title:           tranfer.DeferString(input.Title),
+			MetaTitle:       tranfer.DeferString(input.MetaTitle),
+			Description:     tranfer.DeferString(input.Description),
+			Image:           tranfer.DeferString(input.Image),
+			CategoryId:      tranfer.DeferInt(input.CategoryID),
+			Detail:          tranfer.DeferString(input.Detail),
+			CreatedBy:       tranfer.DeferString(input.CreatedBy),
+			ModifiedData:    tranfer.DeferString(input.ModifiedData),
+			ModifiedBy:      tranfer.DeferString(input.ModifiedBy),
+			MetaKeyWord:     tranfer.DeferString(input.MetaKeyWord),
+			MetaDescription: tranfer.DeferString(input.MetaDescription),
+			TagId:           tranfer.DeferInt(input.TagID),
+			Content: 		 tranfer.DeferString(input.Content),
+		}
+
+		db.GetConn().Create(&data)
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
+}
+
+func (r *mutationResolver) CreateTags(ctx context.Context, input *model.InputTags) (*bool, error) {
+	check := false
+	try.This(func() {
+		data := &tags.Tags{
+			Name:  tranfer.DeferString(input.Name),
+			NewId: tranfer.DeferInt(input.NewID),
+		}
+
+		db.GetConn().Create(&data)
+		check = true
+
+	}).Finally(func() {
+		logger.Log.Info("this must be printed after the catch")
+	}).Catch(func(e try.E) {
+		logger.Log.Info(e)
+	})
+	return &check, nil
+}
+
+func (r *mutationResolver) CreateNewTag(ctx context.Context, input *model.InputNewTag) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateTags(ctx context.Context, input *model.InputTags) (*model.Tags, error) {
+func (r *mutationResolver) CreateCasbinRule(ctx context.Context, input *model.InputCasbinRule) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateNewTag(ctx context.Context, input *model.InputNewTag) (*model.NewTag, error) {
+func (r *mutationResolver) CreateCategories(ctx context.Context, input *model.InputCategories) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateCasbinRule(ctx context.Context, input *model.InputCasbinRule) (*model.CasbinRule, error) {
+func (r *mutationResolver) CreateContact(ctx context.Context, input *model.InputContact) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateCategories(ctx context.Context, input *model.InputCategories) (*model.Categories, error) {
+func (r *mutationResolver) CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateContact(ctx context.Context, input *model.InputContact) (*model.Contacts, error) {
+func (r *mutationResolver) CreateProduct(ctx context.Context, input *model.InputProduct) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.FeedBacks, error) {
+func (r *mutationResolver) CreateProfile(ctx context.Context, input *model.InputProfile) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateProduct(ctx context.Context, input *model.InputProduct) (*model.Products, error) {
+func (r *mutationResolver) CreateMenues(ctx context.Context, input *model.InputMenues) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateProfile(ctx context.Context, input *model.InputProfile) (*model.Profile, error) {
+func (r *mutationResolver) CreateProductCategories(ctx context.Context, input *model.InputProductCategory) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateMenues(ctx context.Context, input *model.InputMenues) (*model.Menues, error) {
+func (r *mutationResolver) CreateSliders(ctx context.Context, input *model.InputSliders) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateProductCategories(ctx context.Context, input *model.InputProductCategory) (*model.ProductCategory, error) {
+func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CreateSliders(ctx context.Context, input *model.InputSliders) (*model.Sliders, error) {
+func (r *mutationResolver) UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*model.News, error) {
+func (r *mutationResolver) UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*model.Tags, error) {
+func (r *mutationResolver) UpdateCasbinRule(ctx context.Context, id *int, input *model.InputCasbinRule) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*model.NewTag, error) {
+func (r *mutationResolver) UpdateCategories(ctx context.Context, id *int, input *model.InputCategories) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateCasbinRule(ctx context.Context, id *int, input *model.InputCasbinRule) (*model.CasbinRule, error) {
+func (r *mutationResolver) UpdateContact(ctx context.Context, id *int, input *model.InputContact) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateCategories(ctx context.Context, id *int, input *model.InputCategories) (*model.Categories, error) {
+func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateContact(ctx context.Context, id *int, input *model.InputContact) (*model.Contacts, error) {
+func (r *mutationResolver) UpdateProduct(ctx context.Context, id *int, input *model.InputProduct) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*model.FeedBacks, error) {
+func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateProduct(ctx context.Context, id *int, input *model.InputProduct) (*model.Products, error) {
+func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*model.Profile, error) {
+func (r *mutationResolver) UpdateProductCategories(ctx context.Context, id *int, input *model.InputProductCategory) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*model.Menues, error) {
+func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *model.InputSliders) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateProductCategories(ctx context.Context, id *int, input *model.InputProductCategory) (*model.ProductCategory, error) {
+func (r *mutationResolver) DeleteNews(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *model.InputSliders) (*model.Sliders, error) {
+func (r *mutationResolver) DeleteTags(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteNews(ctx context.Context, id *int) (*model.News, error) {
+func (r *mutationResolver) DeleteNewTag(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteTags(ctx context.Context, id *int) (*model.Tags, error) {
+func (r *mutationResolver) DeleteCasbinRule(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteNewTag(ctx context.Context, id *int) (*model.NewTag, error) {
+func (r *mutationResolver) DeleteCategories(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteCasbinRule(ctx context.Context, id *int) (*model.CasbinRule, error) {
+func (r *mutationResolver) DeleteContact(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteCategories(ctx context.Context, id *int) (*model.Categories, error) {
+func (r *mutationResolver) DeleteFeebBack(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteContact(ctx context.Context, id *int) (*model.Contacts, error) {
+func (r *mutationResolver) DeleteProduct(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteFeebBack(ctx context.Context, id *int) (*model.FeedBacks, error) {
+func (r *mutationResolver) DeleteProfile(ctx context.Context, userID *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteProduct(ctx context.Context, id *int) (*model.Products, error) {
+func (r *mutationResolver) DeleteMenues(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteProfile(ctx context.Context, userID *int) (*model.Profile, error) {
+func (r *mutationResolver) DeleteProductCategories(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) DeleteMenues(ctx context.Context, id *int) (*model.Menues, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *mutationResolver) DeleteProductCategories(ctx context.Context, id *int) (*model.ProductCategory, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *mutationResolver) DeleteSliders(ctx context.Context, id *int) (*model.Sliders, error) {
+func (r *mutationResolver) DeleteSliders(ctx context.Context, id *int) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 

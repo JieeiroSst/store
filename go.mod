@@ -15,6 +15,8 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/joho/godotenv v1.3.0
 	github.com/lib/pq v1.9.0 // indirect
+	github.com/manucorporat/try v0.0.0-20170609134256-2a0c6b941d52
+	github.com/sirupsen/logrus v1.7.0
 	github.com/urfave/cli v1.22.5
 	github.com/vektah/gqlparser/v2 v2.1.0
 	golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9
