@@ -23,6 +23,8 @@ import (
 	"github.com/JIeeiroSst/store/models/profiles"
 	"github.com/JIeeiroSst/store/models/sliders"
 	"github.com/JIeeiroSst/store/models/tags"
+	"github.com/JIeeiroSst/store/models/users"
+	"github.com/JIeeiroSst/store/utils/jwt"
 	"github.com/JIeeiroSst/store/utils/logger"
 	"github.com/JIeeiroSst/store/utils/tranfer"
 	"github.com/manucorporat/try"
@@ -44,7 +46,7 @@ func (r *mutationResolver) CreateNews(ctx context.Context, input *model.InputNew
 			MetaKeyWord:     tranfer.DeferString(input.MetaKeyWord),
 			MetaDescription: tranfer.DeferString(input.MetaDescription),
 			TagId:           tranfer.DeferInt(input.TagID),
-			Content: 		 tranfer.DeferString(input.Content),
+			Content:         tranfer.DeferString(input.Content),
 		}
 
 		db.GetConn().Create(&data)
@@ -99,7 +101,7 @@ func (r *mutationResolver) CreateNewTag(ctx context.Context, input *model.InputN
 func (r *mutationResolver) CreateCasbinRule(ctx context.Context, input *model.InputCasbinRule) (*bool, error) {
 	check := false
 	try.This(func() {
-		id ,_ :=strconv.Atoi(input.ID)
+		id, _ := strconv.Atoi(input.ID)
 
 		data := &casbin.CasbinRules{
 			Id:    id,
@@ -164,11 +166,11 @@ func (r *mutationResolver) CreateFeebBack(ctx context.Context, input *model.Inpu
 	check := false
 	try.This(func() {
 		data := &feedBacks.FeedBacks{
-			Name:      tranfer.DeferString(input.Name),
-			Phone:     tranfer.DeferString(input.Phone),
-			Email:     tranfer.DeferString(input.Email),
-			Address:   tranfer.DeferString(input.Address),
-			Content:   tranfer.DeferString(input.Content),
+			Name:    tranfer.DeferString(input.Name),
+			Phone:   tranfer.DeferString(input.Phone),
+			Email:   tranfer.DeferString(input.Email),
+			Address: tranfer.DeferString(input.Address),
+			Content: tranfer.DeferString(input.Content),
 		}
 
 		db.GetConn().Create(&data)
@@ -186,17 +188,16 @@ func (r *mutationResolver) CreateProduct(ctx context.Context, input *model.Input
 	check := false
 	try.This(func() {
 		data := &products.Products{
-			Code:         tranfer.DeferString(input.Code),
-			Name:         tranfer.DeferString(input.Name),
-			Title:        tranfer.DeferString(input.Title),
-			Description:  tranfer.DeferString(input.Description),
-			Images:       tranfer.DeferString(input.Images),
-			Price:        tranfer.DeferInt(input.Price),
-			Vat:          tranfer.DeferInt(input.Vat),
-			CategoryId:   tranfer.DeferInt(input.CatedgoryID),
-			Detail:       tranfer.DeferString(input.Detail),
-			CreatedBy:    tranfer.DeferString(input.CreatedBy),
-			ModifiedBy:   tranfer.DeferString(input.ModifiedBy),
+			Code:        tranfer.DeferString(input.Code),
+			Name:        tranfer.DeferString(input.Name),
+			Title:       tranfer.DeferString(input.Title),
+			Description: tranfer.DeferString(input.Description),
+			Images:      tranfer.DeferString(input.Images),
+			Price:       tranfer.DeferInt(input.Price),
+			CategoryId:  tranfer.DeferInt(input.CatedgoryID),
+			Detail:      tranfer.DeferString(input.Detail),
+			CreatedBy:   tranfer.DeferString(input.CreatedBy),
+			ModifiedBy:  tranfer.DeferString(input.ModifiedBy),
 		}
 
 		db.GetConn().Create(&data)
@@ -213,13 +214,13 @@ func (r *mutationResolver) CreateProduct(ctx context.Context, input *model.Input
 func (r *mutationResolver) CreateProfile(ctx context.Context, input *model.InputProfile) (*bool, error) {
 	check := false
 	try.This(func() {
-		id , _ :=strconv.Atoi(input.UserID)
+		id, _ := strconv.Atoi(input.UserID)
 		data := &profiles.Profiles{
-			UserId:       id,
-			FirstName:    tranfer.DeferString(input.FirstName),
-			LastName:     tranfer.DeferString(input.LastName),
-			Address:      tranfer.DeferString(input.Address),
-			Phone:        tranfer.DeferString(input.Phone),
+			UserId:    id,
+			FirstName: tranfer.DeferString(input.FirstName),
+			LastName:  tranfer.DeferString(input.LastName),
+			Address:   tranfer.DeferString(input.Address),
+			Phone:     tranfer.DeferString(input.Phone),
 		}
 
 		db.GetConn().Create(&data)
@@ -237,9 +238,9 @@ func (r *mutationResolver) CreateMenues(ctx context.Context, input *model.InputM
 	check := false
 	try.This(func() {
 		data := &menues.Menues{
-			Text:         tranfer.DeferString(input.Text),
-			Link:         tranfer.DeferString(input.Link),
-			Target:       tranfer.DeferString(input.Target),
+			Text:   tranfer.DeferString(input.Text),
+			Link:   tranfer.DeferString(input.Link),
+			Target: tranfer.DeferString(input.Target),
 		}
 
 		db.GetConn().Create(&data)
@@ -257,12 +258,12 @@ func (r *mutationResolver) CreateProductCategories(ctx context.Context, input *m
 	check := false
 	try.This(func() {
 		data := &productCategory.ProductCategory{
-			Name:         tranfer.DeferString(input.Name),
-			MetaTitle:    tranfer.DeferString(input.MetaTitle),
-			Title:        tranfer.DeferString(input.Title),
-			CreatedBy:    tranfer.DeferString(input.CreatedBy),
-			ModifiedBy:   tranfer.DeferString(input.ModifiedBy),
-			Description:  tranfer.DeferString(input.Description),
+			Name:        tranfer.DeferString(input.Name),
+			MetaTitle:   tranfer.DeferString(input.MetaTitle),
+			Title:       tranfer.DeferString(input.Title),
+			CreatedBy:   tranfer.DeferString(input.CreatedBy),
+			ModifiedBy:  tranfer.DeferString(input.ModifiedBy),
+			Description: tranfer.DeferString(input.Description),
 		}
 
 		db.GetConn().Create(&data)
@@ -280,9 +281,9 @@ func (r *mutationResolver) CreateSliders(ctx context.Context, input *model.Input
 	check := false
 	try.This(func() {
 		data := &sliders.Sliders{
-			Image:        tranfer.DeferString(input.Image),
-			Link:         tranfer.DeferString(input.Link),
-			Description:  tranfer.DeferString(input.Description),
+			Image:       tranfer.DeferString(input.Image),
+			Link:        tranfer.DeferString(input.Link),
+			Description: tranfer.DeferString(input.Description),
 		}
 
 		db.GetConn().Create(&data)
@@ -313,7 +314,7 @@ func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model
 			MetaKeyWord:     tranfer.DeferString(input.MetaKeyWord),
 			MetaDescription: tranfer.DeferString(input.MetaDescription),
 			TagId:           tranfer.DeferInt(input.TagID),
-			Content: 		 tranfer.DeferString(input.Content),
+			Content:         tranfer.DeferString(input.Content),
 		}
 
 		db.GetConn().Save(&data)
@@ -442,11 +443,11 @@ func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *m
 	try.This(func() {
 		db.GetConn().Where("id = ?", id).First(&feedBacks.FeedBacks{})
 		data := &feedBacks.FeedBacks{
-			Name:      tranfer.DeferString(input.Name),
-			Phone:     tranfer.DeferString(input.Phone),
-			Email:     tranfer.DeferString(input.Email),
-			Address:   tranfer.DeferString(input.Address),
-			Content:   tranfer.DeferString(input.Content),
+			Name:    tranfer.DeferString(input.Name),
+			Phone:   tranfer.DeferString(input.Phone),
+			Email:   tranfer.DeferString(input.Email),
+			Address: tranfer.DeferString(input.Address),
+			Content: tranfer.DeferString(input.Content),
 		}
 
 		db.GetConn().Save(&data)
@@ -466,17 +467,16 @@ func (r *mutationResolver) UpdateProduct(ctx context.Context, id *int, input *mo
 	try.This(func() {
 		db.GetConn().Where("id = ?", id).First(&products.Products{})
 		data := &products.Products{
-			Code:         tranfer.DeferString(input.Code),
-			Name:         tranfer.DeferString(input.Name),
-			Title:        tranfer.DeferString(input.Title),
-			Description:  tranfer.DeferString(input.Description),
-			Images:       tranfer.DeferString(input.Images),
-			Price:        tranfer.DeferInt(input.Price),
-			Vat:          tranfer.DeferInt(input.Vat),
-			CategoryId:   tranfer.DeferInt(input.CatedgoryID),
-			Detail:       tranfer.DeferString(input.Detail),
-			CreatedBy:    tranfer.DeferString(input.CreatedBy),
-			ModifiedBy:   tranfer.DeferString(input.ModifiedBy),
+			Code:        tranfer.DeferString(input.Code),
+			Name:        tranfer.DeferString(input.Name),
+			Title:       tranfer.DeferString(input.Title),
+			Description: tranfer.DeferString(input.Description),
+			Images:      tranfer.DeferString(input.Images),
+			Price:       tranfer.DeferInt(input.Price),
+			CategoryId:  tranfer.DeferInt(input.CatedgoryID),
+			Detail:      tranfer.DeferString(input.Detail),
+			CreatedBy:   tranfer.DeferString(input.CreatedBy),
+			ModifiedBy:  tranfer.DeferString(input.ModifiedBy),
 		}
 
 		db.GetConn().Save(&data)
@@ -496,10 +496,10 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 	try.This(func() {
 		db.GetConn().Where("id = ?", id).First(&profiles.Profiles{})
 		data := &profiles.Profiles{
-			FirstName:    tranfer.DeferString(input.FirstName),
-			LastName:     tranfer.DeferString(input.LastName),
-			Address:      tranfer.DeferString(input.Address),
-			Phone:        tranfer.DeferString(input.Phone),
+			FirstName: tranfer.DeferString(input.FirstName),
+			LastName:  tranfer.DeferString(input.LastName),
+			Address:   tranfer.DeferString(input.Address),
+			Phone:     tranfer.DeferString(input.Phone),
 		}
 
 		db.GetConn().Save(&data)
@@ -519,9 +519,9 @@ func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *mod
 	try.This(func() {
 		db.GetConn().Where("id = ?", id).First(&menues.Menues{})
 		data := &menues.Menues{
-			Text:         tranfer.DeferString(input.Text),
-			Link:         tranfer.DeferString(input.Link),
-			Target:       tranfer.DeferString(input.Target),
+			Text:   tranfer.DeferString(input.Text),
+			Link:   tranfer.DeferString(input.Link),
+			Target: tranfer.DeferString(input.Target),
 		}
 
 		db.GetConn().Save(&data)
@@ -541,12 +541,12 @@ func (r *mutationResolver) UpdateProductCategories(ctx context.Context, id *int,
 	try.This(func() {
 		db.GetConn().Where("id = ?", id).First(&productCategory.ProductCategory{})
 		data := &productCategory.ProductCategory{
-			Name:         tranfer.DeferString(input.Name),
-			MetaTitle:    tranfer.DeferString(input.MetaTitle),
-			Title:        tranfer.DeferString(input.Title),
-			CreatedBy:    tranfer.DeferString(input.CreatedBy),
-			ModifiedBy:   tranfer.DeferString(input.ModifiedBy),
-			Description:  tranfer.DeferString(input.Description),
+			Name:        tranfer.DeferString(input.Name),
+			MetaTitle:   tranfer.DeferString(input.MetaTitle),
+			Title:       tranfer.DeferString(input.Title),
+			CreatedBy:   tranfer.DeferString(input.CreatedBy),
+			ModifiedBy:  tranfer.DeferString(input.ModifiedBy),
+			Description: tranfer.DeferString(input.Description),
 		}
 
 		db.GetConn().Save(&data)
@@ -566,9 +566,9 @@ func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *mo
 	try.This(func() {
 		db.GetConn().Where("id = ?", id).First(&sliders.Sliders{})
 		data := &sliders.Sliders{
-			Image:        tranfer.DeferString(input.Image),
-			Link:         tranfer.DeferString(input.Link),
-			Description:  tranfer.DeferString(input.Description),
+			Image:       tranfer.DeferString(input.Image),
+			Link:        tranfer.DeferString(input.Link),
+			Description: tranfer.DeferString(input.Description),
 		}
 
 		db.GetConn().Save(&data)
@@ -586,7 +586,7 @@ func (r *mutationResolver) UpdateSliders(ctx context.Context, id *int, input *mo
 func (r *mutationResolver) DeleteNews(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&news.News{})
+		db.GetConn().Where("id = ?", id).Delete(&news.News{})
 		check = true
 
 	}).Finally(func() {
@@ -600,7 +600,7 @@ func (r *mutationResolver) DeleteNews(ctx context.Context, id *int) (*bool, erro
 func (r *mutationResolver) DeleteTags(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&tags.Tags{})
+		db.GetConn().Where("id = ?", id).Delete(&tags.Tags{})
 		check = true
 
 	}).Finally(func() {
@@ -614,7 +614,7 @@ func (r *mutationResolver) DeleteTags(ctx context.Context, id *int) (*bool, erro
 func (r *mutationResolver) DeleteNewTag(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&newTags.NewTag{})
+		db.GetConn().Where("id = ?", id).Delete(&newTags.NewTag{})
 		check = true
 
 	}).Finally(func() {
@@ -628,7 +628,7 @@ func (r *mutationResolver) DeleteNewTag(ctx context.Context, id *int) (*bool, er
 func (r *mutationResolver) DeleteCasbinRule(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&casbin.CasbinRules{})
+		db.GetConn().Where("id = ?", id).Delete(&casbin.CasbinRules{})
 		check = true
 
 	}).Finally(func() {
@@ -642,7 +642,7 @@ func (r *mutationResolver) DeleteCasbinRule(ctx context.Context, id *int) (*bool
 func (r *mutationResolver) DeleteCategories(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&categories.Categories{})
+		db.GetConn().Where("id = ?", id).Delete(&categories.Categories{})
 		check = true
 
 	}).Finally(func() {
@@ -656,7 +656,7 @@ func (r *mutationResolver) DeleteCategories(ctx context.Context, id *int) (*bool
 func (r *mutationResolver) DeleteContact(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&contacts.Contacts{})
+		db.GetConn().Where("id = ?", id).Delete(&contacts.Contacts{})
 		check = true
 
 	}).Finally(func() {
@@ -670,7 +670,7 @@ func (r *mutationResolver) DeleteContact(ctx context.Context, id *int) (*bool, e
 func (r *mutationResolver) DeleteFeebBack(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&feedBacks.FeedBacks{})
+		db.GetConn().Where("id = ?", id).Delete(&feedBacks.FeedBacks{})
 		check = true
 
 	}).Finally(func() {
@@ -684,7 +684,7 @@ func (r *mutationResolver) DeleteFeebBack(ctx context.Context, id *int) (*bool, 
 func (r *mutationResolver) DeleteProduct(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&products.Products{})
+		db.GetConn().Where("id = ?", id).Delete(&products.Products{})
 		check = true
 
 	}).Finally(func() {
@@ -698,7 +698,7 @@ func (r *mutationResolver) DeleteProduct(ctx context.Context, id *int) (*bool, e
 func (r *mutationResolver) DeleteProfile(ctx context.Context, userID *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",userID).Delete(&profiles.Profiles{})
+		db.GetConn().Where("id = ?", userID).Delete(&profiles.Profiles{})
 		check = true
 
 	}).Finally(func() {
@@ -712,7 +712,7 @@ func (r *mutationResolver) DeleteProfile(ctx context.Context, userID *int) (*boo
 func (r *mutationResolver) DeleteMenues(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&menues.Menues{})
+		db.GetConn().Where("id = ?", id).Delete(&menues.Menues{})
 		check = true
 
 	}).Finally(func() {
@@ -726,7 +726,7 @@ func (r *mutationResolver) DeleteMenues(ctx context.Context, id *int) (*bool, er
 func (r *mutationResolver) DeleteProductCategories(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&productCategory.ProductCategory{})
+		db.GetConn().Where("id = ?", id).Delete(&productCategory.ProductCategory{})
 		check = true
 
 	}).Finally(func() {
@@ -740,7 +740,7 @@ func (r *mutationResolver) DeleteProductCategories(ctx context.Context, id *int)
 func (r *mutationResolver) DeleteSliders(ctx context.Context, id *int) (*bool, error) {
 	check := false
 	try.This(func() {
-		db.GetConn().Where("id = ?",id).Delete(&sliders.Sliders{})
+		db.GetConn().Where("id = ?", id).Delete(&sliders.Sliders{})
 		check = true
 
 	}).Finally(func() {
@@ -751,11 +751,12 @@ func (r *mutationResolver) DeleteSliders(ctx context.Context, id *int) (*bool, e
 	return &check, nil
 }
 
-func (r *mutationResolver) RefreshToken(ctx context.Context, token *string) (*model.ResultToken, error) {
+func (r *mutationResolver) CheckNews(ctx context.Context, id *int) (*bool, error) {
+
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) CheckNews(ctx context.Context, id *int) (*int, error) {
+func (r *mutationResolver) PublicNew(ctx context.Context, active *bool) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
@@ -827,3 +828,27 @@ func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+
+// !!! WARNING !!!
+// The code below was going to be deleted when updating resolvers. It has been copied here so you have
+// one last chance to move it out of harms way if you want. There are two reasons this happens:
+//  - When renaming or deleting a resolver the old code will be put in here. You can safely delete
+//    it when you're done.
+//  - You have helper methods in this file. Move them out to keep these resolver files clean.
+func (r *mutationResolver) RefreshToken(ctx context.Context, token *string) (*model.ResultToken, error) {
+	username, err := jwt.ParseToken(tranfer.DeferString(token))
+	if err != nil {
+		logger.Log.Error("", err)
+	}
+
+	db.GetConn().Where("username = ?", username).First(&users.Users{})
+
+	data := &model.ResultToken{
+		Token:            nil,
+		Payload:          nil,
+		RefreshToken:     nil,
+		RefreshExpressIn: nil,
+	}
+
+	return data, nil
+}

@@ -57,15 +57,15 @@ type Mutation {
   DeleteProductCategories(id: Int): Boolean
   DeleteSliders(id: Int): Boolean
 
-  refreshToken(token: String): ResultToken
+  CheckNews(id: Int): Boolean
 
-  checkNews(id: Int): Int
+  PublicNew(active:Boolean): Boolean
 
-  checkUser(id: Int): Boolean
+  CheckUser(id: Int): Boolean
 
-  sendMail(email: String): Boolean
+  SendMail(email: String): Boolean
 
-  addFriend(id: Int): Boolean
+  AddFriend(id: Int): Boolean
 }
 
 interface Node {
@@ -110,6 +110,7 @@ type News implements Node{
   viewCount: Int
   content: String
   tagId: Int
+  active: Boolean
   tags: [Tags]
   categories: [Categories]
 }
@@ -383,7 +384,7 @@ type Products implements Node{
   description: String
   images: String
   price: Int
-  vat: Int
+  vats: Int
   catedgoryId: Int
   detail: String
   createdDate: String
@@ -402,7 +403,7 @@ type ResultProduct {
   description: String
   images: String
   price: Int
-  vat: Int
+  vats: Int
   catedgoryId: Int
   detail: String
   createdDate: String

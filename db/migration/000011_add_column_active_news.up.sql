@@ -1,0 +1,1 @@
+alter table news add active boolean;

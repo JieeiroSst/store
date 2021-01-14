@@ -267,6 +267,7 @@ type News struct {
 	ViewCount       *int          `json:"viewCount"`
 	Content         *string       `json:"content"`
 	TagID           *int          `json:"tagId"`
+	Active          *bool         `json:"active"`
 	Tags            []*Tags       `json:"tags"`
 	Categories      []*Categories `json:"categories"`
 }
@@ -335,7 +336,7 @@ type Products struct {
 	Description  *string `json:"description"`
 	Images       *string `json:"images"`
 	Price        *int    `json:"price"`
-	Vat          *int    `json:"vat"`
+	Vats         *int    `json:"vats"`
 	CatedgoryID  *int    `json:"catedgoryId"`
 	Detail       *string `json:"detail"`
 	CreatedDate  *string `json:"createdDate"`
@@ -456,7 +457,7 @@ type ResultProduct struct {
 	Description  *string `json:"description"`
 	Images       *string `json:"images"`
 	Price        *int    `json:"price"`
-	Vat          *int    `json:"vat"`
+	Vats         *int    `json:"vats"`
 	CatedgoryID  *int    `json:"catedgoryId"`
 	Detail       *string `json:"detail"`
 	CreatedDate  *string `json:"createdDate"`

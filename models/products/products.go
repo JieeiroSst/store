@@ -1,8 +1,8 @@
 package products
 
 import (
-	"time"
 	"github.com/JIeeiroSst/store/models/paginations"
+	"time"
 )
 
 type Products struct {
@@ -13,7 +13,6 @@ type Products struct {
 	Description string
 	Images string
 	Price int
-	Vat int
 	CategoryId int
 	Detail string
 	CreatedDate time.Time
@@ -42,7 +41,6 @@ type InputProduct struct {
 	Description string
 	Images string
 	Price int
-	Vat int
 	CategoryId int
 	Detail string
 	CreatedDate time.Time

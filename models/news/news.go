@@ -24,6 +24,7 @@ type News struct {
 	TagId int
 	Email string
 	Content string
+	Active bool
 }
 
 type NewsEdge struct {

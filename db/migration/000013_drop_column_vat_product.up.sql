@@ -1,0 +1,1 @@
+alter table products drop column vats
