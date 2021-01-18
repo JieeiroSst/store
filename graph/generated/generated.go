@@ -139,7 +139,6 @@ type ComplexityRoot struct {
 	Mutation struct {
 		AddFriend               func(childComplexity int, id *int) int
 		CheckNews               func(childComplexity int, id *int) int
-		CheckUser               func(childComplexity int, id *int) int
 		CreateCasbinRule        func(childComplexity int, input *model.InputCasbinRule) int
 		CreateCategories        func(childComplexity int, input *model.InputCategories) int
 		CreateContact           func(childComplexity int, input *model.InputContact) int
@@ -164,7 +163,7 @@ type ComplexityRoot struct {
 		DeleteProfile           func(childComplexity int, userID *int) int
 		DeleteSliders           func(childComplexity int, id *int) int
 		DeleteTags              func(childComplexity int, id *int) int
-		PublicNew               func(childComplexity int, active *bool) int
+		PublicNew               func(childComplexity int, id *int) int
 		SendMail                func(childComplexity int, email *string) int
 		UpdateCasbinRule        func(childComplexity int, id *int, input *model.InputCasbinRule) int
 		UpdateCategories        func(childComplexity int, id *int, input *model.InputCategories) int
@@ -313,16 +312,26 @@ type ComplexityRoot struct {
 
 	Query struct {
 		Casbin       func(childComplexity int) int
+		CasbinID     func(childComplexity int, id *int) int
 		Categories   func(childComplexity int) int
+		Category     func(childComplexity int, id *int) int
+		Contact      func(childComplexity int, id *int) int
 		Contacts     func(childComplexity int) int
+		Feedback     func(childComplexity int, id *int) int
 		Feedbacks    func(childComplexity int) int
+		New          func(childComplexity int, id *int) int
+		NewTag       func(childComplexity int, id *int) int
 		NewTags      func(childComplexity int) int
 		News         func(childComplexity int) int
 		Node         func(childComplexity int, id string) int
+		Product      func(childComplexity int, id *int) int
 		Products     func(childComplexity int) int
 		Profile      func(childComplexity int) int
+		ProfileID    func(childComplexity int, id *int) int
 		RefreshToken func(childComplexity int) int
 		SystemConfig func(childComplexity int) int
+		Systemconfig func(childComplexity int, id *int) int
+		Tag          func(childComplexity int, id *int) int
 		Tags         func(childComplexity int) int
 	}
 
@@ -569,8 +578,7 @@ type MutationResolver interface {
 	DeleteProductCategories(ctx context.Context, id *int) (*bool, error)
 	DeleteSliders(ctx context.Context, id *int) (*bool, error)
 	CheckNews(ctx context.Context, id *int) (*bool, error)
-	PublicNew(ctx context.Context, active *bool) (*bool, error)
-	CheckUser(ctx context.Context, id *int) (*bool, error)
+	PublicNew(ctx context.Context, id *int) (*bool, error)
 	SendMail(ctx context.Context, email *string) (*bool, error)
 	AddFriend(ctx context.Context, id *int) (*bool, error)
 }
@@ -586,6 +594,16 @@ type QueryResolver interface {
 	Products(ctx context.Context) (*model.ProductConnection, error)
 	Profile(ctx context.Context) (*model.ProfileConnection, error)
 	SystemConfig(ctx context.Context) (*model.SystemConfigConnection, error)
+	New(ctx context.Context, id *int) (*model.News, error)
+	Tag(ctx context.Context, id *int) (*model.Tags, error)
+	NewTag(ctx context.Context, id *int) (*model.NewTag, error)
+	CasbinID(ctx context.Context, id *int) (*model.CasbinRule, error)
+	Category(ctx context.Context, id *int) (*model.Categories, error)
+	Contact(ctx context.Context, id *int) (*model.Contacts, error)
+	Feedback(ctx context.Context, id *int) (*model.FeedBacks, error)
+	Product(ctx context.Context, id *int) (*model.Products, error)
+	ProfileID(ctx context.Context, id *int) (*model.Profile, error)
+	Systemconfig(ctx context.Context, id *int) (*model.SystemConfig, error)
 	RefreshToken(ctx context.Context) (*string, error)
 }
 
@@ -985,18 +1003,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.CheckNews(childComplexity, args["id"].(*int)), true
 
-	case "Mutation.CheckUser":
-		if e.complexity.Mutation.CheckUser == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_CheckUser_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.CheckUser(childComplexity, args["id"].(*int)), true
-
 	case "Mutation.CreateCasbinRule":
 		if e.complexity.Mutation.CreateCasbinRule == nil {
 			break
@@ -1295,7 +1301,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.PublicNew(childComplexity, args["active"].(*bool)), true
+		return e.complexity.Mutation.PublicNew(childComplexity, args["id"].(*int)), true
 
 	case "Mutation.SendMail":
 		if e.complexity.Mutation.SendMail == nil {
@@ -2062,12 +2068,48 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Casbin(childComplexity), true
 
+	case "Query.casbinId":
+		if e.complexity.Query.CasbinID == nil {
+			break
+		}
+
+		args, err := ec.field_Query_casbinId_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.CasbinID(childComplexity, args["id"].(*int)), true
+
 	case "Query.categories":
 		if e.complexity.Query.Categories == nil {
 			break
 		}
 
 		return e.complexity.Query.Categories(childComplexity), true
+
+	case "Query.category":
+		if e.complexity.Query.Category == nil {
+			break
+		}
+
+		args, err := ec.field_Query_category_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Category(childComplexity, args["id"].(*int)), true
+
+	case "Query.contact":
+		if e.complexity.Query.Contact == nil {
+			break
+		}
+
+		args, err := ec.field_Query_contact_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Contact(childComplexity, args["id"].(*int)), true
 
 	case "Query.contacts":
 		if e.complexity.Query.Contacts == nil {
@@ -2076,12 +2118,48 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Contacts(childComplexity), true
 
+	case "Query.feedback":
+		if e.complexity.Query.Feedback == nil {
+			break
+		}
+
+		args, err := ec.field_Query_feedback_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Feedback(childComplexity, args["id"].(*int)), true
+
 	case "Query.feedbacks":
 		if e.complexity.Query.Feedbacks == nil {
 			break
 		}
 
 		return e.complexity.Query.Feedbacks(childComplexity), true
+
+	case "Query.new":
+		if e.complexity.Query.New == nil {
+			break
+		}
+
+		args, err := ec.field_Query_new_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.New(childComplexity, args["id"].(*int)), true
+
+	case "Query.newTag":
+		if e.complexity.Query.NewTag == nil {
+			break
+		}
+
+		args, err := ec.field_Query_newTag_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.NewTag(childComplexity, args["id"].(*int)), true
 
 	case "Query.newTags":
 		if e.complexity.Query.NewTags == nil {
@@ -2109,6 +2187,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Node(childComplexity, args["id"].(string)), true
 
+	case "Query.product":
+		if e.complexity.Query.Product == nil {
+			break
+		}
+
+		args, err := ec.field_Query_product_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Product(childComplexity, args["id"].(*int)), true
+
 	case "Query.products":
 		if e.complexity.Query.Products == nil {
 			break
@@ -2123,6 +2213,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Profile(childComplexity), true
 
+	case "Query.profileId":
+		if e.complexity.Query.ProfileID == nil {
+			break
+		}
+
+		args, err := ec.field_Query_profileId_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ProfileID(childComplexity, args["id"].(*int)), true
+
 	case "Query.refreshToken":
 		if e.complexity.Query.RefreshToken == nil {
 			break
@@ -2136,6 +2238,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.SystemConfig(childComplexity), true
+
+	case "Query.systemconfig":
+		if e.complexity.Query.Systemconfig == nil {
+			break
+		}
+
+		args, err := ec.field_Query_systemconfig_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Systemconfig(childComplexity, args["id"].(*int)), true
+
+	case "Query.tag":
+		if e.complexity.Query.Tag == nil {
+			break
+		}
+
+		args, err := ec.field_Query_tag_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Tag(childComplexity, args["id"].(*int)), true
 
 	case "Query.tags":
 		if e.complexity.Query.Tags == nil {
@@ -3153,7 +3279,11 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/schema.graphqls", Input: `
+	{Name: "graph/schema.graphqls", Input: `schema {
+  query: Query
+  mutation: Mutation
+}
+
 type Query {
   node(id: ID!): Node
 
@@ -3167,6 +3297,17 @@ type Query {
   products: ProductConnection
   profile: ProfileConnection
   systemConfig: SystemConfigConnection
+
+  new(id: Int): News
+  tag(id: Int):Tags
+  newTag(id: Int): NewTag
+  casbinId(id: Int): CasbinRule
+  category(id: Int): Categories
+  contact(id: Int): Contacts
+  feedback(id: Int): FeedBacks
+  product(id: Int): Products
+  profileId(id: Int): Profile
+  systemconfig(id: Int): SystemConfig
 
   refreshToken: String
 
@@ -3214,9 +3355,7 @@ type Mutation {
 
   CheckNews(id: Int): Boolean
 
-  PublicNew(active:Boolean): Boolean
-
-  CheckUser(id: Int): Boolean
+  PublicNew(id: Int): Boolean
 
   SendMail(email: String): Boolean
 
@@ -3816,21 +3955,6 @@ func (ec *executionContext) field_Mutation_CheckNews_args(ctx context.Context, r
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_CheckUser_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_CreateCasbinRule_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -4194,15 +4318,15 @@ func (ec *executionContext) field_Mutation_DeleteTags_args(ctx context.Context, 
 func (ec *executionContext) field_Mutation_PublicNew_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *bool
-	if tmp, ok := rawArgs["active"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("active"))
-		arg0, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["active"] = arg0
+	args["id"] = arg0
 	return args, nil
 }
 
@@ -4524,6 +4648,96 @@ func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_casbinId_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_contact_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_feedback_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_newTag_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_new_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_node_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -4531,6 +4745,66 @@ func (ec *executionContext) field_Query_node_args(ctx context.Context, rawArgs m
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 		arg0, err = ec.unmarshalNID2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_product_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_profileId_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_systemconfig_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_tag_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *int
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -7695,46 +7969,7 @@ func (ec *executionContext) _Mutation_PublicNew(ctx context.Context, field graph
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().PublicNew(rctx, args["active"].(*bool))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*bool)
-	fc.Result = res
-	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_CheckUser(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_CheckUser_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().CheckUser(rctx, args["id"].(*int))
+		return ec.resolvers.Mutation().PublicNew(rctx, args["id"].(*int))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10956,6 +11191,396 @@ func (ec *executionContext) _Query_systemConfig(ctx context.Context, field graph
 	res := resTmp.(*model.SystemConfigConnection)
 	fc.Result = res
 	return ec.marshalOSystemConfigConnection2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐSystemConfigConnection(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_new(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_new_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().New(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.News)
+	fc.Result = res
+	return ec.marshalONews2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNews(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_tag(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_tag_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Tag(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.Tags)
+	fc.Result = res
+	return ec.marshalOTags2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐTags(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_newTag(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_newTag_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().NewTag(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.NewTag)
+	fc.Result = res
+	return ec.marshalONewTag2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐNewTag(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_casbinId(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_casbinId_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().CasbinID(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.CasbinRule)
+	fc.Result = res
+	return ec.marshalOCasbinRule2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCasbinRule(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_category(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_category_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Category(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.Categories)
+	fc.Result = res
+	return ec.marshalOCategories2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐCategories(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_contact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_contact_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Contact(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.Contacts)
+	fc.Result = res
+	return ec.marshalOContacts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐContacts(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_feedback(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_feedback_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Feedback(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.FeedBacks)
+	fc.Result = res
+	return ec.marshalOFeedBacks2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐFeedBacks(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_product(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_product_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Product(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.Products)
+	fc.Result = res
+	return ec.marshalOProducts2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProducts(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_profileId(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_profileId_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ProfileID(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.Profile)
+	fc.Result = res
+	return ec.marshalOProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐProfile(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_systemconfig(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_systemconfig_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Systemconfig(rctx, args["id"].(*int))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.SystemConfig)
+	fc.Result = res
+	return ec.marshalOSystemConfig2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋmodelᚐSystemConfig(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_refreshToken(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -17996,8 +18621,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_CheckNews(ctx, field)
 		case "PublicNew":
 			out.Values[i] = ec._Mutation_PublicNew(ctx, field)
-		case "CheckUser":
-			out.Values[i] = ec._Mutation_CheckUser(ctx, field)
 		case "SendMail":
 			out.Values[i] = ec._Mutation_SendMail(ctx, field)
 		case "AddFriend":
@@ -18670,6 +19293,116 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_systemConfig(ctx, field)
+				return res
+			})
+		case "new":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_new(ctx, field)
+				return res
+			})
+		case "tag":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_tag(ctx, field)
+				return res
+			})
+		case "newTag":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_newTag(ctx, field)
+				return res
+			})
+		case "casbinId":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_casbinId(ctx, field)
+				return res
+			})
+		case "category":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_category(ctx, field)
+				return res
+			})
+		case "contact":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_contact(ctx, field)
+				return res
+			})
+		case "feedback":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_feedback(ctx, field)
+				return res
+			})
+		case "product":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_product(ctx, field)
+				return res
+			})
+		case "profileId":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_profileId(ctx, field)
+				return res
+			})
+		case "systemconfig":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_systemconfig(ctx, field)
 				return res
 			})
 		case "refreshToken":
