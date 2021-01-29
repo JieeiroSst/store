@@ -1,7 +1,3 @@
-schema {
-  query: Query
-  mutation: Mutation
-}
 
 type Query {
   node(id: ID!): Node
@@ -16,17 +12,6 @@ type Query {
   products: ProductConnection
   profile: ProfileConnection
   systemConfig: SystemConfigConnection
-
-  new(id: Int): News
-  tag(id: Int):Tags
-  newTag(id: Int): NewTag
-  casbinId(id: Int): CasbinRule
-  category(id: Int): Categories
-  contact(id: Int): Contacts
-  feedback(id: Int): FeedBacks
-  product(id: Int): Products
-  profileId(id: Int): Profile
-  systemconfig(id: Int): SystemConfig
 
   refreshToken: String
 
@@ -74,7 +59,9 @@ type Mutation {
 
   CheckNews(id: Int): Boolean
 
-  PublicNew(id: Int): Boolean
+  PublicNew(active:Boolean): Boolean
+
+  CheckUser(id: Int): Boolean
 
   SendMail(email: String): Boolean
 

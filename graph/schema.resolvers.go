@@ -23,6 +23,8 @@ import (
 	"github.com/JIeeiroSst/store/models/profiles"
 	"github.com/JIeeiroSst/store/models/sliders"
 	"github.com/JIeeiroSst/store/models/tags"
+	"github.com/JIeeiroSst/store/models/users"
+	"github.com/JIeeiroSst/store/utils/jwt"
 	"github.com/JIeeiroSst/store/utils/logger"
 	"github.com/JIeeiroSst/store/utils/tranfer"
 	"github.com/manucorporat/try"
@@ -45,7 +47,6 @@ func (r *mutationResolver) CreateNews(ctx context.Context, input *model.InputNew
 			MetaDescription: tranfer.DeferString(input.MetaDescription),
 			TagId:           tranfer.DeferInt(input.TagID),
 			Content:         tranfer.DeferString(input.Content),
-			Active:          false,
 		}
 
 		db.GetConn().Create(&data)
@@ -751,20 +752,16 @@ func (r *mutationResolver) DeleteSliders(ctx context.Context, id *int) (*bool, e
 }
 
 func (r *mutationResolver) CheckNews(ctx context.Context, id *int) (*bool, error) {
+
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *mutationResolver) PublicNew(ctx context.Context, id *int) (*bool, error) {
-	check := false
-	try.This(func() {
-		db.GetConn().Model(&news.News{}).Where("id = ?", id).Update("active", true)
-		check = true
-	}).Finally(func() {
-		logger.Log.Info("this must be printed after the catch")
-	}).Catch(func(e try.E) {
-		logger.Log.Info(e)
-	})
-	return &check, nil
+func (r *mutationResolver) PublicNew(ctx context.Context, active *bool) (*bool, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *mutationResolver) CheckUser(ctx context.Context, id *int) (*bool, error) {
+	panic(fmt.Errorf("not implemented"))
 }
 
 func (r *mutationResolver) SendMail(ctx context.Context, email *string) (*bool, error) {
@@ -776,7 +773,7 @@ func (r *mutationResolver) AddFriend(ctx context.Context, id *int) (*bool, error
 }
 
 func (r *queryResolver) Node(ctx context.Context, id string) (model.Node, error) {
-	return nil, nil
+	panic(fmt.Errorf("not implemented"))
 }
 
 func (r *queryResolver) News(ctx context.Context) (*model.NewsConnection, error) {
@@ -819,46 +816,6 @@ func (r *queryResolver) SystemConfig(ctx context.Context) (*model.SystemConfigCo
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) New(ctx context.Context, id *int) (*model.News, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Tag(ctx context.Context, id *int) (*model.Tags, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) NewTag(ctx context.Context, id *int) (*model.NewTag, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) CasbinID(ctx context.Context, id *int) (*model.CasbinRule, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Category(ctx context.Context, id *int) (*model.Categories, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Contact(ctx context.Context, id *int) (*model.Contacts, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Feedback(ctx context.Context, id *int) (*model.FeedBacks, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Product(ctx context.Context, id *int) (*model.Products, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) ProfileID(ctx context.Context, id *int) (*model.Profile, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Systemconfig(ctx context.Context, id *int) (*model.SystemConfig, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 func (r *queryResolver) RefreshToken(ctx context.Context) (*string, error) {
 	panic(fmt.Errorf("not implemented"))
 }
@@ -871,3 +828,27 @@ func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+
+// !!! WARNING !!!
+// The code below was going to be deleted when updating resolvers. It has been copied here so you have
+// one last chance to move it out of harms way if you want. There are two reasons this happens:
+//  - When renaming or deleting a resolver the old code will be put in here. You can safely delete
+//    it when you're done.
+//  - You have helper methods in this file. Move them out to keep these resolver files clean.
+func (r *mutationResolver) RefreshToken(ctx context.Context, token *string) (*model.ResultToken, error) {
+	username, err := jwt.ParseToken(tranfer.DeferString(token))
+	if err != nil {
+		logger.Log.Error("", err)
+	}
+
+	db.GetConn().Where("username = ?", username).First(&users.Users{})
+
+	data := &model.ResultToken{
+		Token:            nil,
+		Payload:          nil,
+		RefreshToken:     nil,
+		RefreshExpressIn: nil,
+	}
+
+	return data, nil
+}

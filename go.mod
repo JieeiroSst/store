@@ -3,7 +3,6 @@ module github.com/JIeeiroSst/store
 go 1.15
 
 require (
-	cloud.google.com/go v0.75.0 // indirect
 	github.com/99designs/gqlgen v0.13.0
 	github.com/allegro/bigcache v1.2.1
 	github.com/casbin/casbin/v2 v2.19.4
@@ -21,12 +20,8 @@ require (
 	github.com/urfave/cli v1.22.5
 	github.com/vektah/gqlparser/v2 v2.1.0
 	golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9
-	golang.org/x/oauth2 v0.0.0-20210113205817-d3ed898aa8a3 // indirect
-	golang.org/x/sys v0.0.0-20210113181707-4bcb84eeeb78 // indirect
-	golang.org/x/text v0.3.5 // indirect
+	golang.org/x/text v0.3.4 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
-	google.golang.org/genproto v0.0.0-20210114201628-6edceaf6022f // indirect
-	google.golang.org/grpc v1.35.0 // indirect
 	gorm.io/driver/postgres v1.0.5
 	gorm.io/gorm v1.20.8
 )
