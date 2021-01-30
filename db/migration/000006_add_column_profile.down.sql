@@ -1,1 +1,0 @@
-alter table profile drop column friend_id;

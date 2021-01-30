@@ -1,1 +1,0 @@
-alter table news add email varchar(255);

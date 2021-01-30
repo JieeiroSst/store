@@ -1,1 +1,0 @@
-alter table products rename column vat to vats;

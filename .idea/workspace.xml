@@ -2,44 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef0ffdeb-6e4d-49ff-8a7f-edeecf19e4bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/authz/authz.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/persistence.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/persistence.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/basic_policy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/conf/basic_policy.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/abouts/abouts.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/casbin_rules/casbin_rules.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/categories/categories.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/news/news.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/profiles/profiles.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/tags/tags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query/users/user.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gqlgen.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/generated/generated.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/model/models_gen.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/resolver.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/schema.graphqls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/schema.resolvers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/access_control.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/access_control.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/abouts/abouts.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/casbin_rules/casbin_rules.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/categories/categories.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/contacts/contacts.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/feed-backs/feed-backs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/friends/friends.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/menues/menues.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/new-tags/new-tags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/news/news.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/paginations/pagination.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/product_category/product_category.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/products/products.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/profiles/profiles.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/sliders/sliders.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/system_config/system_config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/tags/tags.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/tokens/resultToken.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users/users.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000001_init_schema.down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migration/000001_init_schema.down.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000001_init_schema.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migration/000001_init_schema.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000002_table_news.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000002_table_news.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000003_alter_add_tags.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000003_alter_add_tags.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000004_add_columns.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000004_add_columns.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000005_add_column_news.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000005_add_column_news.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000006_add_column_profile.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000006_add_column_profile.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000007_delete_column.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000007_delete_column.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000008_add_column_news_content.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000008_add_column_news_content.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000009_drop_column.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000009_drop_column.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000010_drop_column.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000010_drop_column.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000011_add_column_active_news.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000011_add_column_active_news.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000012_rename_column_products.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000012_rename_column_products.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000013_drop_column_vat_product.down.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/000013_drop_column_vat_product.up.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,9 +144,9 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="728" y="473" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1610363710130" />
-    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1610357703931">
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1611997122128">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1610357703931" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1611997122128" />
   </component>
 </project>

@@ -1,1 +1,0 @@
-alter table news drop column new_id;
