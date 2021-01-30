@@ -2,21 +2,10 @@ package component
 
 import (
 	"fmt"
-	"github.com/JIeeiroSst/store/models/abouts"
-	"github.com/JIeeiroSst/store/models/contacts"
-	feed_backs "github.com/JIeeiroSst/store/models/feed-backs"
-	new_tags "github.com/JIeeiroSst/store/models/new-tags"
-	"github.com/JIeeiroSst/store/models/news"
-	"github.com/JIeeiroSst/store/models/product_category"
-	"github.com/JIeeiroSst/store/models/products"
-	"github.com/JIeeiroSst/store/models/profiles"
-	"github.com/JIeeiroSst/store/models/sliders"
-	"github.com/JIeeiroSst/store/models/system_config"
-	"github.com/JIeeiroSst/store/models/users"
 	"github.com/allegro/bigcache"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/joho/godotenv"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
 	"log"
 	"os"
 	"time"
@@ -38,14 +27,12 @@ func init() {
 	dbHost := os.Getenv("POSTGRES_HOST")
 	dbPort := os.Getenv("POSTGRES_PORT")
 	dbUri := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, dbPort, username, dbName, password)
-	conn,err:=gorm.Open(postgres.Open(dbUri),&gorm.Config{})
+	conn,err:=gorm.Open("postgres",dbUri)
 	if err != nil {
 		log.Println("failed to connect database")
 	}
 	log.Println("server connect database success")
 	DB = conn
-
-	conn.AutoMigrate(&news.News{},&users.Users{},&profiles.Profiles{},&abouts.Abouts{},&contacts.Contacts{},&feed_backs.FeedBacks{},&abouts.Abouts{},&new_tags.NewTag{},&product_category.ProductCategory{},&products.Products{},&sliders.Sliders{},&system_config.SystemConfig{})
 
 	GlobalCache, err = bigcache.NewBigCache(bigcache.DefaultConfig(30 * time.Minute))
 	if err != nil {

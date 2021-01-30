@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/99designs/gqlgen/graphql/handler"
-	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/JIeeiroSst/store/component"
-	"github.com/JIeeiroSst/store/graph"
-	"github.com/JIeeiroSst/store/graph/generated"
+	adminGraph "github.com/JIeeiroSst/store/graph/admin/graph"
+	adminGenerated "github.com/JIeeiroSst/store/graph/admin/graph/generated"
+	clientGraph"github.com/JIeeiroSst/store/graph/client/graph"
+	clientGenerated"github.com/JIeeiroSst/store/graph/client/graph/generated"
 	api "github.com/JIeeiroSst/store/handler"
 	"github.com/JIeeiroSst/store/middleware"
-	gormadapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -19,16 +19,16 @@ var (
 	router *gin.Engine
 )
 
-func graphqlHandler() gin.HandlerFunc {
-	h := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
+func graphqlHandlerAdmin() gin.HandlerFunc {
+	h := handler.NewDefaultServer(adminGenerated.NewExecutableSchema(adminGenerated.Config{Resolvers: &adminGraph.Resolver{}}))
 
 	return func(c *gin.Context) {
 		h.ServeHTTP(c.Writer, c.Request)
 	}
 }
 
-func playgroundHandler() gin.HandlerFunc {
-	h := playground.Handler("GraphQL", "/query")
+func graphqlHandlerClient() gin.HandlerFunc {
+	h := handler.NewDefaultServer(clientGenerated.NewExecutableSchema(clientGenerated.Config{Resolvers: &clientGraph.Resolver{}}))
 
 	return func(c *gin.Context) {
 		h.ServeHTTP(c.Writer, c.Request)
@@ -36,8 +36,6 @@ func playgroundHandler() gin.HandlerFunc {
 }
 
 func init() {
-	adapter,_:=gormadapter.NewAdapterByDB(component.DB)
-
 	router = gin.Default()
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true
@@ -48,13 +46,8 @@ func init() {
 	resource := router.Group("/api")
 	resource.Use(middleware.Authenticate())
 	{
-		//api rest full
-		resource.GET("/resource", middleware.Authorize("/api", "POST", adapter), api.ReadResource)
-		resource.POST("/resource", middleware.Authorize("/api", "GET", adapter), api.WriteResource)
-
-		//api graphql
-		resource.POST("/graphql",middleware.Authorize("/api/graphql","POST",adapter), graphqlHandler())
-		resource.GET("/", middleware.Authorize("/graphql","GET",adapter),playgroundHandler())
+		resource.POST("/admin/graphql",middleware.Authorize(), graphqlHandlerAdmin())
+		resource.POST("/graphql",middleware.Authorize(), graphqlHandlerClient())
 	}
 
 }

@@ -2,13 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef0ffdeb-6e4d-49ff-8a7f-edeecf19e4bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/authz/authz.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/generated/generated.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/generated/generated.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/model/models_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/model/models_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/schema.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/graph/schema.graphqls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/schema.resolvers.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/schema.resolvers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/news/news.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/news/news.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/products/products.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/products/products.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/persistence.go" beforeDir="false" afterPath="$PROJECT_DIR$/component/persistence.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/basic_policy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/conf/basic_policy.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/abouts/abouts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/casbin_rules/casbin_rules.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/categories/categories.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/news/news.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/profiles/profiles.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/tags/tags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/query/users/user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gqlgen.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/generated/generated.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/model/models_gen.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/resolver.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/schema.graphqls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/schema.resolvers.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/access_control.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/access_control.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/abouts/abouts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/casbin_rules/casbin_rules.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/categories/categories.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/contacts/contacts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/feed-backs/feed-backs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/friends/friends.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/menues/menues.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/new-tags/new-tags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/news/news.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/paginations/pagination.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/product_category/product_category.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/products/products.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/profiles/profiles.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/sliders/sliders.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/system_config/system_config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tags/tags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tokens/resultToken.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users/users.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +76,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/work/src/test" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -115,6 +146,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="723" y="266" width="464" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1610354526038" />
+    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1611910869288">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1611910869288" />
     <state x="728" y="473" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610363710130">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
