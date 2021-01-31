@@ -5,17 +5,14 @@ create table feed_backs(
     email varchar(255) not null ,
     address varchar(255) not null,
     content varchar(255) not null ,
-    status bit,
-    created_at date
+    created_at date default now()
 );
 
 create table menues(
     id bigserial primary key,
     text varchar(255),
     link varchar(255),
-    display_order int,
-    target varchar(255),
-    status bit
+    target varchar(255)
 );
 
 
@@ -24,17 +21,17 @@ create table tags(
     name varchar(255)
 );
 
-create table new_tag(
-    tag_id bigserial primary key,
-    name varchar(255)
+create table new_tags(
+    id bigserial primary key,
+    tag_id int,
+    new_id int
 );
 
-create table system_config(
+create table system_configs(
     id bigserial primary key ,
     name varchar(255),
     type varchar(255),
-    value varchar(255),
-    status bit
+    value varchar(255)
 );
 
 create table users(
@@ -43,35 +40,27 @@ create table users(
     password varchar(255)
 );
 
-create table profile (
-    userId bigserial primary key,
+create table profiles (
+    id bigserial primary key ,
+    user_id int,
     first_name varchar(255),
     last_name varchar(255),
     address varchar(255),
     phone varchar(255),
-    created_at date,
-    created_by varchar(255),
-    modified_date date,
-    modified_by varchar(255),
-    status bit
+    created_at date default now(),
+    created_by varchar(255)
 );
 
 create table news(
     id bigserial primary key ,
     title varchar(255),
-    meta_title varchar(255),
     description varchar(255),
     image varchar(255),
-    category_id int,
     detail text,
-    created_at date,
+    created_at date default now(),
     created_by varchar(255),
-    modified_data varchar(255),
-    modified_by varchar(255),
-    meta_key_word varchar(255),
-    meta_description varchar(255),
-    status bit,
-    top_hot date,
     view_count int,
-    tag_id int
+    tag_id int,
+    content text,
+    active bool default false
 );

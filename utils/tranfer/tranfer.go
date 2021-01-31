@@ -20,3 +20,10 @@ func DeferInt(n *int) int {
 	}
 	return 0
 }
+
+func DeferBool(n *bool) bool {
+	if n!= nil {
+		return *n
+	}
+	return false
+}

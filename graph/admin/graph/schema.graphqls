@@ -23,40 +23,39 @@ type Query {
 }
 
 type Mutation {
-  CreateNews(input: InputNews): Boolean
-  CreateTags(input: InputTags): Boolean
-  CreateNewTag(input: InputNewTag): Boolean
-  CreateFeebBack(input: InputFeedBacks): Boolean
-  CreateProfile(input: InputProfile): Boolean
-  CreateMenues(input: InputMenues): Boolean
+  CreateNews(input: InputNews): ResultCheck
+  CreateTags(input: InputTags): ResultCheck
+  CreateNewTag(input: InputNewTag): ResultCheck
+  CreateFeebBack(input: InputFeedBacks): ResultCheck
+  CreateProfile(input: InputProfile): ResultCheck
+  CreateMenues(input: InputMenues): ResultCheck
 
-  UpdateNews(id: Int,input: InputNews): Boolean
-  UpdateTags(id: Int,input: InputTags): Boolean
-  UpdateNewTag(id: Int,input: InputNewTag): Boolean
-  UpdateFeebBack(id: Int,input: InputFeedBacks): Boolean
-  UpdateProfile(id: Int,input: InputProfile): Boolean
-  UpdateMenues(id: Int,input: InputMenues): Boolean
+  UpdateNews(id: Int,input: InputNews): ResultCheck
+  UpdateTags(id: Int,input: InputTags): ResultCheck
+  UpdateNewTag(id: Int,input: InputNewTag): ResultCheck
+  UpdateFeebBack(id: Int,input: InputFeedBacks): ResultCheck
+  UpdateProfile(id: Int,input: InputProfile): ResultCheck
+  UpdateMenues(id: Int,input: InputMenues): ResultCheck
 
-  DeleteNews(id: Int): Boolean
-  DeleteTags(id: Int): Boolean
-  DeleteNewTag(id: Int): Boolean
-  DeleteCasbinRule(id: Int): Boolean
-  DeleteCategories(id: Int): Boolean
-  DeleteContact(id: Int): Boolean
-  DeleteFeebBack(id: Int): Boolean
-  DeleteProduct(id: Int): Boolean
-  DeleteProfile(userId: Int): Boolean
-  DeleteMenues(id: Int): Boolean
-  DeleteProductCategories(id: Int): Boolean
-  DeleteSliders(id: Int): Boolean
+  DeleteNews(id: Int): ResultCheck
+  DeleteTags(id: Int): ResultCheck
+  DeleteNewTag(id: Int): ResultCheck
+  DeleteFeebBack(id: Int): ResultCheck
+  DeleteProfile(id: Int): ResultCheck
+  DeleteMenues(id: Int): ResultCheck
 
-  CheckNews(id: Int): Boolean
+  CheckNews(id: Int): ResultCheck
 
-  PublicNew(id: Int): Boolean
+  PublicNew(id: Int): ResultCheck
 
-  SendMail(email: String): Boolean
+  SendMail(email: String): ResultCheck
 
-  AddFriend(id: Int): Boolean
+  AddFriend(id: Int): ResultCheck
+}
+
+type ResultCheck {
+  status: Boolean
+  message: String
 }
 
 interface Node {
@@ -70,25 +69,13 @@ type PageInfo {
   endCursor: String
 }
 
-type PayLoad {
-  id: Int
-  username: String
-}
-
 type News implements Node{
   id: ID!
   title: String
-  metaTitle: String
   description: String
   image: String
-  categoryId: Int
   detail: String
   createdAt: String
-  createdBy:String
-  modifiedData: String
-  modifiedBy: String
-  metaKeyWord:String
-  metaDescription: String
   topHot: String
   viewCount: Int
   content: String
@@ -100,21 +87,15 @@ type News implements Node{
 type ResultNews {
   id: ID!
   title: String
-  metaTitle: String
   description: String
   image: String
-  categoryId: Int
   detail: String
   createdAt: String
-  createdBy:String
-  modifiedData: String
-  modifiedBy: String
-  metaKeyWord:String
-  metaDescription: String
   topHot: String
   viewCount: Int
   content: String
   tagId: Int
+  active: Boolean
 }
 
 input PaginationInput {
@@ -135,33 +116,23 @@ type NewsConnection {
 
 input InputNews {
   title: String
-  metaTitle: String
   description: String
   image: String
-  categoryId: Int
   detail: String
   createdAt: String
-  createdBy:String
-  modifiedData: String
-  modifiedBy: String
-  metaKeyWord:String
-  metaDescription: String
   topHot: String
   viewCount: Int
-  tagId: Int
   content: String
+  tagId: Int
+  active: Boolean
 }
 
 type Tags implements Node{
   id: ID!
   name: String
-  newId: Int
-  news: [News]
-  newTag: [NewTag]
 }
 
 type ResultTags {
-  id: ID!
   name: String
   newId: Int
 }
@@ -179,19 +150,20 @@ type TagsConnection {
 
 input InputTags {
   name: String
-  newId: Int
 }
 
 type NewTag implements Node{
   id: ID!
   tagId: Int
-  name: String
+  newId: Int
+  tags: [Tags]
+  news: [News]
 }
 
 type ResultNewTag {
   id: ID!
   tagId: Int
-  name: String
+  newId: Int
 }
 
 type NewTagsEdge {
@@ -207,7 +179,7 @@ type NewTagsConnection {
 
 input InputNewTag {
   tagId: Int
-  name: String
+  newId: Int
 }
 
 type FeedBacks implements Node{
@@ -257,10 +229,6 @@ type Profile implements Node{
   address: String
   phone: String
   createdAt: String
-  createdBy: String
-  modifiedDate: String
-  modifiedBy: String
-  friendId: [Int]
 }
 
 type ResultProfile {
@@ -271,8 +239,6 @@ type ResultProfile {
   address: String
   phone: String
   createdAt: String
-  createdBy: String
-  modifiedDate: String
   modifiedBy: String
 }
 
@@ -297,14 +263,12 @@ type ProfileConnection {
 }
 
 input InputProfile {
-  userId: ID!
+  userId: ID
   firstName: String
   lastName: String
   address: String
   phone: String
   createdAt: String
-  createdBy: String
-  modifiedDate: String
   modifiedBy: String
 }
 
@@ -344,7 +308,6 @@ type Menues implements Node{
   id: ID!
   text: String
   link: String
-  displayOrder: Int
   target: String
 }
 

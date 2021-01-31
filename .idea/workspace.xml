@@ -2,34 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef0ffdeb-6e4d-49ff-8a7f-edeecf19e4bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/migration/000001_init_schema.down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migration/000001_init_schema.down.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/migration/000001_init_schema.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migration/000001_init_schema.up.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000002_table_news.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000002_table_news.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000003_alter_add_tags.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000003_alter_add_tags.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000004_add_columns.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000004_add_columns.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000005_add_column_news.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000005_add_column_news.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000006_add_column_profile.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000006_add_column_profile.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000007_delete_column.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000007_delete_column.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000008_add_column_news_content.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000008_add_column_news_content.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000009_drop_column.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000009_drop_column.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000010_drop_column.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000010_drop_column.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000011_add_column_active_news.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000011_add_column_active_news.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000012_rename_column_products.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000012_rename_column_products.up.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000013_drop_column_vat_product.down.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migration/000013_drop_column_vat_product.up.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/admin/graph/generated/generated.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/admin/graph/generated/generated.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/admin/graph/model/models_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/admin/graph/model/models_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/admin/graph/schema.graphqls" beforeDir="false" afterPath="$PROJECT_DIR$/graph/admin/graph/schema.graphqls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/admin/graph/schema.resolvers.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/admin/graph/schema.resolvers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/client/graph/schema.resolvers.go" beforeDir="false" afterPath="$PROJECT_DIR$/graph/client/graph/schema.resolvers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/tranfer/tranfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/tranfer/tranfer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

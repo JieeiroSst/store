@@ -52,52 +52,42 @@ type InputMenues struct {
 }
 
 type InputNewTag struct {
-	TagID *int    `json:"tagId"`
-	Name  *string `json:"name"`
+	TagID *int `json:"tagId"`
+	NewID *int `json:"newId"`
 }
 
 type InputNews struct {
-	Title           *string `json:"title"`
-	MetaTitle       *string `json:"metaTitle"`
-	Description     *string `json:"description"`
-	Image           *string `json:"image"`
-	CategoryID      *int    `json:"categoryId"`
-	Detail          *string `json:"detail"`
-	CreatedAt       *string `json:"createdAt"`
-	CreatedBy       *string `json:"createdBy"`
-	ModifiedData    *string `json:"modifiedData"`
-	ModifiedBy      *string `json:"modifiedBy"`
-	MetaKeyWord     *string `json:"metaKeyWord"`
-	MetaDescription *string `json:"metaDescription"`
-	TopHot          *string `json:"topHot"`
-	ViewCount       *int    `json:"viewCount"`
-	TagID           *int    `json:"tagId"`
-	Content         *string `json:"content"`
+	Title       *string `json:"title"`
+	Description *string `json:"description"`
+	Image       *string `json:"image"`
+	Detail      *string `json:"detail"`
+	CreatedAt   *string `json:"createdAt"`
+	TopHot      *string `json:"topHot"`
+	ViewCount   *int    `json:"viewCount"`
+	Content     *string `json:"content"`
+	TagID       *int    `json:"tagId"`
+	Active      *bool   `json:"active"`
 }
 
 type InputProfile struct {
-	UserID       string  `json:"userId"`
-	FirstName    *string `json:"firstName"`
-	LastName     *string `json:"lastName"`
-	Address      *string `json:"address"`
-	Phone        *string `json:"phone"`
-	CreatedAt    *string `json:"createdAt"`
-	CreatedBy    *string `json:"createdBy"`
-	ModifiedDate *string `json:"modifiedDate"`
-	ModifiedBy   *string `json:"modifiedBy"`
+	UserID     *string `json:"userId"`
+	FirstName  *string `json:"firstName"`
+	LastName   *string `json:"lastName"`
+	Address    *string `json:"address"`
+	Phone      *string `json:"phone"`
+	CreatedAt  *string `json:"createdAt"`
+	ModifiedBy *string `json:"modifiedBy"`
 }
 
 type InputTags struct {
-	Name  *string `json:"name"`
-	NewID *int    `json:"newId"`
+	Name *string `json:"name"`
 }
 
 type Menues struct {
-	ID           string  `json:"id"`
-	Text         *string `json:"text"`
-	Link         *string `json:"link"`
-	DisplayOrder *int    `json:"displayOrder"`
-	Target       *string `json:"target"`
+	ID     string  `json:"id"`
+	Text   *string `json:"text"`
+	Link   *string `json:"link"`
+	Target *string `json:"target"`
 }
 
 func (Menues) IsNode() {}
@@ -105,7 +95,9 @@ func (Menues) IsNode() {}
 type NewTag struct {
 	ID    string  `json:"id"`
 	TagID *int    `json:"tagId"`
-	Name  *string `json:"name"`
+	NewID *int    `json:"newId"`
+	Tags  []*Tags `json:"tags"`
+	News  []*News `json:"news"`
 }
 
 func (NewTag) IsNode() {}
@@ -122,25 +114,18 @@ type NewTagsEdge struct {
 }
 
 type News struct {
-	ID              string  `json:"id"`
-	Title           *string `json:"title"`
-	MetaTitle       *string `json:"metaTitle"`
-	Description     *string `json:"description"`
-	Image           *string `json:"image"`
-	CategoryID      *int    `json:"categoryId"`
-	Detail          *string `json:"detail"`
-	CreatedAt       *string `json:"createdAt"`
-	CreatedBy       *string `json:"createdBy"`
-	ModifiedData    *string `json:"modifiedData"`
-	ModifiedBy      *string `json:"modifiedBy"`
-	MetaKeyWord     *string `json:"metaKeyWord"`
-	MetaDescription *string `json:"metaDescription"`
-	TopHot          *string `json:"topHot"`
-	ViewCount       *int    `json:"viewCount"`
-	Content         *string `json:"content"`
-	TagID           *int    `json:"tagId"`
-	Active          *bool   `json:"active"`
-	Tags            []*Tags `json:"tags"`
+	ID          string  `json:"id"`
+	Title       *string `json:"title"`
+	Description *string `json:"description"`
+	Image       *string `json:"image"`
+	Detail      *string `json:"detail"`
+	CreatedAt   *string `json:"createdAt"`
+	TopHot      *string `json:"topHot"`
+	ViewCount   *int    `json:"viewCount"`
+	Content     *string `json:"content"`
+	TagID       *int    `json:"tagId"`
+	Active      *bool   `json:"active"`
+	Tags        []*Tags `json:"tags"`
 }
 
 func (News) IsNode() {}
@@ -168,23 +153,14 @@ type PaginationInput struct {
 	After *string `json:"after"`
 }
 
-type PayLoad struct {
-	ID       *int    `json:"id"`
-	Username *string `json:"username"`
-}
-
 type Profile struct {
-	ID           string  `json:"id"`
-	UserID       *string `json:"userId"`
-	FirstName    *string `json:"firstName"`
-	LastName     *string `json:"lastName"`
-	Address      *string `json:"address"`
-	Phone        *string `json:"phone"`
-	CreatedAt    *string `json:"createdAt"`
-	CreatedBy    *string `json:"createdBy"`
-	ModifiedDate *string `json:"modifiedDate"`
-	ModifiedBy   *string `json:"modifiedBy"`
-	FriendID     []*int  `json:"friendId"`
+	ID        string  `json:"id"`
+	UserID    *string `json:"userId"`
+	FirstName *string `json:"firstName"`
+	LastName  *string `json:"lastName"`
+	Address   *string `json:"address"`
+	Phone     *string `json:"phone"`
+	CreatedAt *string `json:"createdAt"`
 }
 
 func (Profile) IsNode() {}
@@ -198,6 +174,11 @@ type ProfileConnection struct {
 type ProfileEdge struct {
 	Cursor *string  `json:"cursor"`
 	Node   *Profile `json:"node"`
+}
+
+type ResultCheck struct {
+	Status  *bool   `json:"status"`
+	Message *string `json:"message"`
 }
 
 type ResultFeedBacks struct {
@@ -222,42 +203,34 @@ type ResultMenues struct {
 }
 
 type ResultNewTag struct {
-	ID    string  `json:"id"`
-	TagID *int    `json:"tagId"`
-	Name  *string `json:"name"`
+	ID    string `json:"id"`
+	TagID *int   `json:"tagId"`
+	NewID *int   `json:"newId"`
 }
 
 type ResultNews struct {
-	ID              string  `json:"id"`
-	Title           *string `json:"title"`
-	MetaTitle       *string `json:"metaTitle"`
-	Description     *string `json:"description"`
-	Image           *string `json:"image"`
-	CategoryID      *int    `json:"categoryId"`
-	Detail          *string `json:"detail"`
-	CreatedAt       *string `json:"createdAt"`
-	CreatedBy       *string `json:"createdBy"`
-	ModifiedData    *string `json:"modifiedData"`
-	ModifiedBy      *string `json:"modifiedBy"`
-	MetaKeyWord     *string `json:"metaKeyWord"`
-	MetaDescription *string `json:"metaDescription"`
-	TopHot          *string `json:"topHot"`
-	ViewCount       *int    `json:"viewCount"`
-	Content         *string `json:"content"`
-	TagID           *int    `json:"tagId"`
+	ID          string  `json:"id"`
+	Title       *string `json:"title"`
+	Description *string `json:"description"`
+	Image       *string `json:"image"`
+	Detail      *string `json:"detail"`
+	CreatedAt   *string `json:"createdAt"`
+	TopHot      *string `json:"topHot"`
+	ViewCount   *int    `json:"viewCount"`
+	Content     *string `json:"content"`
+	TagID       *int    `json:"tagId"`
+	Active      *bool   `json:"active"`
 }
 
 type ResultProfile struct {
-	ID           string  `json:"id"`
-	UserID       *string `json:"userId"`
-	FirstName    *string `json:"firstName"`
-	LastName     *string `json:"lastName"`
-	Address      *string `json:"address"`
-	Phone        *string `json:"phone"`
-	CreatedAt    *string `json:"createdAt"`
-	CreatedBy    *string `json:"createdBy"`
-	ModifiedDate *string `json:"modifiedDate"`
-	ModifiedBy   *string `json:"modifiedBy"`
+	ID         string  `json:"id"`
+	UserID     *string `json:"userId"`
+	FirstName  *string `json:"firstName"`
+	LastName   *string `json:"lastName"`
+	Address    *string `json:"address"`
+	Phone      *string `json:"phone"`
+	CreatedAt  *string `json:"createdAt"`
+	ModifiedBy *string `json:"modifiedBy"`
 }
 
 type ResultSystemConfig struct {
@@ -268,7 +241,6 @@ type ResultSystemConfig struct {
 }
 
 type ResultTags struct {
-	ID    string  `json:"id"`
 	Name  *string `json:"name"`
 	NewID *int    `json:"newId"`
 }
@@ -294,11 +266,8 @@ type SystemConfigEdge struct {
 }
 
 type Tags struct {
-	ID     string    `json:"id"`
-	Name   *string   `json:"name"`
-	NewID  *int      `json:"newId"`
-	News   []*News   `json:"news"`
-	NewTag []*NewTag `json:"newTag"`
+	ID   string  `json:"id"`
+	Name *string `json:"name"`
 }
 
 func (Tags) IsNode() {}
