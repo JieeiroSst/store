@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func GenerateToken(id int,username string) (string, error) {
+func GenerateToken(id int,username string,permission string) (string, error) {
 	e := godotenv.Load()
 	if e != nil {
 		log.Print(e)
@@ -18,6 +18,7 @@ func GenerateToken(id int,username string) (string, error) {
 	atClaims["authorized"] = true
 	atClaims["user_id"] = id
 	atClaims["username"]=username
+	atClaims["permission"]=permission
 	atClaims["exp"] = time.Now().Add(time.Hour * 60 *60).Unix()
 	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)
 	token, err := at.SignedString([]byte(key))
@@ -43,4 +44,19 @@ func ParseToken(tokenStr string) (string, error) {
 	} else {
 		return "Missing Authentication Token", err
 	}
+}
+
+func GetPermission(tokenStr string)(string,string){
+	key := os.Getenv("KEY")
+	token, _ := jwt.Parse(tokenStr, func(token *jwt.Token) (interface{}, error) {
+		return []byte(key), nil
+	})
+	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		username:=claims["username"].(string)
+		permission := claims["permission"].(string)
+		return username,permission
+	} else {
+		return "Missing Authentication Token","Missing Authentication Token"
+	}
+	return "",""
 }

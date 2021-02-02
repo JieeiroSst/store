@@ -8,15 +8,15 @@ import (
 	"log"
 )
 
-func CheckAccount(username string) (bool, int, string) {
+func CheckAccount(username string) (bool, int, string,string) {
 	var accounts []users.Users
 	db.GetConn().Find(&accounts)
 	for _,account:=range accounts{
 		if account.Username==username{
-			return true, account.ID, account.Password
+			return true, account.ID, account.Password,account.Permission
 		}
 	}
-	return false, 0, ""
+	return false, 0, "",""
 }
 
 func CheckAccountExists(username string) bool {
@@ -31,14 +31,14 @@ func CheckAccountExists(username string) bool {
 }
 
 func Login(username,password string) string{
-	check, id, hashPassword := CheckAccount(username)
+	check, id, hashPassword,permission := CheckAccount(username)
 	if check == false {
 		return "User does not exist"
 	}
 	if checkPass := hash.CheckPassowrd(password, hashPassword); checkPass != nil {
 		return "password entered incorrectly"
 	}
-	token, _ := jwt.GenerateToken(id, username)
+	token, _ := jwt.GenerateToken(id, username,permission)
 	return token
 }
 
@@ -51,11 +51,22 @@ func SignUp(username,password string) string{
 	if err != nil {
 		log.Println("error server", err)
 	}
-	account:=users.Users{
-		Username:     username,
-		Password:     hashPassword,
+
+	if username == "admin"{
+		account := users.Users{
+			Username:   username,
+			Password:   hashPassword,
+			Permission: "private",
+		}
+		_ = db.GetConn().Create(&account)
+	}else {
+		account := users.Users{
+			Username:   username,
+			Password:   hashPassword,
+			Permission: "public",
+		}
+		_ = db.GetConn().Create(&account)
 	}
 
-	_ = db.GetConn().Create(&account)
 	return username+":"+hashPassword
 }

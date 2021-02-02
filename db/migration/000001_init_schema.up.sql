@@ -37,7 +37,8 @@ create table system_configs(
 create table users(
     id bigserial primary key ,
     username varchar(255),
-    password varchar(255)
+    password varchar(255),
+    permission varchar(100)
 );
 
 create table profiles (

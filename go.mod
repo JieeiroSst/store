@@ -8,6 +8,7 @@ require (
 	github.com/casbin/casbin/v2 v2.19.4
 	github.com/casbin/gorm-adapter/v3 v3.0.4
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/dgryski/trifles v0.0.0-20190318185328-a8d75aae118c
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.6.3
 	github.com/google/uuid v1.1.2

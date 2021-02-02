@@ -33,13 +33,43 @@ func Authenticate() gin.HandlerFunc {
 	}
 }
 
-func Authorize() gin.HandlerFunc {
+func AuthorizeAdmin(parameters  string) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		_, existed := c.Get("current_subject")
 		if !existed {
 			c.AbortWithStatusJSON(401, component.RestResponse{Message: "user hasn't logged in yet"})
 			return
 		}
+		token:=c.Request.Header.Get("Authorization")
+		strArr := strings.Split(token, " ")
+		username,permission :=jwt.GetPermission(strArr[1])
+		if username == "admin" {
+			c.Next()
+		}
+		if parameters!=permission && permission != "private" && username != "admin"  {
+			c.AbortWithStatusJSON(401, component.RestResponse{Message: "the user does not have admin access to access "})
+			return
+		}
+
+		c.Next()
+	}
+}
+
+func AuthorizeClient(parameters  string) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		_, existed := c.Get("current_subject")
+		if !existed {
+			c.AbortWithStatusJSON(401, component.RestResponse{Message: "user hasn't logged in yet"})
+			return
+		}
+		token:=c.Request.Header.Get("Authorization")
+		strArr := strings.Split(token, " ")
+		_,permission :=jwt.GetPermission(strArr[1])
+		if parameters != permission && permission != "public" {
+			c.AbortWithStatusJSON(401, component.RestResponse{Message: "the user does not have access to access "})
+			return
+		}
+
 		c.Next()
 	}
 }

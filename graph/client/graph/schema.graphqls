@@ -9,20 +9,22 @@ type Query {
   news: News
   tags: Tags
   newTags: NewTag
-  feedbacks: FeedBacks
-  profile: Profile
 
   new(id: Int): News
   tag(id: Int):Tags
   newTag(id: Int): NewTag
-  feedback(id: Int): FeedBacks
-  profileId(id: Int): Profile
-
+  profile(id: Int): Profile
 }
 
 type Mutation {
   SendMail(email: String): Boolean
   AddFriend(id: Int): Boolean
+  CreateFeebBack(input: InputFeedBacks): ResultCheck
+}
+
+type ResultCheck {
+  status: Boolean
+  message: String
 }
 
 interface Node {
@@ -51,28 +53,6 @@ type News implements Node{
   active: Boolean
   tags: [Tags]
 }
-
-type ResultNews {
-  id: ID!
-  title: String
-  metaTitle: String
-  description: String
-  image: String
-  categoryId: Int
-  detail: String
-  createdAt: String
-  createdBy:String
-  modifiedData: String
-  modifiedBy: String
-  metaKeyWord:String
-  metaDescription: String
-  topHot: String
-  viewCount: Int
-  content: String
-  tagId: Int
-}
-
-
 
 type Tags implements Node{
   id: ID!
@@ -111,16 +91,6 @@ type FeedBacks implements Node{
   createdAt: String
 }
 
-type ResultFeedBacks {
-  id: ID!
-  name: String
-  phone: String
-  email: String
-  address: String
-  content: String
-  createdAt: String
-}
-
 input InputFeedBacks {
   name: String
   phone: String
@@ -140,29 +110,6 @@ type Profile implements Node{
   createdBy: String
   modifiedDate: String
   modifiedBy: String
-  friendId: [Int]
-}
-
-type ResultProfile {
-  id: ID!
-  userId: ID
-  firstName: String
-  lastName: String
-  address: String
-  phone: String
-  createdAt: String
-  createdBy: String
-  modifiedDate: String
-  modifiedBy: String
-}
-
-type Friend implements Node{
-  id: ID!
-  friends: [Profile]
-}
-
-type ResultFriend {
-  id: ID!
 }
 
 type Users implements Node{
@@ -174,13 +121,6 @@ type Users implements Node{
 
 type Menues implements Node{
   id: ID!
-  text: String
-  link: String
-  displayOrder: Int
-  target: String
-}
-
-type ResultMenues {
   text: String
   link: String
   displayOrder: Int

@@ -19,6 +19,10 @@ func (r *mutationResolver) AddFriend(ctx context.Context, id *int) (*bool, error
 	panic(fmt.Errorf("not implemented"))
 }
 
+func (r *mutationResolver) CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.ResultCheck, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
 func (r *queryResolver) Node(ctx context.Context, id string) (model.Node, error) {
 	panic(fmt.Errorf("not implemented"))
 }
@@ -35,14 +39,6 @@ func (r *queryResolver) NewTags(ctx context.Context) (*model.NewTag, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Feedbacks(ctx context.Context) (*model.FeedBacks, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) Profile(ctx context.Context) (*model.Profile, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
 func (r *queryResolver) New(ctx context.Context, id *int) (*model.News, error) {
 	panic(fmt.Errorf("not implemented"))
 }
@@ -55,11 +51,7 @@ func (r *queryResolver) NewTag(ctx context.Context, id *int) (*model.NewTag, err
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Feedback(ctx context.Context, id *int) (*model.FeedBacks, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *queryResolver) ProfileID(ctx context.Context, id *int) (*model.Profile, error) {
+func (r *queryResolver) Profile(ctx context.Context, id *int) (*model.Profile, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 

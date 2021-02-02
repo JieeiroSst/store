@@ -18,13 +18,6 @@ type FeedBacks struct {
 
 func (FeedBacks) IsNode() {}
 
-type Friend struct {
-	ID      string     `json:"id"`
-	Friends []*Profile `json:"friends"`
-}
-
-func (Friend) IsNode() {}
-
 type InputFeedBacks struct {
 	Name    *string `json:"name"`
 	Phone   *string `json:"phone"`
@@ -86,69 +79,19 @@ type Profile struct {
 	CreatedBy    *string `json:"createdBy"`
 	ModifiedDate *string `json:"modifiedDate"`
 	ModifiedBy   *string `json:"modifiedBy"`
-	FriendID     []*int  `json:"friendId"`
 }
 
 func (Profile) IsNode() {}
 
-type ResultFeedBacks struct {
-	ID        string  `json:"id"`
-	Name      *string `json:"name"`
-	Phone     *string `json:"phone"`
-	Email     *string `json:"email"`
-	Address   *string `json:"address"`
-	Content   *string `json:"content"`
-	CreatedAt *string `json:"createdAt"`
-}
-
-type ResultFriend struct {
-	ID string `json:"id"`
-}
-
-type ResultMenues struct {
-	Text         *string `json:"text"`
-	Link         *string `json:"link"`
-	DisplayOrder *int    `json:"displayOrder"`
-	Target       *string `json:"target"`
+type ResultCheck struct {
+	Status  *bool   `json:"status"`
+	Message *string `json:"message"`
 }
 
 type ResultNewTag struct {
 	ID    string  `json:"id"`
 	TagID *int    `json:"tagId"`
 	Name  *string `json:"name"`
-}
-
-type ResultNews struct {
-	ID              string  `json:"id"`
-	Title           *string `json:"title"`
-	MetaTitle       *string `json:"metaTitle"`
-	Description     *string `json:"description"`
-	Image           *string `json:"image"`
-	CategoryID      *int    `json:"categoryId"`
-	Detail          *string `json:"detail"`
-	CreatedAt       *string `json:"createdAt"`
-	CreatedBy       *string `json:"createdBy"`
-	ModifiedData    *string `json:"modifiedData"`
-	ModifiedBy      *string `json:"modifiedBy"`
-	MetaKeyWord     *string `json:"metaKeyWord"`
-	MetaDescription *string `json:"metaDescription"`
-	TopHot          *string `json:"topHot"`
-	ViewCount       *int    `json:"viewCount"`
-	Content         *string `json:"content"`
-	TagID           *int    `json:"tagId"`
-}
-
-type ResultProfile struct {
-	ID           string  `json:"id"`
-	UserID       *string `json:"userId"`
-	FirstName    *string `json:"firstName"`
-	LastName     *string `json:"lastName"`
-	Address      *string `json:"address"`
-	Phone        *string `json:"phone"`
-	CreatedAt    *string `json:"createdAt"`
-	CreatedBy    *string `json:"createdBy"`
-	ModifiedDate *string `json:"modifiedDate"`
-	ModifiedBy   *string `json:"modifiedBy"`
 }
 
 type ResultTags struct {

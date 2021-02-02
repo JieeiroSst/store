@@ -6,20 +6,19 @@ schema {
 type Query {
   node(id: ID!): Node
 
-  news: NewsConnection
-  tags: TagsConnection
-  newTags: NewTagsConnection
-  feedbacks: FeedBackConnection
-  profile: ProfileConnection
-  systemConfig: SystemConfigConnection
+  news: [ResultNews]
+  tags: [ResultTags]
+  newTags: [ResultNewTag]
+  feedbacks: [ResultFeedBacks]
+  profiles: [ResultProfile]
+  systemConfigs: [ResultSystemConfig]
 
-  new(id: Int): News
-  tag(id: Int):Tags
-  newTag(id: Int): NewTag
-  feedback(id: Int): FeedBacks
-  profileId(id: Int): Profile
-  systemconfig(id: Int): SystemConfig
-  refreshToken: String
+  new(id: Int): ResultNews
+  tag(id: Int): ResultTags
+  newTag(id: Int): ResultNewTag
+  feedback(id: Int): ResultFeedBacks
+  profileId(id: Int): ResultProfile
+  systemconfig(id: Int): ResultSystemConfig
 }
 
 type Mutation {
@@ -62,13 +61,6 @@ interface Node {
   id: ID!
 }
 
-type PageInfo {
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
-  endCursor: String
-}
-
 type News implements Node{
   id: ID!
   title: String
@@ -85,7 +77,7 @@ type News implements Node{
 }
 
 type ResultNews {
-  id: ID!
+  id: Int
   title: String
   description: String
   image: String
@@ -96,22 +88,6 @@ type ResultNews {
   content: String
   tagId: Int
   active: Boolean
-}
-
-input PaginationInput {
-  first: Int
-  after: String
-}
-
-type NewsEdge {
-  cursor: String
-  node: News
-}
-
-type NewsConnection {
-  pageInfo: PageInfo
-  edges: [NewsEdge]
-  totalCount: Int
 }
 
 input InputNews {
@@ -133,19 +109,8 @@ type Tags implements Node{
 }
 
 type ResultTags {
+  id: Int
   name: String
-  newId: Int
-}
-
-type TagsEdge {
-  cursor: String
-  node: Tags
-}
-
-type TagsConnection {
-  pageInfo: PageInfo
-  edges: [TagsEdge]
-  totalCount: Int
 }
 
 input InputTags {
@@ -161,20 +126,9 @@ type NewTag implements Node{
 }
 
 type ResultNewTag {
-  id: ID!
+  id: Int
   tagId: Int
   newId: Int
-}
-
-type NewTagsEdge {
-  cursor: String
-  node: NewTag
-}
-
-type NewTagsConnection {
-  pageInfo: PageInfo
-  edges: [NewTagsEdge]
-  totalCount: Int
 }
 
 input InputNewTag {
@@ -193,24 +147,13 @@ type FeedBacks implements Node{
 }
 
 type ResultFeedBacks {
-  id: ID!
+  id: Int
   name: String
   phone: String
   email: String
   address: String
   content: String
   createdAt: String
-}
-
-type FeedBackEdge {
-  cursor: String
-  node: FeedBacks
-}
-
-type FeedBackConnection {
-  pageInfo: PageInfo
-  edges: FeedBackEdge
-  totalCount: Int
 }
 
 input InputFeedBacks {
@@ -223,7 +166,7 @@ input InputFeedBacks {
 
 type Profile implements Node{
   id: ID!
-  userId: ID
+  userId: Int
   firstName: String
   lastName: String
   address: String
@@ -232,8 +175,8 @@ type Profile implements Node{
 }
 
 type ResultProfile {
-  id: ID!
-  userId: ID
+  id: Int
+  userId: Int
   firstName: String
   lastName: String
   address: String
@@ -251,19 +194,8 @@ type ResultFriend {
   id: ID!
 }
 
-type ProfileEdge {
-  cursor: String
-  node: Profile
-}
-
-type ProfileConnection {
-  pageInfo: PageInfo
-  edges: [ProfileEdge]
-  totalCount: Int
-}
-
 input InputProfile {
-  userId: ID
+  userId: Int
   firstName: String
   lastName: String
   address: String
@@ -287,22 +219,12 @@ type SystemConfig implements Node{
 }
 
 type ResultSystemConfig {
-  id: ID!
+  id: Int
   name: String
   type: String
   value: String
 }
 
-type SystemConfigEdge {
-  cursor: String
-  node: SystemConfig
-}
-
-type SystemConfigConnection {
-  pageInfo: PageInfo
-  edges: [SystemConfigEdge]
-  totalCount: Int
-}
 
 type Menues implements Node{
   id: ID!
@@ -312,6 +234,7 @@ type Menues implements Node{
 }
 
 type ResultMenues {
+  id: Int
   text: String
   link: String
   displayOrder: Int

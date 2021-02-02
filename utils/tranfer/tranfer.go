@@ -1,5 +1,7 @@
 package tranfer
 
+import "time"
+
 func DeferString(s *string) string {
 	if s != nil {
 		return *s
@@ -26,4 +28,14 @@ func DeferBool(n *bool) bool {
 		return *n
 	}
 	return false
+}
+
+func DeferBoolPonter(n bool) *bool {
+	return &n
+}
+
+func DeferTimeToString(time *time.Time) *string {
+	strTime := time.String()
+
+	return &strTime
 }

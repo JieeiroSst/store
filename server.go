@@ -46,8 +46,8 @@ func init() {
 	resource := router.Group("/api")
 	resource.Use(middleware.Authenticate())
 	{
-		resource.POST("/admin/graphql",middleware.Authorize(), graphqlHandlerAdmin())
-		resource.POST("/graphql",middleware.Authorize(), graphqlHandlerClient())
+		resource.POST("/admin/graphql",middleware.AuthorizeAdmin("private"), graphqlHandlerAdmin())
+		resource.POST("/graphql",middleware.AuthorizeClient("public"), graphqlHandlerClient())
 	}
 
 }

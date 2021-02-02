@@ -6,14 +6,15 @@ package graph
 import (
 	"context"
 	"fmt"
-
 	db "github.com/JIeeiroSst/store/component"
 	"github.com/JIeeiroSst/store/graph/admin/graph/generated"
 	"github.com/JIeeiroSst/store/graph/admin/graph/model"
 	"github.com/JIeeiroSst/store/models"
+	"github.com/JIeeiroSst/store/utils/tranfer"
 )
 
 func (r *mutationResolver) CreateNews(ctx context.Context, input *model.InputNews) (*model.ResultCheck, error) {
+	active := false
 	data := models.News{
 		Title:       input.Title,
 		Image:       input.Image,
@@ -21,6 +22,7 @@ func (r *mutationResolver) CreateNews(ctx context.Context, input *model.InputNew
 		Content:     input.Content,
 		TagID:       input.TagID,
 		Description: input.Description,
+		Active:      tranfer.DeferBoolPonter(active),
 	}
 	err := db.GetConn().Create(&data)
 	if err != nil {
@@ -362,8 +364,8 @@ func (r *mutationResolver) DeleteProfile(ctx context.Context, id *int) (*model.R
 }
 
 func (r *mutationResolver) DeleteMenues(ctx context.Context, id *int) (*model.ResultCheck, error) {
-	err := db.GetConn().Delete(models.Menues{},"id = ?",id)
-	if err !=nil {
+	err := db.GetConn().Delete(models.Menues{}, "id = ?", id)
+	if err != nil {
 		status = false
 		message = "delete failure "
 		result.Status = &status
@@ -382,7 +384,23 @@ func (r *mutationResolver) CheckNews(ctx context.Context, id *int) (*model.Resul
 }
 
 func (r *mutationResolver) PublicNew(ctx context.Context, id *int) (*model.ResultCheck, error) {
-	panic(fmt.Errorf("not implemented"))
+	active := true
+	data := models.News{Active:tranfer.DeferBoolPonter(active)}
+
+	err := db.GetConn().Model(models.News{}).Where("id = ? ", id).Updates(data)
+	if err != nil {
+		status = false
+		message = "public failure "
+		result.Status = &status
+		result.Message = &message
+	}
+
+	status = true
+	message = "public successfully"
+	result.Status = &status
+	result.Message = &message
+
+	return &result, nil
 }
 
 func (r *mutationResolver) SendMail(ctx context.Context, email *string) (*model.ResultCheck, error) {
@@ -397,56 +415,212 @@ func (r *queryResolver) Node(ctx context.Context, id string) (model.Node, error)
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) News(ctx context.Context) (*model.NewsConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) News(ctx context.Context) ([]*model.ResultNews, error) {
+	var news []models.News
+	var data *model.ResultNews
+	var result = make([]*model.ResultNews,0)
+	db.GetConn().Find(&news)
+	for _, new := range news {
+		data = &model.ResultNews{
+			ID:          new.ID,
+			Title:       new.Title,
+			Description: new.Description,
+			Image:       new.Image,
+			Detail:      new.Detail,
+			CreatedAt:   tranfer.DeferTimeToString(new.CreatedAt),
+			ViewCount:   new.ViewCount,
+			Content:     new.Content,
+			TagID:       new.TagID,
+			Active:      new.Active,
+		}
+		result = append(result,data)
+	}
+
+	return result, nil
 }
 
-func (r *queryResolver) Tags(ctx context.Context) (*model.TagsConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) Tags(ctx context.Context) ([]*model.ResultTags, error) {
+	var tags []models.Tags
+	var data *model.ResultTags
+	var result = make([]*model.ResultTags,0)
+	db.GetConn().Find(&tags)
+	for _, tag := range tags {
+		data = &model.ResultTags{
+			ID:   tag.ID,
+			Name: tag.Name,
+		}
+		result = append(result, data)
+	}
+	return result, nil
 }
 
-func (r *queryResolver) NewTags(ctx context.Context) (*model.NewTagsConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) NewTags(ctx context.Context) ([]*model.ResultNewTag, error) {
+	var newTags []models.NewTag
+	var data *model.ResultNewTag
+	var result = make([]*model.ResultNewTag,0)
+	db.GetConn().Find(&newTags)
+	for _, item := range newTags {
+		data = &model.ResultNewTag{
+			ID:    item.ID,
+			TagID: item.TagId,
+			NewID: item.NewId,
+		}
+		result = append(result, data)
+	}
+	return result, nil
 }
 
-func (r *queryResolver) Feedbacks(ctx context.Context) (*model.FeedBackConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) Feedbacks(ctx context.Context) ([]*model.ResultFeedBacks, error) {
+	var feedBacks []models.FeedBacks
+	var data *model.ResultFeedBacks
+	var result = make([]*model.ResultFeedBacks,0)
+	db.GetConn().Find(&feedBacks)
+
+	for _, item := range feedBacks {
+		data = &model.ResultFeedBacks{
+			ID:        item.ID,
+			Name:      item.Name,
+			Phone:     item.Phone,
+			Email:     item.Email,
+			Address:   item.Address,
+			Content:   item.Content,
+			CreatedAt: tranfer.DeferTimeToString(item.CreatedAt),
+		}
+
+		result = append(result, data)
+	}
+	return result, nil
 }
 
-func (r *queryResolver) Profile(ctx context.Context) (*model.ProfileConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) Profiles(ctx context.Context) ([]*model.ResultProfile, error) {
+	var profiles []models.Profile
+	var data *model.ResultProfile
+	var result = make([]*model.ResultProfile,0)
+	db.GetConn().Find(&profiles)
+
+	for _, item := range profiles {
+		data = &model.ResultProfile{
+			ID:        item.ID,
+			UserID:    item.UserID,
+			FirstName: item.FirstName,
+			LastName:  item.LastName,
+			Address:   item.Address,
+			Phone:     item.Phone,
+			CreatedAt: tranfer.DeferTimeToString(item.CreatedAt),
+		}
+		result = append(result,data)
+	}
+	return result, nil
 }
 
-func (r *queryResolver) SystemConfig(ctx context.Context) (*model.SystemConfigConnection, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) SystemConfigs(ctx context.Context) ([]*model.ResultSystemConfig, error) {
+	var systemConfigs []models.SystemConfig
+	var data *model.ResultSystemConfig
+	var result = make([]*model.ResultSystemConfig,0)
+	for _, item := range systemConfigs {
+		data = &model.ResultSystemConfig{
+			ID:    item.ID,
+			Name:  item.Name,
+			Type:  item.Type,
+			Value: item.Value,
+		}
+		result = append(result, data)
+	}
+	return result, nil
 }
 
-func (r *queryResolver) New(ctx context.Context, id *int) (*model.News, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) New(ctx context.Context, id *int) (*model.ResultNews, error) {
+	var new models.News
+	var result model.ResultNews
+
+	db.GetConn().Where("id = ?", id).Find(&new)
+	result = model.ResultNews{
+		ID:          new.ID,
+		Title:       new.Title,
+		Description: new.Description,
+		Image:       new.Image,
+		Detail:      new.Detail,
+		CreatedAt:   tranfer.DeferTimeToString(new.CreatedAt),
+		ViewCount:   new.ViewCount,
+		Content:     new.Content,
+		TagID:       new.TagID,
+		Active:      new.Active,
+	}
+	return &result, nil
 }
 
-func (r *queryResolver) Tag(ctx context.Context, id *int) (*model.Tags, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) Tag(ctx context.Context, id *int) (*model.ResultTags, error) {
+	var tag models.Tags
+	var result model.ResultTags
+
+	db.GetConn().Where("id = ?",id).Find(&tag)
+	result =model.ResultTags{
+		ID:  	tag.ID,
+		Name: 	tag.Name,
+	}
+	return &result,nil
 }
 
-func (r *queryResolver) NewTag(ctx context.Context, id *int) (*model.NewTag, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) NewTag(ctx context.Context, id *int) (*model.ResultNewTag, error) {
+	var newTag models.NewTag
+	var result model.ResultNewTag
+
+	db.GetConn().Where("id = ?",id).Find(&newTag)
+	result = model.ResultNewTag{
+		ID:    newTag.ID,
+		TagID: newTag.TagId,
+		NewID: newTag.NewId,
+	}
+	return &result,nil
 }
 
-func (r *queryResolver) Feedback(ctx context.Context, id *int) (*model.FeedBacks, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) Feedback(ctx context.Context, id *int) (*model.ResultFeedBacks, error) {
+	var feedBack models.FeedBacks
+	var result model.ResultFeedBacks
+
+	db.GetConn().Where("id = ?",id).Find(&feedBack)
+
+	result= model.ResultFeedBacks{
+		ID:        feedBack.ID,
+		Name:      feedBack.Name,
+		Phone:     feedBack.Phone,
+		Email:     feedBack.Email,
+		Address:   feedBack.Address,
+		Content:   feedBack.Content,
+		CreatedAt: tranfer.DeferTimeToString(feedBack.CreatedAt),
+	}
+	return &result ,nil
 }
 
-func (r *queryResolver) ProfileID(ctx context.Context, id *int) (*model.Profile, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) ProfileID(ctx context.Context, id *int) (*model.ResultProfile, error) {
+	var profile models.Profile
+	var result model.ResultProfile
+	db.GetConn().Where("id = ?",id).Find(&profile)
+	result = model.ResultProfile{
+		ID:         profile.ID,
+		UserID:     profile.UserID,
+		FirstName:  profile.FirstName,
+		LastName:   profile.LastName,
+		Address:    profile.Address,
+		Phone:      profile.Phone,
+		CreatedAt:  tranfer.DeferTimeToString(profile.CreatedAt),
+	}
+
+	return &result ,nil
 }
 
-func (r *queryResolver) Systemconfig(ctx context.Context, id *int) (*model.SystemConfig, error) {
-	panic(fmt.Errorf("not implemented"))
-}
+func (r *queryResolver) Systemconfig(ctx context.Context, id *int) (*model.ResultSystemConfig, error) {
+	var systemConfig models.SystemConfig
+	var result model.ResultSystemConfig
+	db.GetConn().Where("id = ?",id).Find(&systemConfig)
+	result =model.ResultSystemConfig{
+		ID:    systemConfig.ID,
+		Name:  systemConfig.Name,
+		Type:  systemConfig.Type,
+		Value: systemConfig.Value,
+	}
 
-func (r *queryResolver) RefreshToken(ctx context.Context) (*string, error) {
-	panic(fmt.Errorf("not implemented"))
+	return &result ,nil
 }
 
 // Mutation returns generated.MutationResolver implementation.

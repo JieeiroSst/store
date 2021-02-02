@@ -6,17 +6,6 @@ type Node interface {
 	IsNode()
 }
 
-type FeedBackConnection struct {
-	PageInfo   *PageInfo     `json:"pageInfo"`
-	Edges      *FeedBackEdge `json:"edges"`
-	TotalCount *int          `json:"totalCount"`
-}
-
-type FeedBackEdge struct {
-	Cursor *string    `json:"cursor"`
-	Node   *FeedBacks `json:"node"`
-}
-
 type FeedBacks struct {
 	ID        string  `json:"id"`
 	Name      *string `json:"name"`
@@ -70,7 +59,7 @@ type InputNews struct {
 }
 
 type InputProfile struct {
-	UserID     *string `json:"userId"`
+	UserID     *int    `json:"userId"`
 	FirstName  *string `json:"firstName"`
 	LastName   *string `json:"lastName"`
 	Address    *string `json:"address"`
@@ -102,17 +91,6 @@ type NewTag struct {
 
 func (NewTag) IsNode() {}
 
-type NewTagsConnection struct {
-	PageInfo   *PageInfo      `json:"pageInfo"`
-	Edges      []*NewTagsEdge `json:"edges"`
-	TotalCount *int           `json:"totalCount"`
-}
-
-type NewTagsEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *NewTag `json:"node"`
-}
-
 type News struct {
 	ID          string  `json:"id"`
 	Title       *string `json:"title"`
@@ -130,32 +108,9 @@ type News struct {
 
 func (News) IsNode() {}
 
-type NewsConnection struct {
-	PageInfo   *PageInfo   `json:"pageInfo"`
-	Edges      []*NewsEdge `json:"edges"`
-	TotalCount *int        `json:"totalCount"`
-}
-
-type NewsEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *News   `json:"node"`
-}
-
-type PageInfo struct {
-	HasNextPage     bool    `json:"hasNextPage"`
-	HasPreviousPage bool    `json:"hasPreviousPage"`
-	StartCursor     *string `json:"startCursor"`
-	EndCursor       *string `json:"endCursor"`
-}
-
-type PaginationInput struct {
-	First *int    `json:"first"`
-	After *string `json:"after"`
-}
-
 type Profile struct {
 	ID        string  `json:"id"`
-	UserID    *string `json:"userId"`
+	UserID    *int    `json:"userId"`
 	FirstName *string `json:"firstName"`
 	LastName  *string `json:"lastName"`
 	Address   *string `json:"address"`
@@ -165,24 +120,13 @@ type Profile struct {
 
 func (Profile) IsNode() {}
 
-type ProfileConnection struct {
-	PageInfo   *PageInfo      `json:"pageInfo"`
-	Edges      []*ProfileEdge `json:"edges"`
-	TotalCount *int           `json:"totalCount"`
-}
-
-type ProfileEdge struct {
-	Cursor *string  `json:"cursor"`
-	Node   *Profile `json:"node"`
-}
-
 type ResultCheck struct {
 	Status  *bool   `json:"status"`
 	Message *string `json:"message"`
 }
 
 type ResultFeedBacks struct {
-	ID        string  `json:"id"`
+	ID        *int    `json:"id"`
 	Name      *string `json:"name"`
 	Phone     *string `json:"phone"`
 	Email     *string `json:"email"`
@@ -196,6 +140,7 @@ type ResultFriend struct {
 }
 
 type ResultMenues struct {
+	ID           *int    `json:"id"`
 	Text         *string `json:"text"`
 	Link         *string `json:"link"`
 	DisplayOrder *int    `json:"displayOrder"`
@@ -203,13 +148,13 @@ type ResultMenues struct {
 }
 
 type ResultNewTag struct {
-	ID    string `json:"id"`
-	TagID *int   `json:"tagId"`
-	NewID *int   `json:"newId"`
+	ID    *int `json:"id"`
+	TagID *int `json:"tagId"`
+	NewID *int `json:"newId"`
 }
 
 type ResultNews struct {
-	ID          string  `json:"id"`
+	ID          *int    `json:"id"`
 	Title       *string `json:"title"`
 	Description *string `json:"description"`
 	Image       *string `json:"image"`
@@ -223,8 +168,8 @@ type ResultNews struct {
 }
 
 type ResultProfile struct {
-	ID         string  `json:"id"`
-	UserID     *string `json:"userId"`
+	ID         *int    `json:"id"`
+	UserID     *int    `json:"userId"`
 	FirstName  *string `json:"firstName"`
 	LastName   *string `json:"lastName"`
 	Address    *string `json:"address"`
@@ -234,15 +179,15 @@ type ResultProfile struct {
 }
 
 type ResultSystemConfig struct {
-	ID    string  `json:"id"`
+	ID    *int    `json:"id"`
 	Name  *string `json:"name"`
 	Type  *string `json:"type"`
 	Value *string `json:"value"`
 }
 
 type ResultTags struct {
-	Name  *string `json:"name"`
-	NewID *int    `json:"newId"`
+	ID   *int    `json:"id"`
+	Name *string `json:"name"`
 }
 
 type SystemConfig struct {
@@ -254,34 +199,12 @@ type SystemConfig struct {
 
 func (SystemConfig) IsNode() {}
 
-type SystemConfigConnection struct {
-	PageInfo   *PageInfo           `json:"pageInfo"`
-	Edges      []*SystemConfigEdge `json:"edges"`
-	TotalCount *int                `json:"totalCount"`
-}
-
-type SystemConfigEdge struct {
-	Cursor *string       `json:"cursor"`
-	Node   *SystemConfig `json:"node"`
-}
-
 type Tags struct {
 	ID   string  `json:"id"`
 	Name *string `json:"name"`
 }
 
 func (Tags) IsNode() {}
-
-type TagsConnection struct {
-	PageInfo   *PageInfo   `json:"pageInfo"`
-	Edges      []*TagsEdge `json:"edges"`
-	TotalCount *int        `json:"totalCount"`
-}
-
-type TagsEdge struct {
-	Cursor *string `json:"cursor"`
-	Node   *Tags   `json:"node"`
-}
 
 type Users struct {
 	ID         string   `json:"id"`

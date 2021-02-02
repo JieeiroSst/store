@@ -11,7 +11,7 @@ type Menues struct {
 }
 
 type FeedBacks struct {
-	ID        string  `json:"id"`
+	ID        *int  `json:"id"`
 	Name      *string `json:"name"`
 	Phone     *string `json:"phone"`
 	Email     *string `json:"email"`
@@ -43,7 +43,7 @@ type News struct {
 
 type Profile struct {
 	ID         *int  `json:"id"`
-	UserID     *string `json:"userId"`
+	UserID     *int `json:"userId"`
 	FirstName  *string `json:"firstName"`
 	LastName   *string `json:"lastName"`
 	Address    *string `json:"address"`
@@ -62,6 +62,7 @@ type Users struct {
 	ID         int   `json:"id"`
 	Username   string  `json:"username"`
 	Password   string  `json:"password"`
+	Permission string `json:"permission"`
 	UserDetail Profile `json:"userDetail"`
 }
 
