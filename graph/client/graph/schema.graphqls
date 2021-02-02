@@ -4,11 +4,9 @@ schema {
 }
 
 type Query {
-  node(id: ID!): Node
-
-  news: News
-  tags: Tags
-  newTags: NewTag
+  news: [News]
+  tags: [Tags]
+  newTags: [NewTag]
 
   new(id: Int): News
   tag(id: Int):Tags
@@ -17,78 +15,25 @@ type Query {
 }
 
 type Mutation {
-  SendMail(email: String): Boolean
-  AddFriend(id: Int): Boolean
   CreateFeebBack(input: InputFeedBacks): ResultCheck
+
+  CreateProfile(input: InputProfile): ResultCheck
+  UpdateProfile(id: Int,input: InputProfile): ResultCheck
+}
+
+input InputProfile {
+  userId: Int
+  firstName: String
+  lastName: String
+  address: String
+  phone: String
+  createdAt: String
+  modifiedBy: String
 }
 
 type ResultCheck {
   status: Boolean
   message: String
-}
-
-interface Node {
-  id: ID!
-}
-
-
-type News implements Node{
-  id: ID!
-  title: String
-  metaTitle: String
-  description: String
-  image: String
-  categoryId: Int
-  detail: String
-  createdAt: String
-  createdBy:String
-  modifiedData: String
-  modifiedBy: String
-  metaKeyWord:String
-  metaDescription: String
-  topHot: String
-  viewCount: Int
-  content: String
-  tagId: Int
-  active: Boolean
-  tags: [Tags]
-}
-
-type Tags implements Node{
-  id: ID!
-  name: String
-  newId: Int
-  news: [News]
-  newTag: [NewTag]
-}
-
-type ResultTags {
-  id: ID!
-  name: String
-  newId: Int
-}
-
-
-type NewTag implements Node{
-  id: ID!
-  tagId: Int
-  name: String
-}
-
-type ResultNewTag {
-  id: ID!
-  tagId: Int
-  name: String
-}
-
-type FeedBacks implements Node{
-  id: ID!
-  name: String
-  phone: String
-  email: String
-  address: String
-  content: String
-  createdAt: String
 }
 
 input InputFeedBacks {
@@ -99,30 +44,65 @@ input InputFeedBacks {
   content: String
 }
 
-type Profile implements Node{
-  id: ID!
-  userId: ID
+type News{
+  id: Int!
+  title: String
+  description: String
+  image: String
+  createdAt: String
+  topHot: String
+  viewCount: Int
+  content: String
+  tagId: Int
+  active: Boolean
+  tags: [Tags]
+}
+
+type Tags{
+  id: Int
+  name: String
+}
+
+
+type NewTag{
+  id: Int
+  tagId: Int
+  newId: Int
+  news :[News]
+  tags: [Tags]
+}
+
+
+type FeedBacks{
+  id: Int
+  name: String
+  phone: String
+  email: String
+  address: String
+  content: String
+  createdAt: String
+}
+
+type Profile{
+  id: Int
+  userId: Int
   firstName: String
   lastName: String
   address: String
   phone: String
   createdAt: String
-  createdBy: String
-  modifiedDate: String
-  modifiedBy: String
 }
 
-type Users implements Node{
-  id: ID!
+type Users {
+  id: Int
   username: String
   password: String
   userDetail: Profile
 }
 
-type Menues implements Node{
-  id: ID!
+type Menues{
+  id: Int
   text: String
   link: String
-  displayOrder: Int
   target: String
 }
