@@ -19,6 +19,8 @@ type Mutation {
 
   CreateProfile(input: InputProfile): ResultCheck
   UpdateProfile(id: Int,input: InputProfile): ResultCheck
+
+  refreshToken(token: String): String
 }
 
 input InputProfile {

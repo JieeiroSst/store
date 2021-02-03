@@ -57,11 +57,12 @@ init
 
 Run the migration
 
-- migrate -path db/migration -database "postgresql://root:1234@localhost:5432/store?sslmode=disable" -verbose up
+- migrate -path db/migration -database "postgresql://apvvtdrc:DxJvXCTZ5OzNa2SRktCRkMHLE6vbwozg@arjuna.db.elephantsql.com:5432/apvvtdrc?sslmode=disable" -verbose up
 
 Rollback
 
-- migrate -path db/migration -database "postgresql://root:1234@localhost:5432/store?sslmode=disable" -verbose down
+- migrate -path db/migration -database "postgresql://apvvtdrc:DxJvXCTZ5OzNa2SRktCRkMHLE6vbwozg@arjuna.db.elephantsql.com:5432/apvvtdrc?sslmode=disable" -verbose down
+
 
 Make run makefile
 

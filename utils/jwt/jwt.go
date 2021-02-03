@@ -60,3 +60,17 @@ func GetPermission(tokenStr string)(string,string){
 	}
 	return "",""
 }
+
+func GetIdUser(tokenStr string) float64 {
+	key := os.Getenv("KEY")
+	token, _ := jwt.Parse(tokenStr, func(token *jwt.Token) (interface{}, error) {
+		return []byte(key), nil
+	})
+	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		id:=claims["user_id"].(float64)
+		return id
+	} else {
+		return -1
+	}
+	return 0
+}

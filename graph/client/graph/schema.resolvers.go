@@ -6,20 +6,15 @@ package graph
 import (
 	"context"
 	"fmt"
+	"encoding/base64"
 
 	db "github.com/JIeeiroSst/store/component"
 	"github.com/JIeeiroSst/store/graph/client/graph/generated"
 	"github.com/JIeeiroSst/store/graph/client/graph/model"
 	"github.com/JIeeiroSst/store/models"
+	"github.com/JIeeiroSst/store/utils/jwt"
 	"github.com/JIeeiroSst/store/utils/tranfer"
 )
-
-var (
-	status  bool
-	message string
-	result  model.ResultCheck
-)
-
 
 func (r *mutationResolver) CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.ResultCheck, error) {
 	data := models.FeedBacks{
@@ -92,6 +87,13 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 	result.Message = &message
 
 	return &result, nil
+}
+
+func (r *mutationResolver) RefreshToken(ctx context.Context, token *string) (*string, error) {
+	id:= jwt.GetIdUser(*token)
+	s := fmt.Sprintf("%f", id)
+	sEnc := base64.StdEncoding.EncodeToString([]byte(s))
+	return &sEnc, nil
 }
 
 func (r *queryResolver) News(ctx context.Context) ([]*model.News, error) {
@@ -250,6 +252,12 @@ type queryResolver struct{ *Resolver }
 //  - When renaming or deleting a resolver the old code will be put in here. You can safely delete
 //    it when you're done.
 //  - You have helper methods in this file. Move them out to keep these resolver files clean.
+var (
+	status  bool
+	message string
+	result  model.ResultCheck
+)
+
 func (r *mutationResolver) SendMail(ctx context.Context, email *string) (*bool, error) {
 	panic(fmt.Errorf("not implemented"))
 }
