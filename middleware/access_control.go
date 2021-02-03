@@ -1,10 +1,8 @@
 package middleware
 
 import (
-	"errors"
 	"github.com/JIeeiroSst/store/component"
 	"github.com/JIeeiroSst/store/utils/jwt"
-	"github.com/allegro/bigcache"
 	"github.com/gin-gonic/gin"
 	"strings"
 )
@@ -24,7 +22,7 @@ func Authenticate() gin.HandlerFunc {
 		}
 		sessionId, _ := c.Cookie("current_subject")
 		sub, err := component.GlobalCache.Get(sessionId)
-		if errors.Is(err, bigcache.ErrEntryNotFound) {
+		if err != nil {
 			c.AbortWithStatusJSON(401, component.RestResponse{Message: "user hasn't logged in yet"})
 			return
 		}
