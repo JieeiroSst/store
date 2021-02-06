@@ -43,6 +43,7 @@ func init() {
 	router.Use(cors.New(corsConfig))
 	router.POST("/user/signup",api.SingUp)
 	router.POST("/user/login", api.Login)
+	router.POST("/user/permission",api.Geranate)
 	resource := router.Group("/api")
 	resource.Use(middleware.Authenticate())
 	{

@@ -1,19 +1,19 @@
 package user
 
 import (
+	"errors"
 	db "github.com/JIeeiroSst/store/component"
 	users "github.com/JIeeiroSst/store/models"
 	"github.com/JIeeiroSst/store/utils/hash"
 	"github.com/JIeeiroSst/store/utils/jwt"
 	"log"
-	"errors"
 )
 
 func CheckAccount(username string) (int, string,string,bool) {
 	var accounts []users.Users
 	_ = db.GetConn().Find(&accounts)
 	for _,account:=range accounts{
-		if account.Username==username{
+		if account.Username == username{
 			return account.ID, account.Password,account.Permission, true
 		}
 	}
@@ -31,16 +31,16 @@ func CheckAccountExists(username string) bool {
 	return true
 }
 
-func Login(username,password string) (string,error){
+func Login(username,password string) (string,string,string,error){
 	id, hashPassword,permission,check := CheckAccount(username)
 	if check == false {
-		return "User does not exist", errors.New("not exist")
+		return "User does not exist","","", errors.New("not exist")
 	}
 	if checkPass := hash.CheckPassowrd(password, hashPassword); checkPass != nil {
-		return "password entered incorrectly", errors.New("incorrectly")
+		return "password entered incorrectly","","", errors.New("incorrectly")
 	}
 	token, _ := jwt.GenerateToken(id, username,permission)
-	return token ,nil
+	return "logged in successfully",token,permission ,nil
 }
 
 func SignUp(username,password string) string{
