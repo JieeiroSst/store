@@ -6,22 +6,23 @@ import (
 	"github.com/JIeeiroSst/store/utils/hash"
 	"github.com/JIeeiroSst/store/utils/jwt"
 	"log"
+	"errors"
 )
 
-func CheckAccount(username string) (bool, int, string,string) {
+func CheckAccount(username string) (int, string,string,bool) {
 	var accounts []users.Users
-	db.GetConn().Find(&accounts)
+	_ = db.GetConn().Find(&accounts)
 	for _,account:=range accounts{
 		if account.Username==username{
-			return true, account.ID, account.Password,account.Permission
+			return account.ID, account.Password,account.Permission, true
 		}
 	}
-	return false, 0, "",""
+	return  0, "","", false
 }
 
 func CheckAccountExists(username string) bool {
 	var account [] users.Users
-	db.GetConn().Find(&account)
+	_ = db.GetConn().Find(&account)
 	for _,item:=range account{
 		if item.Username == username {
 			return false
@@ -30,16 +31,16 @@ func CheckAccountExists(username string) bool {
 	return true
 }
 
-func Login(username,password string) string{
-	check, id, hashPassword,permission := CheckAccount(username)
+func Login(username,password string) (string,error){
+	id, hashPassword,permission,check := CheckAccount(username)
 	if check == false {
-		return "User does not exist"
+		return "User does not exist", errors.New("not exist")
 	}
 	if checkPass := hash.CheckPassowrd(password, hashPassword); checkPass != nil {
-		return "password entered incorrectly"
+		return "password entered incorrectly", errors.New("incorrectly")
 	}
 	token, _ := jwt.GenerateToken(id, username,permission)
-	return token
+	return token ,nil
 }
 
 func SignUp(username,password string) string{

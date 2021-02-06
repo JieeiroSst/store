@@ -22,12 +22,11 @@ func Login(c *gin.Context) {
 			break
 		}
 	}
-	token:=user.Login(username,password)
-	if token=="" {
-		c.JSON(200, component.RestResponse{Message: "no such account"})
+	token,err:=user.Login(username,password)
+	if err != nil  {
+		c.JSON(200, component.RestResponse{Code: 200,Message: "no such account",Data: token})
 		return
 	}
-
 	u, err := uuid.NewRandom()
 	if err != nil {
 		log.Println(fmt.Errorf("failed to generate UUID: %w", err))
