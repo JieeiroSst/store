@@ -63,7 +63,7 @@ type ComplexityRoot struct {
 		CreateFeebBack func(childComplexity int, input *model.InputFeedBacks) int
 		CreateProfile  func(childComplexity int, input *model.InputProfile) int
 		RefreshToken   func(childComplexity int, token *string) int
-		UpdateProfile  func(childComplexity int, id *int, input *model.InputProfile) int
+		UpdateProfile  func(childComplexity int, input *model.InputProfile) int
 	}
 
 	NewTag struct {
@@ -129,7 +129,7 @@ type ComplexityRoot struct {
 type MutationResolver interface {
 	CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.ResultCheck, error)
 	CreateProfile(ctx context.Context, input *model.InputProfile) (*model.ResultCheck, error)
-	UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*model.ResultCheck, error)
+	UpdateProfile(ctx context.Context, input *model.InputProfile) (*model.ResultCheck, error)
 	RefreshToken(ctx context.Context, token *string) (*string, error)
 }
 type QueryResolver interface {
@@ -280,7 +280,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateProfile(childComplexity, args["id"].(*int), args["input"].(*model.InputProfile)), true
+		return e.complexity.Mutation.UpdateProfile(childComplexity, args["input"].(*model.InputProfile)), true
 
 	case "NewTag.id":
 		if e.complexity.NewTag.ID == nil {
@@ -652,12 +652,13 @@ type Mutation {
   CreateFeebBack(input: InputFeedBacks): ResultCheck
 
   CreateProfile(input: InputProfile): ResultCheck
-  UpdateProfile(id: Int,input: InputProfile): ResultCheck
+  UpdateProfile(input: InputProfile): ResultCheck
 
   refreshToken(token: String): String
 }
 
 input InputProfile {
+  id: Int
   userId: Int
   firstName: String
   lastName: String
@@ -782,24 +783,15 @@ func (ec *executionContext) field_Mutation_CreateProfile_args(ctx context.Contex
 func (ec *executionContext) field_Mutation_UpdateProfile_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputProfile
+	var arg0 *model.InputProfile
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋclientᚋgraphᚋmodelᚐInputProfile(ctx, tmp)
+		arg0, err = ec.unmarshalOInputProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋclientᚋgraphᚋmodelᚐInputProfile(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
@@ -1386,7 +1378,7 @@ func (ec *executionContext) _Mutation_UpdateProfile(ctx context.Context, field g
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateProfile(rctx, args["id"].(*int), args["input"].(*model.InputProfile))
+		return ec.resolvers.Mutation().UpdateProfile(rctx, args["input"].(*model.InputProfile))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3902,6 +3894,14 @@ func (ec *executionContext) unmarshalInputInputProfile(ctx context.Context, obj 
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "userId":
 			var err error
 

@@ -18,12 +18,13 @@ type Mutation {
   CreateFeebBack(input: InputFeedBacks): ResultCheck
 
   CreateProfile(input: InputProfile): ResultCheck
-  UpdateProfile(id: Int,input: InputProfile): ResultCheck
+  UpdateProfile(input: InputProfile): ResultCheck
 
   refreshToken(token: String): String
 }
 
 input InputProfile {
+  id: Int
   userId: Int
   firstName: String
   lastName: String

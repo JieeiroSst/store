@@ -26,6 +26,7 @@ type Friend struct {
 func (Friend) IsNode() {}
 
 type InputFeedBacks struct {
+	ID      *int    `json:"id"`
 	Name    *string `json:"name"`
 	Phone   *string `json:"phone"`
 	Email   *string `json:"email"`
@@ -34,6 +35,7 @@ type InputFeedBacks struct {
 }
 
 type InputMenues struct {
+	ID           *int    `json:"id"`
 	Text         *string `json:"text"`
 	Link         *string `json:"link"`
 	DisplayOrder *int    `json:"displayOrder"`
@@ -41,11 +43,13 @@ type InputMenues struct {
 }
 
 type InputNewTag struct {
+	ID    *int `json:"id"`
 	TagID *int `json:"tagId"`
 	NewID *int `json:"newId"`
 }
 
 type InputNews struct {
+	ID          *int    `json:"id"`
 	Title       *string `json:"title"`
 	Description *string `json:"description"`
 	Image       *string `json:"image"`
@@ -59,6 +63,7 @@ type InputNews struct {
 }
 
 type InputProfile struct {
+	ID         *int    `json:"id"`
 	UserID     *int    `json:"userId"`
 	FirstName  *string `json:"firstName"`
 	LastName   *string `json:"lastName"`
@@ -69,6 +74,7 @@ type InputProfile struct {
 }
 
 type InputTags struct {
+	ID   *int    `json:"id"`
 	Name *string `json:"name"`
 }
 

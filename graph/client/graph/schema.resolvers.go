@@ -5,8 +5,8 @@ package graph
 
 import (
 	"context"
-	"fmt"
 	"encoding/base64"
+	"fmt"
 
 	db "github.com/JIeeiroSst/store/component"
 	"github.com/JIeeiroSst/store/graph/client/graph/generated"
@@ -64,7 +64,7 @@ func (r *mutationResolver) CreateProfile(ctx context.Context, input *model.Input
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateProfile(ctx context.Context, input *model.InputProfile) (*model.ResultCheck, error) {
 	data := models.Profile{
 		UserID:    input.UserID,
 		FirstName: input.FirstName,
@@ -73,7 +73,7 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 		Phone:     input.Phone,
 	}
 
-	err := db.GetConn().Model(models.Profile{}).Where("id = ? ", id).Updates(data)
+	err := db.GetConn().Model(models.Profile{}).Where("id = ? ", input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -90,7 +90,7 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 }
 
 func (r *mutationResolver) RefreshToken(ctx context.Context, token *string) (*string, error) {
-	id:= jwt.GetIdUser(*token)
+	id := jwt.GetIdUser(*token)
 	s := fmt.Sprintf("%f", id)
 	sEnc := base64.StdEncoding.EncodeToString([]byte(s))
 	return &sEnc, nil

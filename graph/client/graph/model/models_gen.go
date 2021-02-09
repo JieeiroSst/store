@@ -21,6 +21,7 @@ type InputFeedBacks struct {
 }
 
 type InputProfile struct {
+	ID         *int    `json:"id"`
 	UserID     *int    `json:"userId"`
 	FirstName  *string `json:"firstName"`
 	LastName   *string `json:"lastName"`

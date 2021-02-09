@@ -6,6 +6,7 @@ package graph
 import (
 	"context"
 	"fmt"
+
 	db "github.com/JIeeiroSst/store/component"
 	"github.com/JIeeiroSst/store/graph/admin/graph/generated"
 	"github.com/JIeeiroSst/store/graph/admin/graph/model"
@@ -146,7 +147,7 @@ func (r *mutationResolver) CreateMenues(ctx context.Context, input *model.InputM
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateNews(ctx context.Context, input *model.InputNews) (*model.ResultCheck, error) {
 	data := models.News{
 		Title:       input.Title,
 		Image:       input.Image,
@@ -156,7 +157,7 @@ func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model
 		Description: input.Description,
 	}
 
-	err := db.GetConn().Model(models.News{}).Where("id = ?", id).Updates(data)
+	err := db.GetConn().Model(models.News{}).Where("id = ?", input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -171,12 +172,12 @@ func (r *mutationResolver) UpdateNews(ctx context.Context, id *int, input *model
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateTags(ctx context.Context, input *model.InputTags) (*model.ResultCheck, error) {
 	data := models.Tags{
 		Name: input.Name,
 	}
 
-	err := db.GetConn().Model(models.Tags{}).Where("id = ?", id).Updates(data)
+	err := db.GetConn().Model(models.Tags{}).Where("id = ?", input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -192,12 +193,12 @@ func (r *mutationResolver) UpdateTags(ctx context.Context, id *int, input *model
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateNewTag(ctx context.Context, input *model.InputNewTag) (*model.ResultCheck, error) {
 	data := models.NewTag{
 		TagId: input.TagID,
 		NewId: input.NewID,
 	}
-	err := db.GetConn().Model(models.NewTag{}).Where("id = ?").Updates(data)
+	err := db.GetConn().Model(models.NewTag{}).Where("id = ?",input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -212,7 +213,7 @@ func (r *mutationResolver) UpdateNewTag(ctx context.Context, id *int, input *mod
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.ResultCheck, error) {
 	data := models.FeedBacks{
 		Name:    input.Name,
 		Phone:   input.Phone,
@@ -221,7 +222,7 @@ func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *m
 		Content: input.Content,
 	}
 
-	err := db.GetConn().Model(models.FeedBacks{}).Where("id = ?", id).Updates(data)
+	err := db.GetConn().Model(models.FeedBacks{}).Where("id = ?", input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -236,7 +237,7 @@ func (r *mutationResolver) UpdateFeebBack(ctx context.Context, id *int, input *m
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateProfile(ctx context.Context, input *model.InputProfile) (*model.ResultCheck, error) {
 	data := models.Profile{
 		UserID:    input.UserID,
 		FirstName: input.FirstName,
@@ -245,7 +246,7 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 		Phone:     input.Phone,
 	}
 
-	err := db.GetConn().Model(models.Profile{}).Where("id = ? ", id).Updates(data)
+	err := db.GetConn().Model(models.Profile{}).Where("id = ? ", input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -261,14 +262,14 @@ func (r *mutationResolver) UpdateProfile(ctx context.Context, id *int, input *mo
 	return &result, nil
 }
 
-func (r *mutationResolver) UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*model.ResultCheck, error) {
+func (r *mutationResolver) UpdateMenues(ctx context.Context, input *model.InputMenues) (*model.ResultCheck, error) {
 	data := model.Menues{
 		Text:   input.Text,
 		Link:   input.Link,
 		Target: input.Target,
 	}
 
-	err := db.GetConn().Model(models.Menues{}).Where("id = ?", id).Updates(data)
+	err := db.GetConn().Model(models.Menues{}).Where("id = ?", input.ID).Updates(data)
 	if err != nil {
 		status = false
 		message = "update failure "
@@ -385,7 +386,7 @@ func (r *mutationResolver) CheckNews(ctx context.Context, id *int) (*model.Resul
 
 func (r *mutationResolver) PublicNew(ctx context.Context, id *int) (*model.ResultCheck, error) {
 	active := true
-	data := models.News{Active:tranfer.DeferBoolPonter(active)}
+	data := models.News{Active: tranfer.DeferBoolPonter(active)}
 
 	err := db.GetConn().Model(models.News{}).Where("id = ? ", id).Updates(data)
 	if err != nil {
@@ -418,7 +419,7 @@ func (r *queryResolver) Node(ctx context.Context, id string) (model.Node, error)
 func (r *queryResolver) News(ctx context.Context) ([]*model.ResultNews, error) {
 	var news []models.News
 	var data *model.ResultNews
-	var result = make([]*model.ResultNews,0)
+	var result = make([]*model.ResultNews, 0)
 	db.GetConn().Find(&news)
 	for _, new := range news {
 		data = &model.ResultNews{
@@ -433,7 +434,7 @@ func (r *queryResolver) News(ctx context.Context) ([]*model.ResultNews, error) {
 			TagID:       new.TagID,
 			Active:      new.Active,
 		}
-		result = append(result,data)
+		result = append(result, data)
 	}
 
 	return result, nil
@@ -442,7 +443,7 @@ func (r *queryResolver) News(ctx context.Context) ([]*model.ResultNews, error) {
 func (r *queryResolver) Tags(ctx context.Context) ([]*model.ResultTags, error) {
 	var tags []models.Tags
 	var data *model.ResultTags
-	var result = make([]*model.ResultTags,0)
+	var result = make([]*model.ResultTags, 0)
 	db.GetConn().Find(&tags)
 	for _, tag := range tags {
 		data = &model.ResultTags{
@@ -457,7 +458,7 @@ func (r *queryResolver) Tags(ctx context.Context) ([]*model.ResultTags, error) {
 func (r *queryResolver) NewTags(ctx context.Context) ([]*model.ResultNewTag, error) {
 	var newTags []models.NewTag
 	var data *model.ResultNewTag
-	var result = make([]*model.ResultNewTag,0)
+	var result = make([]*model.ResultNewTag, 0)
 	db.GetConn().Find(&newTags)
 	for _, item := range newTags {
 		data = &model.ResultNewTag{
@@ -473,7 +474,7 @@ func (r *queryResolver) NewTags(ctx context.Context) ([]*model.ResultNewTag, err
 func (r *queryResolver) Feedbacks(ctx context.Context) ([]*model.ResultFeedBacks, error) {
 	var feedBacks []models.FeedBacks
 	var data *model.ResultFeedBacks
-	var result = make([]*model.ResultFeedBacks,0)
+	var result = make([]*model.ResultFeedBacks, 0)
 	db.GetConn().Find(&feedBacks)
 
 	for _, item := range feedBacks {
@@ -495,7 +496,7 @@ func (r *queryResolver) Feedbacks(ctx context.Context) ([]*model.ResultFeedBacks
 func (r *queryResolver) Profiles(ctx context.Context) ([]*model.ResultProfile, error) {
 	var profiles []models.Profile
 	var data *model.ResultProfile
-	var result = make([]*model.ResultProfile,0)
+	var result = make([]*model.ResultProfile, 0)
 	db.GetConn().Find(&profiles)
 
 	for _, item := range profiles {
@@ -508,7 +509,7 @@ func (r *queryResolver) Profiles(ctx context.Context) ([]*model.ResultProfile, e
 			Phone:     item.Phone,
 			CreatedAt: tranfer.DeferTimeToString(item.CreatedAt),
 		}
-		result = append(result,data)
+		result = append(result, data)
 	}
 	return result, nil
 }
@@ -516,7 +517,7 @@ func (r *queryResolver) Profiles(ctx context.Context) ([]*model.ResultProfile, e
 func (r *queryResolver) SystemConfigs(ctx context.Context) ([]*model.ResultSystemConfig, error) {
 	var systemConfigs []models.SystemConfig
 	var data *model.ResultSystemConfig
-	var result = make([]*model.ResultSystemConfig,0)
+	var result = make([]*model.ResultSystemConfig, 0)
 	for _, item := range systemConfigs {
 		data = &model.ResultSystemConfig{
 			ID:    item.ID,
@@ -553,34 +554,34 @@ func (r *queryResolver) Tag(ctx context.Context, id *int) (*model.ResultTags, er
 	var tag models.Tags
 	var result model.ResultTags
 
-	db.GetConn().Where("id = ?",id).Find(&tag)
-	result =model.ResultTags{
-		ID:  	tag.ID,
-		Name: 	tag.Name,
+	db.GetConn().Where("id = ?", id).Find(&tag)
+	result = model.ResultTags{
+		ID:   tag.ID,
+		Name: tag.Name,
 	}
-	return &result,nil
+	return &result, nil
 }
 
 func (r *queryResolver) NewTag(ctx context.Context, id *int) (*model.ResultNewTag, error) {
 	var newTag models.NewTag
 	var result model.ResultNewTag
 
-	db.GetConn().Where("id = ?",id).Find(&newTag)
+	db.GetConn().Where("id = ?", id).Find(&newTag)
 	result = model.ResultNewTag{
 		ID:    newTag.ID,
 		TagID: newTag.TagId,
 		NewID: newTag.NewId,
 	}
-	return &result,nil
+	return &result, nil
 }
 
 func (r *queryResolver) Feedback(ctx context.Context, id *int) (*model.ResultFeedBacks, error) {
 	var feedBack models.FeedBacks
 	var result model.ResultFeedBacks
 
-	db.GetConn().Where("id = ?",id).Find(&feedBack)
+	db.GetConn().Where("id = ?", id).Find(&feedBack)
 
-	result= model.ResultFeedBacks{
+	result = model.ResultFeedBacks{
 		ID:        feedBack.ID,
 		Name:      feedBack.Name,
 		Phone:     feedBack.Phone,
@@ -589,38 +590,38 @@ func (r *queryResolver) Feedback(ctx context.Context, id *int) (*model.ResultFee
 		Content:   feedBack.Content,
 		CreatedAt: tranfer.DeferTimeToString(feedBack.CreatedAt),
 	}
-	return &result ,nil
+	return &result, nil
 }
 
 func (r *queryResolver) ProfileID(ctx context.Context, id *int) (*model.ResultProfile, error) {
 	var profile models.Profile
 	var result model.ResultProfile
-	db.GetConn().Where("id = ?",id).Find(&profile)
+	db.GetConn().Where("id = ?", id).Find(&profile)
 	result = model.ResultProfile{
-		ID:         profile.ID,
-		UserID:     profile.UserID,
-		FirstName:  profile.FirstName,
-		LastName:   profile.LastName,
-		Address:    profile.Address,
-		Phone:      profile.Phone,
-		CreatedAt:  tranfer.DeferTimeToString(profile.CreatedAt),
+		ID:        profile.ID,
+		UserID:    profile.UserID,
+		FirstName: profile.FirstName,
+		LastName:  profile.LastName,
+		Address:   profile.Address,
+		Phone:     profile.Phone,
+		CreatedAt: tranfer.DeferTimeToString(profile.CreatedAt),
 	}
 
-	return &result ,nil
+	return &result, nil
 }
 
 func (r *queryResolver) Systemconfig(ctx context.Context, id *int) (*model.ResultSystemConfig, error) {
 	var systemConfig models.SystemConfig
 	var result model.ResultSystemConfig
-	db.GetConn().Where("id = ?",id).Find(&systemConfig)
-	result =model.ResultSystemConfig{
+	db.GetConn().Where("id = ?", id).Find(&systemConfig)
+	result = model.ResultSystemConfig{
 		ID:    systemConfig.ID,
 		Name:  systemConfig.Name,
 		Type:  systemConfig.Type,
 		Value: systemConfig.Value,
 	}
 
-	return &result ,nil
+	return &result, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.

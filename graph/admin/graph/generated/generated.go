@@ -82,12 +82,12 @@ type ComplexityRoot struct {
 		DeleteTags     func(childComplexity int, id *int) int
 		PublicNew      func(childComplexity int, id *int) int
 		SendMail       func(childComplexity int, email *string) int
-		UpdateFeebBack func(childComplexity int, id *int, input *model.InputFeedBacks) int
-		UpdateMenues   func(childComplexity int, id *int, input *model.InputMenues) int
-		UpdateNewTag   func(childComplexity int, id *int, input *model.InputNewTag) int
-		UpdateNews     func(childComplexity int, id *int, input *model.InputNews) int
-		UpdateProfile  func(childComplexity int, id *int, input *model.InputProfile) int
-		UpdateTags     func(childComplexity int, id *int, input *model.InputTags) int
+		UpdateFeebBack func(childComplexity int, input *model.InputFeedBacks) int
+		UpdateMenues   func(childComplexity int, input *model.InputMenues) int
+		UpdateNewTag   func(childComplexity int, input *model.InputNewTag) int
+		UpdateNews     func(childComplexity int, input *model.InputNews) int
+		UpdateProfile  func(childComplexity int, input *model.InputProfile) int
+		UpdateTags     func(childComplexity int, input *model.InputTags) int
 	}
 
 	NewTag struct {
@@ -236,12 +236,12 @@ type MutationResolver interface {
 	CreateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.ResultCheck, error)
 	CreateProfile(ctx context.Context, input *model.InputProfile) (*model.ResultCheck, error)
 	CreateMenues(ctx context.Context, input *model.InputMenues) (*model.ResultCheck, error)
-	UpdateNews(ctx context.Context, id *int, input *model.InputNews) (*model.ResultCheck, error)
-	UpdateTags(ctx context.Context, id *int, input *model.InputTags) (*model.ResultCheck, error)
-	UpdateNewTag(ctx context.Context, id *int, input *model.InputNewTag) (*model.ResultCheck, error)
-	UpdateFeebBack(ctx context.Context, id *int, input *model.InputFeedBacks) (*model.ResultCheck, error)
-	UpdateProfile(ctx context.Context, id *int, input *model.InputProfile) (*model.ResultCheck, error)
-	UpdateMenues(ctx context.Context, id *int, input *model.InputMenues) (*model.ResultCheck, error)
+	UpdateNews(ctx context.Context, input *model.InputNews) (*model.ResultCheck, error)
+	UpdateTags(ctx context.Context, input *model.InputTags) (*model.ResultCheck, error)
+	UpdateNewTag(ctx context.Context, input *model.InputNewTag) (*model.ResultCheck, error)
+	UpdateFeebBack(ctx context.Context, input *model.InputFeedBacks) (*model.ResultCheck, error)
+	UpdateProfile(ctx context.Context, input *model.InputProfile) (*model.ResultCheck, error)
+	UpdateMenues(ctx context.Context, input *model.InputMenues) (*model.ResultCheck, error)
 	DeleteNews(ctx context.Context, id *int) (*model.ResultCheck, error)
 	DeleteTags(ctx context.Context, id *int) (*model.ResultCheck, error)
 	DeleteNewTag(ctx context.Context, id *int) (*model.ResultCheck, error)
@@ -577,7 +577,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateFeebBack(childComplexity, args["id"].(*int), args["input"].(*model.InputFeedBacks)), true
+		return e.complexity.Mutation.UpdateFeebBack(childComplexity, args["input"].(*model.InputFeedBacks)), true
 
 	case "Mutation.UpdateMenues":
 		if e.complexity.Mutation.UpdateMenues == nil {
@@ -589,7 +589,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateMenues(childComplexity, args["id"].(*int), args["input"].(*model.InputMenues)), true
+		return e.complexity.Mutation.UpdateMenues(childComplexity, args["input"].(*model.InputMenues)), true
 
 	case "Mutation.UpdateNewTag":
 		if e.complexity.Mutation.UpdateNewTag == nil {
@@ -601,7 +601,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateNewTag(childComplexity, args["id"].(*int), args["input"].(*model.InputNewTag)), true
+		return e.complexity.Mutation.UpdateNewTag(childComplexity, args["input"].(*model.InputNewTag)), true
 
 	case "Mutation.UpdateNews":
 		if e.complexity.Mutation.UpdateNews == nil {
@@ -613,7 +613,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateNews(childComplexity, args["id"].(*int), args["input"].(*model.InputNews)), true
+		return e.complexity.Mutation.UpdateNews(childComplexity, args["input"].(*model.InputNews)), true
 
 	case "Mutation.UpdateProfile":
 		if e.complexity.Mutation.UpdateProfile == nil {
@@ -625,7 +625,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateProfile(childComplexity, args["id"].(*int), args["input"].(*model.InputProfile)), true
+		return e.complexity.Mutation.UpdateProfile(childComplexity, args["input"].(*model.InputProfile)), true
 
 	case "Mutation.UpdateTags":
 		if e.complexity.Mutation.UpdateTags == nil {
@@ -637,7 +637,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Mutation.UpdateTags(childComplexity, args["id"].(*int), args["input"].(*model.InputTags)), true
+		return e.complexity.Mutation.UpdateTags(childComplexity, args["input"].(*model.InputTags)), true
 
 	case "NewTag.id":
 		if e.complexity.NewTag.ID == nil {
@@ -1399,12 +1399,12 @@ type Mutation {
   CreateProfile(input: InputProfile): ResultCheck
   CreateMenues(input: InputMenues): ResultCheck
 
-  UpdateNews(id: Int,input: InputNews): ResultCheck
-  UpdateTags(id: Int,input: InputTags): ResultCheck
-  UpdateNewTag(id: Int,input: InputNewTag): ResultCheck
-  UpdateFeebBack(id: Int,input: InputFeedBacks): ResultCheck
-  UpdateProfile(id: Int,input: InputProfile): ResultCheck
-  UpdateMenues(id: Int,input: InputMenues): ResultCheck
+  UpdateNews(input: InputNews): ResultCheck
+  UpdateTags(input: InputTags): ResultCheck
+  UpdateNewTag(input: InputNewTag): ResultCheck
+  UpdateFeebBack(input: InputFeedBacks): ResultCheck
+  UpdateProfile(input: InputProfile): ResultCheck
+  UpdateMenues(input: InputMenues): ResultCheck
 
   DeleteNews(id: Int): ResultCheck
   DeleteTags(id: Int): ResultCheck
@@ -1461,6 +1461,7 @@ type ResultNews {
 }
 
 input InputNews {
+  id: Int
   title: String
   description: String
   image: String
@@ -1484,6 +1485,7 @@ type ResultTags {
 }
 
 input InputTags {
+  id:Int
   name: String
 }
 
@@ -1502,6 +1504,7 @@ type ResultNewTag {
 }
 
 input InputNewTag {
+  id: Int
   tagId: Int
   newId: Int
 }
@@ -1527,6 +1530,7 @@ type ResultFeedBacks {
 }
 
 input InputFeedBacks {
+  id: Int
   name: String
   phone: String
   email: String
@@ -1565,6 +1569,7 @@ type ResultFriend {
 }
 
 input InputProfile {
+  id: Int
   userId: Int
   firstName: String
   lastName: String
@@ -1612,6 +1617,7 @@ type ResultMenues {
 }
 
 input InputMenues {
+  id: Int
   text: String
   link: String
   displayOrder: Int
@@ -1868,144 +1874,90 @@ func (ec *executionContext) field_Mutation_SendMail_args(ctx context.Context, ra
 func (ec *executionContext) field_Mutation_UpdateFeebBack_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputFeedBacks
+	var arg0 *model.InputFeedBacks
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputFeedBacks2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputFeedBacks(ctx, tmp)
+		arg0, err = ec.unmarshalOInputFeedBacks2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputFeedBacks(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_UpdateMenues_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputMenues
+	var arg0 *model.InputMenues
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputMenues2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputMenues(ctx, tmp)
+		arg0, err = ec.unmarshalOInputMenues2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputMenues(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_UpdateNewTag_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputNewTag
+	var arg0 *model.InputNewTag
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputNewTag2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputNewTag(ctx, tmp)
+		arg0, err = ec.unmarshalOInputNewTag2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputNewTag(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_UpdateNews_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputNews
+	var arg0 *model.InputNews
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputNews2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputNews(ctx, tmp)
+		arg0, err = ec.unmarshalOInputNews2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputNews(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_UpdateProfile_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputProfile
+	var arg0 *model.InputProfile
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputProfile(ctx, tmp)
+		arg0, err = ec.unmarshalOInputProfile2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputProfile(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
 func (ec *executionContext) field_Mutation_UpdateTags_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *int
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	var arg1 *model.InputTags
+	var arg0 *model.InputTags
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg1, err = ec.unmarshalOInputTags2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputTags(ctx, tmp)
+		arg0, err = ec.unmarshalOInputTags2ᚖgithubᚗcomᚋJIeeiroSstᚋstoreᚋgraphᚋadminᚋgraphᚋmodelᚐInputTags(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["input"] = arg1
+	args["input"] = arg0
 	return args, nil
 }
 
@@ -2851,7 +2803,7 @@ func (ec *executionContext) _Mutation_UpdateNews(ctx context.Context, field grap
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateNews(rctx, args["id"].(*int), args["input"].(*model.InputNews))
+		return ec.resolvers.Mutation().UpdateNews(rctx, args["input"].(*model.InputNews))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2890,7 +2842,7 @@ func (ec *executionContext) _Mutation_UpdateTags(ctx context.Context, field grap
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateTags(rctx, args["id"].(*int), args["input"].(*model.InputTags))
+		return ec.resolvers.Mutation().UpdateTags(rctx, args["input"].(*model.InputTags))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2929,7 +2881,7 @@ func (ec *executionContext) _Mutation_UpdateNewTag(ctx context.Context, field gr
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateNewTag(rctx, args["id"].(*int), args["input"].(*model.InputNewTag))
+		return ec.resolvers.Mutation().UpdateNewTag(rctx, args["input"].(*model.InputNewTag))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2968,7 +2920,7 @@ func (ec *executionContext) _Mutation_UpdateFeebBack(ctx context.Context, field 
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateFeebBack(rctx, args["id"].(*int), args["input"].(*model.InputFeedBacks))
+		return ec.resolvers.Mutation().UpdateFeebBack(rctx, args["input"].(*model.InputFeedBacks))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3007,7 +2959,7 @@ func (ec *executionContext) _Mutation_UpdateProfile(ctx context.Context, field g
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateProfile(rctx, args["id"].(*int), args["input"].(*model.InputProfile))
+		return ec.resolvers.Mutation().UpdateProfile(rctx, args["input"].(*model.InputProfile))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3046,7 +2998,7 @@ func (ec *executionContext) _Mutation_UpdateMenues(ctx context.Context, field gr
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMenues(rctx, args["id"].(*int), args["input"].(*model.InputMenues))
+		return ec.resolvers.Mutation().UpdateMenues(rctx, args["input"].(*model.InputMenues))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -7564,6 +7516,14 @@ func (ec *executionContext) unmarshalInputInputFeedBacks(ctx context.Context, ob
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "name":
 			var err error
 
@@ -7616,6 +7576,14 @@ func (ec *executionContext) unmarshalInputInputMenues(ctx context.Context, obj i
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "text":
 			var err error
 
@@ -7660,6 +7628,14 @@ func (ec *executionContext) unmarshalInputInputNewTag(ctx context.Context, obj i
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "tagId":
 			var err error
 
@@ -7688,6 +7664,14 @@ func (ec *executionContext) unmarshalInputInputNews(ctx context.Context, obj int
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "title":
 			var err error
 
@@ -7780,6 +7764,14 @@ func (ec *executionContext) unmarshalInputInputProfile(ctx context.Context, obj 
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "userId":
 			var err error
 
@@ -7848,6 +7840,14 @@ func (ec *executionContext) unmarshalInputInputTags(ctx context.Context, obj int
 
 	for k, v := range asMap {
 		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "name":
 			var err error
 

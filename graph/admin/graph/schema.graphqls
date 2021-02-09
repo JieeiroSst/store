@@ -29,12 +29,12 @@ type Mutation {
   CreateProfile(input: InputProfile): ResultCheck
   CreateMenues(input: InputMenues): ResultCheck
 
-  UpdateNews(id: Int,input: InputNews): ResultCheck
-  UpdateTags(id: Int,input: InputTags): ResultCheck
-  UpdateNewTag(id: Int,input: InputNewTag): ResultCheck
-  UpdateFeebBack(id: Int,input: InputFeedBacks): ResultCheck
-  UpdateProfile(id: Int,input: InputProfile): ResultCheck
-  UpdateMenues(id: Int,input: InputMenues): ResultCheck
+  UpdateNews(input: InputNews): ResultCheck
+  UpdateTags(input: InputTags): ResultCheck
+  UpdateNewTag(input: InputNewTag): ResultCheck
+  UpdateFeebBack(input: InputFeedBacks): ResultCheck
+  UpdateProfile(input: InputProfile): ResultCheck
+  UpdateMenues(input: InputMenues): ResultCheck
 
   DeleteNews(id: Int): ResultCheck
   DeleteTags(id: Int): ResultCheck
@@ -91,6 +91,7 @@ type ResultNews {
 }
 
 input InputNews {
+  id: Int
   title: String
   description: String
   image: String
@@ -114,6 +115,7 @@ type ResultTags {
 }
 
 input InputTags {
+  id:Int
   name: String
 }
 
@@ -132,6 +134,7 @@ type ResultNewTag {
 }
 
 input InputNewTag {
+  id: Int
   tagId: Int
   newId: Int
 }
@@ -157,6 +160,7 @@ type ResultFeedBacks {
 }
 
 input InputFeedBacks {
+  id: Int
   name: String
   phone: String
   email: String
@@ -195,6 +199,7 @@ type ResultFriend {
 }
 
 input InputProfile {
+  id: Int
   userId: Int
   firstName: String
   lastName: String
@@ -242,6 +247,7 @@ type ResultMenues {
 }
 
 input InputMenues {
+  id: Int
   text: String
   link: String
   displayOrder: Int
