@@ -14,9 +14,6 @@ run server
 - go-reload -a server.go
 
 
-
-chmp nho ve em
-
 cd ~/Projects/keikibook
 
 mkdir keikibook
